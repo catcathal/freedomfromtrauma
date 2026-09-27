@@ -208,7 +208,7 @@ const $=id=>document.getElementById(id);
 document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{
  document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('on',x===b));
  document.querySelectorAll('.view').forEach(v=>v.classList.toggle('on',v.id===b.dataset.t));});
-const API_URL="https://16f0d442-b702-4a52-96b8-d52556a14575.search.ai.cloudflare.com/ai-search";
+const API_URL="https://16f0d442-b702-4a52-96b8-d52556a14575.search.ai.cloudflare.com/chat/completions";
 const CRISIS_RE=/suicid|kill myself|end it all|end my life|hurt myself|self.?harm|don'?t want to (live|be here)|want to die/i;
 const CRISIS_MSG="I'm really glad you told me. Your safety matters most. Please call or text 988 (US) right now, or your local emergency number, or reach someone you trust to be with you. I'm here, but you deserve live human support.";
 const HIST=[];
@@ -222,25 +222,13 @@ async function sendMessage(x){
  add(x,'u');$('in').value='';
  if(CRISIS_RE.test(x)){say(CRISIS_MSG);HIST.push({role:'user',content:x},{role:'assistant',content:CRISIS_MSG});return}
  HIST.push({role:'user',content:x});
- const d=add('','c');$('avc').classList.add('talk');
- let full='';
+ const d=add('…','c');$('avc').classList.add('talk');
  try{
-  const r=await fetch(API_URL,{method:'POST',headers:{'Content-Type':'application/json','cf-ai-search-source':'snippet-chat-completions'},body:JSON.stringify({messages:HIST.slice(-12),stream:true})});
-  if(!r.ok||!r.body)throw new Error('http '+r.status);
-  const reader=r.body.getReader();const decoder=new TextDecoder();let buf='';
-  while(true){
-   const{value,done}=await reader.read();
-   if(done)break;
-   buf+=decoder.decode(value,{stream:true});
-   const parts=buf.split('\n\n');buf=parts.pop();
-   for(const p of parts){
-    const line=p.replace(/^data:\s*/,'').trim();
-    if(!line||line==='[DONE]')continue;
-    try{const obj=JSON.parse(line);if(obj.response){full+=obj.response;d.textContent=full;log.scrollTop=log.scrollHeight}}catch(e){}
-   }
-  }
-  if(!full)full="I'm here, but I couldn't find a good answer just now. Could you tell me a little more?";
-  d.textContent=full;$('avc').classList.remove('talk');HIST.push({role:'assistant',content:full})
+  const r=await fetch(API_URL,{method:'POST',headers:{'Content-Type':'application/json','cf-ai-search-source':'snippet-chat-completions'},body:JSON.stringify({messages:HIST.slice(-12),stream:false})});
+  if(!r.ok)throw new Error('http '+r.status);
+  const j=await r.json();
+  const msg=(j.choices&&j.choices[0]&&j.choices[0].message&&j.choices[0].message.content)||"I'm here, but I couldn't find a good answer just now. Could you tell me a little more?";
+  d.remove();$('avc').classList.remove('talk');say(msg);HIST.push({role:'assistant',content:msg})
  }catch(e){
   d.remove();$('avc').classList.remove('talk');
   const msg="I'm having trouble connecting right now. Please try again in a moment. If you're in crisis, call or text 988.";

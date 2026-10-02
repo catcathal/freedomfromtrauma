@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CjxjaXJjbGUgY3g9IjE2IiBjeT0iMTciIHI9IjgiIGZpbGw9IiMyYjJiMmIiLz4KPGNpcmNsZSBjeD0iNDgiIGN5PSIxNyIgcj0iOCIgZmlsbD0iIzJiMmIyYiIvPgo8Y2lyY2xlIGN4PSIzMiIgY3k9IjM2IiByPSIyMSIgZmlsbD0iI2ZmZiIvPgo8ZWxsaXBzZSBjeD0iMTciIGN5PSIzNyIgcng9IjgiIHJ5PSI2LjYiIGZpbGw9IiMyYjJiMmIiLz4KPGVsbGlwc2UgY3g9IjQ3IiBjeT0iMzciIHJ4PSI4IiByeT0iNi42IiBmaWxsPSIjMmIyYjJiIi8+CjxjaXJjbGUgY3g9IjE4IiBjeT0iMzYiIHI9IjIuNCIgZmlsbD0iI2ZmZiIvPgo8Y2lyY2xlIGN4PSI0NiIgY3k9IjM2IiByPSIyLjQiIGZpbGw9IiNmZmYiLz4KPGVsbGlwc2UgY3g9IjMyIiBjeT0iNDMiIHJ4PSI0LjQiIHJ5PSIzLjQiIGZpbGw9IiMzYTNhM2EiLz4KPHBhdGggZD0iTTI1IDQ5IFEzMiA1NCAzOSA0OSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjM2EzYTNhIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4=">
-<meta name="description" content="Free from Trauma: Eastern wisdom meets modern science. Mindfulness, letting go and a practical path to freedom, with a gentle AI companion. Free, no sign-up.">
-<title>Free from Trauma</title>
+<meta name="description" content="The Technique of Letting Go: Eastern wisdom meets modern science. Mindfulness, letting go and a practical path to freedom, with a gentle AI companion. Free, no sign-up.">
+<title>The Technique of Letting Go</title>
 <style>
 :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f4efe4;--card:#fbf8f1;--ink:#2d2f29;--mute:#6c7065;--acc:#587560;--acc2:#587560;--line:#e2dccb}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
@@ -79,24 +80,19 @@ body{background:radial-gradient(900px 420px at 50% -80px,rgba(127,168,138,.22),t
 .bwCap{font-size:12px;color:var(--mute);text-align:center;margin-top:6px}
 .bwBreathe{animation:bwBreathe 5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
 @keyframes bwBreathe{0%,100%{transform:scale(1)}50%{transform:scale(1.035)}}
-.bwHue{animation:bwHueShift 14s linear infinite}
-@keyframes bwHueShift{0%{filter:hue-rotate(0deg)}100%{filter:hue-rotate(360deg)}}
-.bwBlob{transform-box:fill-box;transform-origin:center;opacity:.85;animation-timing-function:ease-in-out;animation-iteration-count:infinite}
-.bwBlob.b1{animation-name:bwD1;animation-duration:7s}
-.bwBlob.b2{animation-name:bwD2;animation-duration:8s}
-.bwBlob.b3{animation-name:bwD3;animation-duration:6.5s}
-.bwBlob.b4{animation-name:bwD4;animation-duration:9s}
-.bwBlob.b5{animation-name:bwD5;animation-duration:7.5s}
-@keyframes bwD1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-3px,-3px) scale(1.12)}}
-@keyframes bwD2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(3px,-2px) scale(1.1)}}
-@keyframes bwD3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-2px,3px) scale(1.08)}}
-@keyframes bwD4{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(3px,3px) scale(1.14)}}
-@keyframes bwD5{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-3px,2px) scale(1.1)}}
+.bwStop1{animation:bwColA 11s ease-in-out infinite}
+.bwStop2{animation:bwColB 13s ease-in-out infinite}
+.bwStop3{animation:bwColC 9s ease-in-out infinite}
+@keyframes bwColA{0%,100%{stop-color:#b4322a}50%{stop-color:#2a6fb4}}
+@keyframes bwColB{0%,100%{stop-color:#7a3a6a}50%{stop-color:#3aa0a8}}
+@keyframes bwColC{0%,100%{stop-color:#2a6fb4}50%{stop-color:#b4322a}}
 #kCount{text-align:right;font-size:12px;color:var(--mute);margin:4px 2px}
 .kquote{font-size:19px;line-height:1.5;padding:14px 2px;text-align:center}
 .kdots{display:inline-flex;gap:4px;justify-content:center;width:100%;padding:20px 0}
 .kdots i{width:6px;height:6px;border-radius:50%;background:var(--mute);opacity:.3;animation:dt 1.4s infinite}
 .kdots i:nth-child(2){animation-delay:.2s}.kdots i:nth-child(3){animation-delay:.4s}
+#kMatch.show{animation:kPop .5s ease-out}
+@keyframes kPop{0%{opacity:0;transform:scale(.92) translateY(6px)}100%{opacity:1;transform:scale(1) translateY(0)}}
 </style>
 </head><body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="panda" viewBox="0 0 64 64">
@@ -109,7 +105,7 @@ body{background:radial-gradient(900px 420px at 50% -80px,rgba(127,168,138,.22),t
 <ellipse cx="32" cy="43" rx="4.4" ry="3.4" fill="#3a3a3a"/>
 <path d="M25 49 Q32 54 39 49" fill="none" stroke="#3a3a3a" stroke-width="2" stroke-linecap="round"/>
 </symbol></svg><main>
-<div class="sub"><svg class="hi" viewBox="0 0 64 64" width="24" height="24" aria-hidden="true"><use href="#panda"/></svg> Free from Trauma</div>
+<div class="sub"><svg class="hi" viewBox="0 0 64 64" width="24" height="24" aria-hidden="true"><use href="#panda"/></svg> The Technique of Letting Go</div>
 <h1>If you want to use AI to let go of your inner problems, make friends with Charles...</h1>
 <div style="display:flex;justify-content:center;margin:6px 0 4px">
 <button id="pandaGo" aria-label="Talk to the AI companion" style="background:none;border:0;padding:0;cursor:pointer;line-height:0"><svg class="hi" viewBox="0 0 64 64" width="84" height="84" aria-hidden="true" style="opacity:.95"><use href="#panda"/></svg></button></div>
@@ -124,45 +120,83 @@ body{background:radial-gradient(900px 420px at 50% -80px,rgba(127,168,138,.22),t
 <section class="view on" id="coach">
 <div class="card" id="avc">
 <div id="stage"><video id="vid" playsinline controls preload="none"></video></div>
-<svg id="av" viewBox="0 0 200 200" aria-label="A calm panda wearing a simple monk's robe, sitting cross-legged on a lotus flower, eyes closed with a soft smile">
-<defs>
-<radialGradient id="gl2"><stop offset="0" stop-color="#ffd873" stop-opacity=".7"/><stop offset="1" stop-color="#ffd873" stop-opacity="0"/></radialGradient>
-</defs>
-<circle class="glow" cx="100" cy="100" r="82" fill="url(#gl2)"/>
-<g class="orb">
-<ellipse cx="100" cy="192" rx="52" ry="7" fill="#000" opacity=".07"/>
-<path d="M100 168 L56 194 Q100 208 144 194 Z" fill="#e9899a"/>
-<path d="M100 168 L76 198 Q100 206 124 198 Z" fill="#f4aab7"/>
-<!-- crossed legs -->
-<path d="M100 152 C70 152 48 162 46 178 C58 186 78 184 92 176 Z" fill="#2b2b2b"/>
-<path d="M100 152 C130 152 152 162 154 178 C142 186 122 184 108 176 Z" fill="#2b2b2b"/>
-<ellipse cx="50" cy="178" rx="9" ry="7" fill="#fff"/>
-<ellipse cx="150" cy="178" rx="9" ry="7" fill="#fff"/>
-<!-- torso -->
-<path d="M100 96 C132 96 148 118 146 144 C144 162 124 172 100 172 C76 172 56 162 54 144 C52 118 68 96 100 96 Z" fill="#fff" stroke="#ece7e0" stroke-width="1.5"/>
-<!-- monk robe -->
-<path d="M128 100 C112 122 92 142 76 162 L88 170 C106 148 124 126 140 106 Z" fill="#d98a3d"/>
-<path d="M128 100 C112 122 92 142 76 162 L82 165 C100 143 118 121 134 102 Z" fill="#c97a30" opacity=".6"/>
-<ellipse cx="129" cy="99" rx="11" ry="8" fill="#d98a3d" transform="rotate(28 129 99)"/>
-<path d="M76 158 Q84 168 94 168" fill="none" stroke="#a9611f" stroke-width="2.5" stroke-linecap="round"/>
-<!-- arms resting on knees -->
-<ellipse cx="62" cy="146" rx="13" ry="16" fill="#2b2b2b" transform="rotate(18 62 146)"/>
-<ellipse cx="138" cy="146" rx="13" ry="16" fill="#2b2b2b" transform="rotate(-18 138 146)"/>
-<circle cx="58" cy="160" r="8" fill="#fff"/>
-<circle cx="142" cy="160" r="8" fill="#fff"/>
-<!-- head -->
-<circle cx="46" cy="46" r="15" fill="#2b2b2b"/>
-<circle cx="154" cy="46" r="15" fill="#2b2b2b"/>
-<circle cx="100" cy="86" r="50" fill="#fff" stroke="#ece7e0" stroke-width="1.5"/>
-<ellipse cx="72" cy="82" rx="16" ry="13" fill="#2b2b2b"/>
-<ellipse cx="128" cy="82" rx="16" ry="13" fill="#2b2b2b"/>
-<ellipse cx="70" cy="98" rx="6" ry="3.8" fill="#ffb3a1" opacity=".5"/>
-<ellipse cx="130" cy="98" rx="6" ry="3.8" fill="#ffb3a1" opacity=".5"/>
-<ellipse cx="100" cy="96" rx="6" ry="4.4" fill="#3a3a3a"/>
-</g>
-<g class="eye"><path d="M64 80 Q71 87 79 80" fill="none" stroke="#eee" stroke-width="3" stroke-linecap="round"/><path d="M121 80 Q129 87 136 80" fill="none" stroke="#eee" stroke-width="3" stroke-linecap="round"/></g>
-<path id="smile" d="M90 104 Q100 112 110 104" fill="none" stroke="#5a2d1c" stroke-width="2.6" stroke-linecap="round"/>
-<ellipse id="mouth" cx="100" cy="107" rx="5" ry="2" fill="#7a2f2f"/>
+<svg id="av" viewBox="0 0 200 220" role="img" aria-label="Charles, a calm glowing panda monk with softly closed, smiling eyes">
+  <defs>
+    <radialGradient id="charlesAura" cx="50%" cy="42%" r="56%">
+      <stop offset="0%" stop-color="#ffe58b" stop-opacity=".95"/>
+      <stop offset="45%" stop-color="#ffd873" stop-opacity=".34"/>
+      <stop offset="100%" stop-color="#ffd873" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="charlesRobe" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f48b9a"/>
+      <stop offset="100%" stop-color="#c95167"/>
+    </linearGradient>
+    <filter id="charlesSoftGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="5"/>
+    </filter>
+  </defs>
+
+  <g class="charles-aura">
+    <circle cx="100" cy="102" r="92" fill="url(#charlesAura)">
+      <animate attributeName="r" values="86;95;86" dur="4.8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values=".7;1;.7" dur="4.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="100" cy="101" r="56" fill="#ffe58b" opacity=".28" filter="url(#charlesSoftGlow)">
+      <animate attributeName="opacity" values=".18;.42;.18" dur="3.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <g class="charles-float">
+    <animateTransform attributeName="transform" type="translate" values="0 2;0 -2;0 2" dur="5.5s" repeatCount="indefinite"/>
+    <ellipse cx="100" cy="206" rx="56" ry="8" fill="#402e34" opacity=".12"/>
+
+    <!-- seated body -->
+    <path d="M59 172 C62 151 77 140 100 140 C123 140 138 151 141 172 C132 182 116 187 100 187 C84 187 68 182 59 172Z" fill="#2d3037"/>
+    <path d="M66 170 C71 159 84 155 100 155 C116 155 129 159 134 170 C126 177 115 181 100 181 C85 181 74 177 66 170Z" fill="#f4f4f0"/>
+
+    <!-- robe body -->
+    <path d="M67 126 C76 115 89 111 100 111 C111 111 124 115 133 126 L142 166 C128 175 113 178 100 178 C87 178 72 175 58 166Z" fill="url(#charlesRobe)"/>
+    <path d="M100 113 C107 127 112 145 110 175" fill="none" stroke="#b94259" stroke-width="4" opacity=".5"/>
+    <path d="M74 130 C82 139 92 143 100 144 C108 143 118 139 126 130" fill="none" stroke="#ffe2e7" stroke-width="3" opacity=".75"/>
+
+    <!-- head and ears -->
+    <circle cx="70" cy="81" r="15" fill="#292c33"/>
+    <circle cx="130" cy="81" r="15" fill="#292c33"/>
+    <circle cx="70" cy="81" r="8" fill="#464a54"/>
+    <circle cx="130" cy="81" r="8" fill="#464a54"/>
+    <circle cx="100" cy="101" r="42" fill="#fafaf6"/>
+
+    <!-- eye patches -->
+    <ellipse cx="83" cy="101" rx="13" ry="16" transform="rotate(26 83 101)" fill="#2b2e35"/>
+    <ellipse cx="117" cy="101" rx="13" ry="16" transform="rotate(-26 117 101)" fill="#2b2e35"/>
+
+    <!-- softly closed, smiling white eyes with soft glow -->
+    <g class="charles-eyes" fill="none" stroke-linecap="round">
+      <!-- soft outer glow -->
+      <path d="M76 100 Q84 108 92 100" stroke="#ffffff" stroke-width="8" opacity=".30" filter="url(#charlesSoftGlow)"/>
+      <path d="M108 100 Q116 108 124 100" stroke="#ffffff" stroke-width="8" opacity=".30" filter="url(#charlesSoftGlow)"/>
+      <!-- visible closed-eye lines with subtle blink -->
+      <path d="M76 100 Q84 108 92 100" stroke="#ffffff" stroke-width="3.6">
+        <animate attributeName="d" values="M76 100 Q84 108 92 100;M76 102 Q84 102 92 102;M76 100 Q84 108 92 100" keyTimes="0;0.08;0.16" dur="6s" repeatCount="indefinite"/>
+      </path>
+      <path d="M108 100 Q116 108 124 100" stroke="#ffffff" stroke-width="3.6">
+        <animate attributeName="d" values="M108 100 Q116 108 124 100;M108 102 Q116 102 124 102;M108 100 Q116 108 124 100" keyTimes="0;0.08;0.16" dur="6s" repeatCount="indefinite"/>
+      </path>
+    </g>
+
+    <!-- nose, warm cheeks, gentle smile -->
+    <ellipse cx="100" cy="115" rx="5" ry="3.5" fill="#2b2e35"/>
+    <ellipse cx="76" cy="119" rx="7" ry="3" fill="#f6a4af" opacity=".45"/>
+    <ellipse cx="124" cy="119" rx="7" ry="3" fill="#f6a4af" opacity=".45"/>
+    <path d="M89 122 Q100 132 111 122" fill="none" stroke="#2b2e35" stroke-width="3" stroke-linecap="round">
+      <animate attributeName="d" values="M89 122 Q100 130 111 122;M89 122 Q100 134 111 122;M89 122 Q100 130 111 122" dur="5.5s" repeatCount="indefinite"/>
+    </path>
+
+    <!-- hands resting together -->
+    <ellipse cx="94" cy="151" rx="10" ry="7" fill="#fafaf6"/>
+    <ellipse cx="106" cy="151" rx="10" ry="7" fill="#fafaf6"/>
+    <path d="M94 151 Q100 155 106 151" fill="none" stroke="#deded8" stroke-width="1.5"/>
+  </g>
 </svg>
 <div class="clips" id="clips"></div>
 <div class="log" id="log"></div>
@@ -179,7 +213,7 @@ body{background:radial-gradient(900px 420px at 50% -80px,rgba(127,168,138,.22),t
 <button id="kStart">Click here to begin</button>
 </div>
 <div class="card" id="kBox" style="display:none">
-<p class="sub" style="margin-top:0">Write something kind, honest or encouraging for a stranger you'll never meet.</p>
+<p class="sub" style="margin-top:0">Write something kind, honest or encouraging for a stranger you'll never meet. You'll sign it only as <b id="kMyNum"></b>.</p>
 <textarea id="kText" maxlength="220" placeholder="You are not alone in this…"></textarea>
 <div id="kCount">0 / 220</div>
 <p class="sub" style="font-size:12px">Messages are anonymous and shared with a random stranger. Please don't include names, contact details, or anything private.</p>
@@ -190,21 +224,31 @@ body{background:radial-gradient(900px 420px at 50% -80px,rgba(127,168,138,.22),t
 <p class="sub" id="kErr" style="color:#c9583f;min-height:1em"></p>
 </div>
 <div class="card" id="kWait" style="display:none;text-align:center">
-<p class="sub" style="margin:0">Sending your kindness into the world</p>
+<p class="sub" id="kWaitTxt" style="margin:0">Sending your kindness into the world</p>
 <div class="kdots"><i></i><i></i><i></i></div>
 </div>
 <div class="card" id="kMatch" style="display:none;text-align:center">
 <p class="sub" id="kMatchLabel" style="margin-top:0">A fellow traveler sent you this</p>
 <div class="kquote" id="kMatchText"></div>
+<p class="sub" id="kMatchFrom" style="font-size:12px;margin-top:-8px"></p>
+<p class="sub" id="kThanks" style="display:none;font-size:13px;color:var(--acc)">🤍 Glad it reached you.</p>
+<div class="chips" style="justify-content:center;margin-top:6px">
+<button class="ghost" id="kHeart" style="font-size:13px;padding:6px 14px">🤍 This helped</button>
+</div>
+<p class="sub" id="kCountLine" style="font-size:12px;margin-top:10px"></p>
 <div class="chips" style="justify-content:center;margin-top:14px">
 <button id="kAgain">Send another</button>
 <button class="ghost" id="kDone">I'm done for now</button>
 </div>
 </div>
-<p class="sub" id="kSetup" style="display:none;text-align:center">⚙ This tab's shared inbox hasn't been set up yet. <button class="ghost" id="kInit" style="font-size:12px;padding:4px 10px">Set up now</button></p>
+<p class="sub" id="kSetup" style="display:none;text-align:center">⚙ This tab couldn't connect just now.</p>
 </section>
 
-<section class="view" id="prac"><div class="card" style="text-align:center"><h2 style="margin-top:0">The practice is to let go</h2><p class="sub">“Whatever is not yours: let go of it. Your letting go of it will be for your long-term welfare and happiness.”</p><p class="sub">— The Buddha, MN 22</p><p style="font-size:18px;margin:14px 0 10px">This tab is both a path and a practice. To walk your own path is your life’s practice.</p><p class="sub">This page is for you, the reader, to develop the method of letting go, so you can directly experience higher states of consciousness, and delve deep into your inner, silent nature, free from agitation, remorse of the past and worry over tomorrow. This method is ancient and well trodden, and will work for anyone who realizes it is a skill to be developed.</p></div><div class="card"><h2 style="margin-top:0">Practice is ongoing training</h2><p class="sub">This is ongoing training of mind and body: transforming old habits rooted in greed, hatred, and delusion into generosity, kindness, compassion, clarity, and wise understanding—toward the heart’s liberating potential.</p></div>
+<section class="view" id="prac">
+<div class="card" style="text-align:center">
+<h2 style="margin-top:0">Letting Go: A Pathway of Surrender</h2>
+<p class="sub">Content coming soon.</p>
+</div>
 <div class="card" id="wave" style="text-align:center"><h2 style="margin-top:0">The Wave · a small game</h2>
 <p class="sub">A feeling rises and the old habit wants to act. See what happens when you follow it, and what happens when you surrender.</p>
 <button id="worb" aria-label="The wave. Press and hold when asked."><i class="hot"></i><i class="cm"></i></button>
@@ -225,23 +269,15 @@ body{background:radial-gradient(900px 420px at 50% -80px,rgba(127,168,138,.22),t
 <mask id="bwBodyMask" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200">
 <image href="data:image/png;base64,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" x="0" y="0" width="200" height="200" filter="url(#bwInvert)"/>
 </mask>
+<radialGradient id="bwGrad" cx="50%" cy="46%" r="68%">
+<stop class="bwStop1" offset="0%" stop-color="#b4322a"/>
+<stop class="bwStop2" offset="50%" stop-color="#7a3a6a"/>
+<stop class="bwStop3" offset="100%" stop-color="#2a6fb4"/>
+</radialGradient>
 </defs>
 <g class="bwBreathe">
 <g mask="url(#bwBodyMask)">
-<rect x="0" y="0" width="200" height="200" fill="#12131a"/>
-<g class="bwHue" style="mix-blend-mode:screen">
-<circle class="bwBlob b1" cx="100" cy="15" r="8" fill="#2fb8c4"/>
-<circle class="bwBlob b2" cx="100" cy="39" r="12" fill="#e0c34a"/>
-<circle class="bwBlob b3" cx="90" cy="52" r="11" fill="#d84a9e" style="animation-delay:.3s"/>
-<circle class="bwBlob b4" cx="110" cy="52" r="11" fill="#4ad8e0" style="animation-delay:.6s"/>
-<circle class="bwBlob b5" cx="100" cy="68" r="11" fill="#fdf6e3" style="animation-delay:.15s"/>
-<circle class="bwBlob b2" cx="72" cy="65" r="9" fill="#2fb8c4" style="animation-delay:.4s"/>
-<circle class="bwBlob b3" cx="128" cy="65" r="9" fill="#e0c34a" style="animation-delay:.7s"/>
-<circle class="bwBlob b1" cx="88" cy="113" r="11" fill="#d84a9e" style="animation-delay:.2s"/>
-<circle class="bwBlob b4" cx="112" cy="113" r="11" fill="#4ad8e0" style="animation-delay:.5s"/>
-<circle class="bwBlob b5" cx="88" cy="156" r="9" fill="#e0c34a" style="animation-delay:.35s"/>
-<circle class="bwBlob b2" cx="112" cy="156" r="9" fill="#fdf6e3" style="animation-delay:.65s"/>
-</g>
+<rect x="0" y="0" width="200" height="200" fill="url(#bwGrad)"/>
 </g>
 </g>
 </svg>
@@ -303,28 +339,38 @@ body{background:radial-gradient(900px 420px at 50% -80px,rgba(127,168,138,.22),t
 <div style="padding:22px 20px 26px">
 <h2 style="margin-top:0">About Me</h2>
 <p class="sub" style="font-size:19px;color:var(--ink);margin-top:0"><i>A search for something lasting.</i></p>
-<p>I grew up in Ireland, and at 21 I left home with a search for a happiness that wasn't dependent on circumstances. That search first brought me to Spain, and eventually much further.</p>
-<p>For several years I looked for answers through psychology, psychiatry, and different ways of understanding the mind. I learned from those experiences, but I was left dissatisfied. I felt there had to be something deeper at the root of suffering.</p>
-<p>At 23, I came across David R. Hawkins' <i>Letting Go: The Pathway of Surrender</i>. The principle of surrender — allowing what arises, ceasing to fight with our inner experience, and gradually letting go of what we have been carrying — became an important part of my path.</p>
-<p>The years that followed weren't straightforward. There were powerful spiritual experiences, but also a long period that I can only describe as a dark night of the soul. Much of what I thought I understood about myself, happiness, and life was challenged.</p>
-<p>Eventually, my search brought me to Buddhism and monastic life. I ordained as a Buddhist monk, and have now been ordained for three years. Today, at 29, I live in a monastery in the south of Thailand.</p>
-<p>Looking back, I wouldn't attribute where I am today simply to a particular teaching or technique. I owe a great deal to good friends, fellow practitioners, teachers, and the simple goodness of people I have encountered along the way.</p>
-<p>Sometimes the path has been less about finding another answer, and more about learning to surrender what stands in the way.</p>
-<p>I created this website to share some of the ideas, teachings and approaches that have genuinely helped me along the way. It isn't intended to present me as an authority. It is simply an attempt to pass along what I have found useful, in the hope that something here may also be useful to someone else.</p>
-<p class="sub" style="margin-top:22px">Written October 1, 2026.</p>
+<p>I am a Buddhist monk living in southern Thailand. My path has taken me through years of searching, meditation, and learning to let go of what keeps the heart troubled.</p>
+<p>I created this site to share the simple practices that have helped me: kindness, awareness, body work, and letting go. It is not about having all the answers, but about offering something useful for anyone walking their own path.</p>
 <p class="sub">If you feel it is necessary to contact me, you can do so at <a href="mailto:mlgcostello1@gmail.com" style="color:var(--acc)">mlgcostello1@gmail.com</a>.</p>
+</div></div></section>
+
+<section class="view" id="give">
+<div class="card" style="text-align:center">
+<h2 style="margin-top:0">Thank you for your generosity</h2>
+<p style="font-size:18px;margin:14px 0 10px">Cathal</p>
 </div>
+<div class="card">
+<h2 style="margin-top:0">The Buddha on generosity</h2>
+<p class="sub" style="font-style:italic">From the Aṅguttara Nikāya 5.34 (To General Sīha: The Benefits of Generosity)</p>
+<blockquote style="text-align:left;max-width:560px;margin:16px auto 0;line-height:1.6;border-left:3px solid var(--acc);padding-left:14px">
+<p>“Sīha, there are these five benefits of giving. What five?</p>
+<p>1. One is dear and agreeable to many people.</p>
+<p>2. Good persons resort to one.</p>
+<p>3. One acquires a good reputation.</p>
+<p>4. One is not deficient in the layperson’s duties.</p>
+<p>5. With the breakup of the body, after death, one is reborn in a good destination, in a heavenly world.</p>
+<p>These are the five benefits of giving.”</p>
+</blockquote>
+<p class="sub" style="margin-top:14px">In another discourse, the Buddha also said that a noble giver is one who is happy before giving, happy while giving, and happy after giving.</p>
 </div>
 </section>
-
-<section class="view" id="give"><div class="card" style="text-align:center"><h2 style="margin-top:0">If you like this, please consider giving</h2><p class="sub">I have made this as free as possible because I believe support should be available to everyone. I do not do this work to make money, and I rely completely on donations to cover the costs of keeping it available.</p><p class="sub">If this has been useful to you and you would like to pay it forward, your generosity helps keep this space free, gentle, and available for the next person who may need it.</p><div class="chips" id="amts" style="justify-content:center"></div><div class="row"><input id="customAmt" type="number" min="0.01" step="0.01" placeholder="0.00" aria-label="Your donation amount"></div><button id="dgo">Donate via PayPal</button><p class="sub" id="dmsg">Choose an amount or enter your own amount, then continue securely with PayPal.</p></div></section>
 
 <section class="view" id="get">
 <div class="card"><h2 style="margin-top:0">On your phone</h2><p class="sub">Open this page in Chrome on Android, tap ⋮ then “Add to Home screen” to use it like an app.</p></div>
 <div class="card"><h2 style="margin-top:0">Play Store</h2><p class="sub">This page can be wrapped as an Android app (a Trusted Web Activity) and submitted through a Google Play developer account. Health-focused apps need a privacy policy and clear disclaimers.</p></div>
 </section>
 
-<div class="sec">What is this site for?</div>
+<div class="sec">Who is this for?</div>
 <div class="card">
 <p>If you feel affected by trauma or by troubles of the past, you know it is rarely simple. It can be tangled up with memory, the body, our relationships and the way we see ourselves. Many of us get stuck or lost, and do not know where to begin.</p>
 <p>This site is here to offer a practical, transforming path, so that genuine freedom becomes possible, and not only a way of coping.</p>
@@ -337,7 +383,7 @@ body{background:radial-gradient(900px 420px at 50% -80px,rgba(127,168,138,.22),t
 <div class="card"><div class="num">SMALL STEPS</div><p class="sub" style="margin:0">Gentle practice at your own pace. You do not need to have it figured out. Begin where you are.</p></div>
 </div>
 <div class="sec">Who is behind it</div>
-<div class="card"><p style="margin:0">Free from Trauma was designed by a former Buddhist monk in Thailand, drawing on the ancient practice of letting go. Our AI companion is not a real monk or a human, and it is here to support your relaxation, not to replace professional care.</p></div>
+<div class="card"><p style="margin:0">The Technique of Letting Go was designed by a <a href="#about" onclick="document.querySelector('[data-t=about]').click(); return false;" style="color:var(--acc);text-decoration:underline;text-underline-offset:3px">Buddhist monk in Thailand</a>, drawing on the ancient practice of letting go. Our AI companion is not a real monk or a human, and it is here to support your relaxation, not to replace professional care.</p></div>
 <div class="sec">Questions</div>
 <div class="card faq">
 <details><summary>Is it really free?</summary><p class="sub">Yes. Everything is free. Donations are optional and simply keep it free for others.</p></details>
@@ -345,8 +391,8 @@ body{background:radial-gradient(900px 420px at 50% -80px,rgba(127,168,138,.22),t
 <details><summary>Are my chats private?</summary><p class="sub">We don't ask for your name or an account. The AI's replies are generated automatically, so please avoid sharing names or identifying details.</p></details>
 <details><summary>What if I am in crisis?</summary><p class="sub">Call or text 988 (US) or your local emergency number now. You deserve live human support.</p></details>
 </div>
-<p class="sub" style="text-align:center;margin-top:28px">Made with care · Free from Trauma</p>
-<div class="sos"><b>Not therapy.</b> Free from Trauma offers wellness support, not medical care or crisis services. If you may be in danger or thinking of harming yourself, call or text 988 (US) or your local emergency number now.</div>
+<p class="sub" style="text-align:center;margin-top:28px">Made with care · The Technique of Letting Go</p>
+<div class="sos"><b>Not therapy.</b> The Technique of Letting Go offers wellness support, not medical care or crisis services. If you may be in danger or thinking of harming yourself, call or text 988 (US) or your local emergency number now.</div>
 </main>
 <script>
 const $=id=>document.getElementById(id);
@@ -433,62 +479,77 @@ function askForget(){
 wireForget();
 document.querySelectorAll('[data-go]').forEach(el=>el.onclick=e=>{e.preventDefault();document.querySelector('[data-t='+el.dataset.go+']').click();window.scrollTo({top:0,behavior:'smooth'})});
 
-/* ---- Kindness tab: a shared, anonymous message pool (kvdb.io, free & keyless once a bucket exists) ---- */
+/* ---- Kindness tab: a shared, anonymous message pool (Supabase) ---- */
+const SUPABASE_URL = "https://xxgbafhulhivlalqpixk.supabase.co";
+const SUPABASE_KEY = "sb_publishable_xJoc51uMYdK6MlJsTOzaPA_hnc11WCh";
 (function(){
-const KBUCKET=localStorage.getItem('kindBucket')||''; // filled in once via "Set up now", then hardcoded by the site owner
-const base=()=>`https://kvdb.io/${KBUCKET}`;
+const sb = (window.supabase && window.supabase.createClient) ? window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY) : null;
 const BAD=/\b(fuck|shit|bitch|asshole|nigger|faggot|cunt)\b/i;
 const URLRE=/https?:\/\/\S+|www\.\S+/i;
 const seen=JSON.parse(localStorage.getItem('kindSeen')||'[]');
-let lastMine=null;
+const FALLBACK=["May you find peace in this exact moment.","You are stronger than the things holding you back.","It's completely okay to rest when things feel heavy.","Your present struggle does not diminish your worth.","Sending you calm, light, and warmth wherever you are today.","Whatever today has been, you made it this far.","You don't have to have it figured out yet.","Someone out there is pulling for you, even as a stranger.","This moment is hard, and it will move.","Be as kind to yourself as you would be to a friend."];
+const PROMPTS=["You are not alone in this…","Something you wish someone had told you…","A word of encouragement for a hard day…","What would you say to a friend who's struggling?","Something true about getting through tough times…"];
+let sendCount=0;try{sendCount=parseInt(localStorage.getItem('kindSentCount')||'0',10)||0}catch(e){}
+let promptI=0,promptT;
+function myTravelerNum(){let t=null;try{t=localStorage.getItem('kindMyId')}catch(e){}
+ if(!t){t=String(Math.floor(1000+Math.random()*9000));try{localStorage.setItem('kindMyId',t)}catch(e){}}
+ return t}
 
-if(!KBUCKET){$('kSetup').style.display='block'}
-$('kInit') && ($('kInit').onclick=async()=>{
- try{const r=await fetch('https://kvdb.io',{method:'POST'});const id=(await r.text()).trim();
-  localStorage.setItem('kindBucket',id);
-  alert('Shared inbox created. Send this ID to Claude to finish setup: '+id);
- }catch(e){alert('Could not reach kvdb.io. Check your connection and try again.')}
-});
+if(!sb){$('kSetup').innerHTML='⚙ This tab could not connect. Please check your connection and reload.';$('kSetup').style.display='block'}
 
-$('kStart').onclick=()=>{$('kIntro').style.display='none';$('kBox').style.display='block'};
-$('kCancel').onclick=()=>{$('kBox').style.display='none';$('kIntro').style.display='block';$('kText').value='';$('kErr').textContent='';kCountUp()};
+function cyclePrompt(){if(document.activeElement===$('kText')||$('kText').value)return;promptI=(promptI+1)%PROMPTS.length;$('kText').placeholder=PROMPTS[promptI]}
+$('kStart').onclick=()=>{$('kIntro').style.display='none';$('kBox').style.display='block';$('kMyNum').textContent='Traveler #'+myTravelerNum();clearInterval(promptT);promptT=setInterval(cyclePrompt,4000)};
+$('kCancel').onclick=()=>{$('kBox').style.display='none';$('kIntro').style.display='block';$('kText').value='';$('kErr').textContent='';kCountUp();clearInterval(promptT)};
 function kCountUp(){$('kCount').textContent=$('kText').value.length+' / 220'}
 $('kText').addEventListener('input',kCountUp);
 
-async function kGet(){try{const r=await fetch(base()+'/pool');if(!r.ok)return[];const t=await r.text();return t?JSON.parse(t):[]}catch(e){return[]}}
-async function kPut(arr){try{await fetch(base()+'/pool',{method:'PUT',body:JSON.stringify(arr)})}catch(e){}}
+$('kHeart').onclick=()=>{$('kHeart').style.display='none';$('kThanks').style.display='block'};
 
 $('kSend').onclick=async()=>{
  const raw=$('kText').value.trim();
  $('kErr').textContent='';
- if(!KBUCKET){$('kErr').textContent="This tab isn't set up yet — see the note below.";return}
+ if(!sb){$('kErr').textContent="This tab isn't connected right now.";return}
  if(raw.length<3){$('kErr').textContent='A few more words would help.';return}
  if(CRISIS_RE.test(raw)){$('kErr').textContent="It sounds like you're going through something heavy right now. Please talk to Charles or call/text 988 instead of posting here — you deserve real support.";return}
  if(BAD.test(raw)){$('kErr').textContent="Let's keep this space kind. Could you rephrase that?";return}
  if(URLRE.test(raw)){$('kErr').textContent='Please leave out links.';return}
+ $('kSend').disabled=true;$('kSend').textContent='Sending…';
+ clearInterval(promptT);
  $('kBox').style.display='none';$('kWait').style.display='block';
- const mine={id:Date.now()+'-'+Math.random().toString(36).slice(2,7),text:raw};
- lastMine=mine.id;
- const pool=await kGet();
- pool.push(mine);
- // pick a candidate from someone else, not already seen
- const candidates=pool.filter(m=>m.id!==mine.id&&!seen.includes(m.id));
- let match=null;
- if(candidates.length){
-  match=candidates[Math.floor(Math.random()*candidates.length)];
-  const idx=pool.findIndex(m=>m.id===match.id);
-  if(idx>-1)pool.splice(idx,1); // deliver once, then remove
-  seen.push(match.id);try{localStorage.setItem('kindSeen',JSON.stringify(seen.slice(-100)))}catch(e){}
+ $('kWaitTxt').textContent=["Sending your kindness into the world","Looking for a fellow traveler","Almost there"][Math.floor(Math.random()*3)];
+
+ let match=null, usedFallback=false, matchFrom='';
+ try{
+  const {data:mine,error:insErr}=await sb.from('kindness_messages').insert({message:raw,sender_tag:'Traveler #'+myTravelerNum()}).select().single();
+  if(insErr) throw insErr;
+  const {data:candidates,error:selErr}=await sb.from('kindness_messages').select('id,message,sender_tag').neq('id',mine.id).order('created_at',{ascending:true}).limit(50);
+  if(selErr) throw selErr;
+  const fresh=(candidates||[]).filter(m=>!seen.includes(m.id));
+  if(fresh.length){
+   const pick=fresh[Math.floor(Math.random()*fresh.length)];
+   match=pick.message;
+   matchFrom=pick.sender_tag||'a fellow traveler';
+   await sb.from('kindness_messages').delete().eq('id',pick.id); // deliver once, then remove
+   seen.push(pick.id);try{localStorage.setItem('kindSeen',JSON.stringify(seen.slice(-100)))}catch(e){}
+  }
+ }catch(e){
+  match=FALLBACK[Math.floor(Math.random()*FALLBACK.length)];
+  usedFallback=true;
  }
- await kPut(pool);
+
+ sendCount++;try{localStorage.setItem('kindSentCount',String(sendCount))}catch(e){}
  $('kText').value='';kCountUp();
+ $('kSend').disabled=false;$('kSend').textContent='Send it into the world';
  setTimeout(()=>{
-  $('kWait').style.display='none';$('kMatch').style.display='block';
-  if(match){$('kMatchLabel').textContent='A fellow traveler sent you this';$('kMatchText').textContent='“'+match.text+'”'}
-  else{$('kMatchLabel').textContent='';$('kMatchText').textContent="You're the first one here right now. Your message is waiting — come back later to see if a fellow traveler has replied with kindness of their own."}
+  $('kWait').style.display='none';
+  $('kHeart').style.display='inline-block';$('kThanks').style.display='none';
+  $('kMatch').style.display='block';$('kMatch').classList.remove('show');void $('kMatch').offsetWidth;$('kMatch').classList.add('show');
+  if(match){$('kMatchLabel').textContent=usedFallback?'A gentle word for you':'A fellow traveler sent you this';$('kMatchText').textContent='“'+match+'”';$('kMatchFrom').textContent=usedFallback?'':'— '+matchFrom}
+  else{$('kMatchLabel').textContent='';$('kMatchText').textContent="You're the first one here right now. Your message is waiting — come back later to see if a fellow traveler has replied with kindness of their own.";$('kMatchFrom').textContent=''}
+  $('kCountLine').textContent=sendCount===1?"You've shared kindness here once.":"You've shared kindness here "+sendCount+" times.";
  },900);
 };
-$('kAgain').onclick=()=>{$('kMatch').style.display='none';$('kIntro').style.display='none';$('kBox').style.display='block'};
+$('kAgain').onclick=()=>{$('kMatch').style.display='none';$('kIntro').style.display='none';$('kBox').style.display='block';$('kMyNum').textContent='Traveler #'+myTravelerNum();clearInterval(promptT);promptT=setInterval(cyclePrompt,4000)};
 $('kDone').onclick=()=>{$('kMatch').style.display='none';$('kIntro').style.display='block'};
 })();
 

@@ -6,10 +6,10 @@
 <meta name="description" content="The Technique of Letting Go: an ancient path of letting go, with a gentle AI companion named Charles. Free, no sign-up. Wellness support, not therapy.">
 <title>The Technique of Letting Go</title>
 <style>
-:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#ffffff;--card:#fffcf0;--ink:#2d2f29;--mute:#6c7065;--acc:#587560;--acc2:#587560;--line:#efe8cc;--glow1:rgba(255,230,140,.30);--glow2:rgba(250,215,110,.20)}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f8fbfc;--card:#f0f6f8;--ink:#2b3a42;--mute:#65777f;--acc:#4a7d8a;--acc2:#4a7d8a;--line:#dae7ec;--glow1:rgba(160,205,228,.34);--glow2:rgba(190,182,228,.20)}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#161a18;--card:#1e2321;--ink:#ecefe9;--mute:#9aa39d;--acc:#5f8178;--acc2:#5f8178;--line:#2c322f;--glow1:rgba(127,168,138,.22);--glow2:rgba(214,170,110,.14)}}
-:root[data-theme="dark"]{--bg:#161a18;--card:#1e2321;--ink:#ecefe9;--mute:#9aa39d;--acc:#5f8178;--acc2:#5f8178;--line:#2c322f;--glow1:rgba(127,168,138,.22);--glow2:rgba(214,170,110,.14)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141a20;--card:#1b232b;--ink:#e6edf0;--mute:#93a5ad;--acc:#6fa3b0;--acc2:#6fa3b0;--line:#29343d;--glow1:rgba(90,150,180,.22);--glow2:rgba(140,125,200,.14)}}
+:root[data-theme="dark"]{--bg:#141a20;--card:#1b232b;--ink:#e6edf0;--mute:#93a5ad;--acc:#6fa3b0;--acc2:#6fa3b0;--line:#29343d;--glow1:rgba(90,150,180,.22);--glow2:rgba(140,125,200,.14)}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 Georgia,'Times New Roman',serif}
 main{max-width:640px;margin:0 auto;padding:20px 16px 40px}
@@ -85,7 +85,7 @@ body{background:radial-gradient(900px 420px at 50% -80px,var(--glow1),transparen
 #worb:not(:disabled){cursor:pointer}
 #worb i{position:absolute;inset:0;border-radius:50%;transition:opacity 1.4s}
 #worb .hot{background:radial-gradient(circle at 35% 30%,#f3b7a3,#c9583f);box-shadow:0 0 40px 8px rgba(201,88,63,.35)}
-#worb .cm{background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.6),var(--acc));box-shadow:0 0 44px 10px rgba(127,168,138,.4);opacity:0}
+#worb .cm{background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.6),var(--acc));box-shadow:0 0 44px 10px rgba(111,163,176,.4);opacity:0}
 #wtxt{min-height:150px;font-size:18px;line-height:1.5;padding:0 4px}
 #kBox textarea{width:100%;font:16px system-ui,sans-serif;padding:14px 16px;border-radius:16px;border:1px solid var(--line);background:var(--bg);color:var(--ink);resize:vertical;min-height:90px;box-sizing:border-box}
 .bwWrap{display:flex;justify-content:center;padding:4px 0 2px}
@@ -106,7 +106,7 @@ body{background:radial-gradient(900px 420px at 50% -80px,var(--glow1),transparen
 #kMatch.show{animation:kPop .5s ease-out}
 @keyframes kPop{0%{opacity:0;transform:scale(.92) translateY(6px)}100%{opacity:1;transform:scale(1) translateY(0)}}
 .tabs{position:-webkit-sticky;position:sticky;top:0;z-index:50;background:var(--bg);padding-top:calc(8px + env(safe-area-inset-top,0px));box-shadow:0 8px 12px -10px rgba(0,0,0,.22)}
-#kSend:disabled{background:#c4c7bf;color:#fff;opacity:.7;cursor:not-allowed}#kText:disabled{opacity:.6}
+#kSend:disabled{background:#bfcdd3;color:#fff;opacity:.7;cursor:not-allowed}#kText:disabled{opacity:.6}
 </style>
 </head><body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="blob" viewBox="0 0 200 220"><g>
@@ -222,8 +222,9 @@ body{background:radial-gradient(900px 420px at 50% -80px,var(--glow1),transparen
 </svg>
 </button></div>
 <p style="text-align:center;font-size:18px;margin:2px 0 4px;font-weight:400">Charles</p>
+<p style="text-align:center;font-size:14px;margin:0 auto 8px;max-width:320px;line-height:1.4;font-weight:600;color:var(--acc)">Your mental friend, guided by ancient wisdom using modern technology.</p>
 <p style="text-align:center;font-size:13px;font-style:italic;color:var(--mute);margin:0 0 16px;max-width:340px;margin-left:auto;margin-right:auto;line-height:1.4">Charles is designed to remind everyone to be kinder to themselves and always points back to the core principles of practice.</p>
-<div class="cta"><button id="c1">Walk your path</button><button class="ghost" id="c2">Talk with our AI</button></div>
+<div class="cta" style="justify-content:center;text-align:center"><button id="c1">Download app</button></div>
 <div class="chips"><span class="pill">Free to use</span><span class="pill">No sign-up</span><span class="pill">Not therapy</span></div>
 
 <div class="tabs"><button class="on" data-t="coach">Charles</button><button data-t="kind">Kindness</button><button data-t="prac">Path</button><button data-t="breath">Body Work</button><button data-t="give">Give</button><button data-t="get">App</button><button data-t="about">About</button></div>
@@ -417,7 +418,7 @@ body{background:radial-gradient(900px 420px at 50% -80px,var(--glow1),transparen
 <section class="view" id="breath">
 
 <div class="card" style="text-align:center" id="bwCard">
-<p style="font-size:17px;line-height:1.55;margin:0 0 14px;color:var(--ink)">Letting go turns a life of heavy, hard burdens into one that feels light, free and easygoing. The less the mind clings to the sense of being separate, the freer it becomes, and the more it settles into the natural flow of Reality.</p>
+<p style="font-size:17px;line-height:1.55;margin:0 0 14px;color:var(--ink)">Letting go lightens the load, in the body and in the mind. As the grip of a separate self loosens, tension melts, dissolves and fades away, and both settle into the natural flow of Reality, at ease with what is.</p>
 <div class="bwWrap">
 <svg viewBox="0 0 200 200" width="190" height="190" role="img" aria-label="A human body outline filled with color, gently breathing, with color flowing from muted and dull to soft and vivid, on a continuous loop">
 <defs>
@@ -478,7 +479,7 @@ body{background:radial-gradient(900px 420px at 50% -80px,var(--glow1),transparen
 <h2 style="margin-top:0">About Me</h2>
 <p style="margin:0">As of writing this, 2/10/26, I’m 29 and grew up in Ireland. I always seemed to be searching for permanent joy, before growing tired of the results from psychiatry and psychology. At 24, just coming off life-changing psychedelic experiences, I found the book <i>Letting Go: The Pathway of Surrender</i> by Dr. David R. Hawkins and saw there is a practical path to realize the Truth, one that I did not have to depend on anything for. This became a core guiding force in my life. It led me to the teachings of the Buddha, and a few years later to ordain as a Buddhist monk in Thailand (three rains retreats as of this date), as I wanted to stabilize and learn from my elders in the Truth in my personal practice. Over the past 6 years I have seen a lot of change in myself, besides having a lot of work to do. I wish to share the power of letting go with those interested in freedom from unhappiness.</p>
 </div></div>
-<div class="card" style="padding:22px 20px 26px">
+<div class="card" id="contactCard" style="padding:22px 20px 26px">
 <h2 style="margin-top:0">Contact me</h2>
 <p>If you want to contact me for a call, you can email me at <a href="mailto:mlgcostello1@gmail.com" style="color:var(--acc)">mlgcostello1@gmail.com</a>. I don’t present myself as a spiritual leader or authority figure, a counsellor, a therapist or anything like that.</p>
 <p style="margin:0">All the best from me,<br>Cathal</p>
@@ -486,8 +487,7 @@ body{background:radial-gradient(900px 420px at 50% -80px,var(--glow1),transparen
 
 <section class="view" id="give">
 <div class="card" style="text-align:center">
-<h2 style="margin-top:0">Please help me cover the costs</h2>
-<p class="sub">Everything here is free. A gift of any size helps with costs and fees, and keeps it free for others.</p>
+<h2 style="margin-top:0">Please help me cover the costs or give whatever you feel like. :)</h2>
 <div class="chips" id="amts" style="justify-content:center"></div>
 <div class="row" style="max-width:240px;margin:0 auto 14px"><input id="customAmt" type="number" min="1" step="1" inputmode="decimal" placeholder="Other amount ($)" aria-label="Custom amount in dollars" style="padding:12px 16px;font-size:16px"></div>
 <button id="dgo">Give with PayPal</button>
@@ -517,7 +517,8 @@ body{background:radial-gradient(900px 420px at 50% -80px,var(--glow1),transparen
 <p class="sub" style="font-size:19px;color:var(--ink);margin:0"><i>A kind, honest guide back to the path.</i></p>
 </div>
 <div class="card">
-<p style="margin:0">Charles is an AI companion. A generalized AI draws on everything and answers to everyone, so its replies tend to be broad, cautious and generic. Charles is different. The documents and the design of his system are tailored to remind anyone facing obstacles that there is a practical, workable way of overcoming them. All the documentation he has been given is chosen carefully to illustrate the key core principles of letting go, and to remind people of kindness: not judging themselves, and accepting all of themselves, which is highly beneficial. His answers are grounded in that material rather than in whatever the internet happens to say.</p>
+<p>Charles is an AI companion. Not quite R2-D2 yet, but you could think of him as a “mental friend.”</p>
+<p style="margin:0">A generalized AI draws on everything and answers to everyone, so its replies tend to be broad, cautious and generic. Charles is a bit different. The repository he draws his answers from, and the way he is prompted, were designed with a purpose: to be kind and straightforward on a user’s path to their highest happiness. The material was chosen carefully to illustrate the key core principles of letting go, and to remind people of kindness: not judging themselves, and accepting all of themselves, which is highly beneficial when beginning the important journey of freedom from unnecessarily hurting oneself. His answers are grounded in that material rather than in whatever the internet happens to say, or whatever is trending.</p>
 </div>
 <div class="card">
 <h2 style="margin-top:0">What Charles stands for</h2>
@@ -526,8 +527,8 @@ body{background:radial-gradient(900px 420px at 50% -80px,var(--glow1),transparen
 <p style="margin:0"><b>Staying on the path.</b> When you drift into worry, stories or self-blame, he gently brings you back to what matters: letting go and finding freedom from unhappiness.</p>
 </div>
 <div class="grid3">
-<div class="card"><div class="num">FED ON</div><p class="sub" style="margin:0">Well-tested and proven teachings on letting go, and principles that anyone can develop and make use of.</p></div>
-<div class="card"><div class="num">TRAINED TO</div><p class="sub" style="margin:0">Guide, not lecture. Ask gently, go at your pace, and point you back to your own practice.</p></div>
+<div class="card"><div class="num">DRAWS ON</div><p class="sub" style="margin:0">Well-tested and proven teachings on letting go, and principles that anyone can develop and make use of.</p></div>
+<div class="card"><div class="num">GUIDED TO</div><p class="sub" style="margin:0">Guide, not lecture. Ask gently, go at your pace, and point you back to your own practice.</p></div>
 <div class="card"><div class="num">MEMORY</div><p class="sub" style="margin:0">He can remember your recent conversations on your own device, so you can pick up where you left off. It’s likely we will add sign-up accounts in the future, so you can use him across multiple devices and keep the same memory.</p></div>
 </div>
 <div class="sec">Questions</div>
@@ -537,7 +538,7 @@ body{background:radial-gradient(900px 420px at 50% -80px,var(--glow1),transparen
 <details><summary>Are my chats private?</summary><p class="sub">We don't ask for your name or an account. What you type is sent to an AI service to write a reply, and a copy of the conversation is kept only on your own device. You can clear it any time with “forget this conversation”. Please avoid sharing names or identifying details.</p></details>
 <details><summary>What if I am in crisis?</summary><p class="sub">If you may be in danger, call your local emergency number now. In Ireland, call Pieta on 1800 247 247 or Samaritans on 116 123. In the UK, call Samaritans on 116 123. In the US, call or text 988. Elsewhere, you can find a local helpline at <a href="https://findahelpline.com" target="_blank" rel="noopener" style="color:var(--acc)">findahelpline.com</a>. You deserve live human support.</p></details>
 </div>
-<p class="sub" style="text-align:center;margin-top:28px">Made with care · The Technique of Letting Go</p>
+<p class="sub" style="text-align:center;margin-top:28px"><a href="#about" id="footContact" style="color:var(--acc);text-decoration:underline;text-underline-offset:3px;font-weight:600">Contact</a></p>
 <div class="sos">
 <p style="margin:0 0 10px"><b>This is not therapy.</b> Charles is an AI companion, not a therapist, not a doctor, and not a substitute for professional care. Nothing here is medical advice.</p>
 <p style="margin:0 0 10px">If you may be in danger or thinking of harming yourself, please reach out for live human support right away.</p>
@@ -758,8 +759,8 @@ const CLIPS=[/* add your monk videos, e.g. {t:"Welcome",u:"videos/welcome.mp4"},
 const showAv=()=>{$('vid').style.display='none';$('av').style.display='block'};
 CLIPS.forEach(c=>{const b=document.createElement('button');b.className='ghost';b.textContent='\u25B6 '+c.t;b.onclick=()=>{const v=$('vid');v.src=c.u;v.style.display='block';$('av').style.display='none';v.play().catch(()=>{})};$('clips').appendChild(b)});
 $('vid').onerror=showAv;$('vid').onended=showAv;
-$('c1').onclick=()=>{document.querySelector('[data-t=prac]').click();$('prac').scrollIntoView({behavior:'smooth'})};
-$('c2').onclick=()=>{document.querySelector('[data-t=coach]').click();$('coach').scrollIntoView({behavior:'smooth'})};
+$('c1').onclick=()=>{document.querySelector('[data-t=get]').click();$('get').scrollIntoView({behavior:'smooth'})};
+
 $('pandaGo').onclick=()=>{document.querySelector('[data-t=coach]').click();$('coach').scrollIntoView({behavior:'smooth'})};
 
 /* Wave game disabled */
@@ -827,4 +828,8 @@ document.querySelectorAll('.tabs button').forEach(function(b){b.addEventListener
 <script>
 (function(){var a=document.getElementById('giveAv'),p=document.querySelector('#about img');if(a&&p&&p.src)a.src=p.src;else if(a)a.style.display='none'})();
 </script>
+<script>
+document.getElementById('footContact').onclick=function(e){e.preventDefault();document.querySelector('[data-t=about]').click();setTimeout(function(){document.getElementById('contactCard').scrollIntoView({behavior:'smooth',block:'center'})},60)};
+</script>
 </body></html>
+                                                                                                                                                   

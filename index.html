@@ -13,7 +13,211 @@
 <meta name="twitter:title" content="The Technique of Letting Go">
 <meta name="twitter:description" content="A free, gentle path of surrender — with Charles, a kind AI companion.">
 <title>The Technique of Letting Go</title>
-<link rel="stylesheet" href="styles.css">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f8fbfc;--card:#f0f6f8;--ink:#2b3a42;--mute:#65777f;--acc:#4a7d8a;--acc2:#4a7d8a;--line:#dae7ec;--glow1:rgba(160,205,228,.34);--glow2:rgba(190,182,228,.20)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141a20;--card:#1b232b;--ink:#e6edf0;--mute:#93a5ad;--acc:#6fa3b0;--acc2:#6fa3b0;--line:#29343d;--glow1:rgba(90,150,180,.22);--glow2:rgba(140,125,200,.14)}}
+:root[data-theme="dark"]{--bg:#141a20;--card:#1b232b;--ink:#e6edf0;--mute:#93a5ad;--acc:#6fa3b0;--acc2:#6fa3b0;--line:#29343d;--glow1:rgba(90,150,180,.22);--glow2:rgba(140,125,200,.14)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 Georgia,'Times New Roman',serif}
+main{max-width:640px;margin:0 auto;padding:20px 16px 40px}
+h1{font-size:30px;margin:8px 0 4px;letter-spacing:-.5px}
+h2{font-size:20px;margin:28px 0 10px}
+p{margin:0 0 10px}.sub{color:var(--mute);font-family:system-ui,sans-serif;font-size:15px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;margin-bottom:12px}
+button{font:600 15px system-ui,sans-serif;border:0;border-radius:999px;padding:10px 16px;background:var(--acc);color:#fff;cursor:pointer}
+button.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.tabs{display:flex;gap:6px;margin:16px 0;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);padding:6px 0;z-index:2}
+.tabs button{flex:1;background:transparent;color:var(--mute);border:1px solid var(--line)}
+.tabs button{padding:9px 2px;font-size:13px}.tabs button.on{background:var(--acc2);color:#fff;border-color:var(--acc2)}
+.view{display:none}.view.on{display:block}
+.er{animation:erc 12.7s infinite}.ea{opacity:0;animation:eac 12.7s infinite}
+@keyframes erc{0%,58%{opacity:1}59%,69%{opacity:0}70%,100%{opacity:1}}
+@keyframes eac{0%,58%{opacity:0}59%,69%{opacity:1}70%,100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.er,.ea{animation:none}}
+.blobeye{animation:blobblink 4.6s infinite}
+@keyframes blobblink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.08)}}
+.d-body{transform:translate(calc(var(--nx,0)*2px),calc(var(--ny,0)*1.5px))}
+.talk .antglow{animation:antp .45s ease-in-out infinite alternate}
+@keyframes antp{from{opacity:.25;transform:scale(.8)}to{opacity:.9;transform:scale(1.5)}}
+.d-gloss{transform:translate(calc(var(--nx,0)*-4px),calc(var(--ny,0)*-3px))}
+.d-face{transform:translate(calc(var(--nx,0)*8px),calc(var(--ny,0)*6px))}
+@media (prefers-reduced-motion:reduce){.blobeye{animation:none}}
+#av{display:block;margin:0 auto;width:140px;height:140px}
+.orb{transform-origin:100px 100px;animation:br 6s ease-in-out infinite}
+@keyframes br{50%{transform:scale(1.05)}}
+.glow{transform-box:fill-box;transform-origin:center;animation:gp 6s ease-in-out infinite}
+@keyframes gp{0%,100%{opacity:.4;transform:scale(1)}50%{opacity:.9;transform:scale(1.18)}}
+.eye{transform-origin:center;transform-box:fill-box;animation:bl 5s infinite}
+@keyframes bl{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.55)}}
+.talk #mouth{animation:tk .3s infinite alternate}
+@keyframes tk{to{transform:scaleY(2.2)}}
+#mouth{transform-origin:center;transform-box:fill-box;opacity:0}#smile{transition:opacity .1s}.talk #mouth{opacity:1}.talk #smile{opacity:0}
+.log{max-height:44vh;overflow-y:auto;font-family:system-ui,sans-serif;font-size:15px}
+@media (max-width:640px){.log{max-height:60vh}}
+.m{padding:9px 13px;border-radius:16px;margin:6px 0;max-width:88%}
+.m.c{background:var(--line)}.m.u{background:var(--acc2);color:#fff;margin-left:auto}
+.row{display:flex;gap:8px}
+input{flex:1;font:17px system-ui,sans-serif;padding:18px 20px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--ink);min-width:0}
+.sos{font:13px system-ui,sans-serif;color:var(--mute);border-top:1px solid var(--line);margin-top:30px;padding-top:14px}
+details summary{font-weight:bold;cursor:pointer}
+main{padding:28px 20px 60px}
+h1{font-size:34px;font-weight:400;line-height:1.15;margin:10px 0 8px}
+h2{font-weight:400}
+.card{border-radius:24px;padding:22px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.tabs{gap:4px;padding:8px 0;border-bottom:1px solid var(--line);margin:22px 0 20px}
+.tabs button{border:0;border-radius:12px;background:transparent}
+.tabs button.on{background:var(--line);color:var(--ink)}
+.m.c{background:var(--bg)}
+#stage{margin:0 auto 6px;max-width:320px}
+#vid{display:none;width:100%;border-radius:20px;background:#000;aspect-ratio:3/4;object-fit:cover}
+.clips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:8px 0}
+.steps{padding-left:20px}.steps li{margin-bottom:10px}
+.hi{vertical-align:-6px}
+body{background:radial-gradient(900px 420px at 50% -80px,var(--glow1),transparent 70%),radial-gradient(700px 400px at 100% 100%,var(--glow2),transparent 70%),var(--bg);background-attachment:fixed}
+.card{background:var(--card)}
+.pill{font:13px system-ui,sans-serif;color:var(--mute);border:1px solid var(--line);border-radius:999px;padding:4px 12px}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 6px}
+.cta button{padding:13px 22px;font-size:16px}
+.sec{font:600 12px system-ui,sans-serif;letter-spacing:1.6px;text-transform:uppercase;color:var(--mute);margin:44px 0 12px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.grid3 .card{margin:0}.num{font:600 13px system-ui,sans-serif;color:var(--acc);margin-bottom:6px}
+.faq details{border-bottom:1px solid var(--line);padding:12px 0}.faq p{margin:8px 0 0}
+.dots{display:inline-flex;gap:3px;margin-left:3px;vertical-align:middle}
+.dots i{width:5px;height:5px;border-radius:50%;background:var(--mute);opacity:.25;animation:dt 1.5s infinite}
+.dots i:nth-child(2){animation-delay:.25s}.dots i:nth-child(3){animation-delay:.5s}
+@keyframes dt{0%,60%,100%{opacity:.25;transform:translateY(0)}20%{opacity:1;transform:translateY(-2px)}}
+.lt.fade{animation:fd .8s ease}@keyframes fd{from{opacity:0}to{opacity:1}}
+.tabs{overflow-x:auto;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}.tabs button{flex:1 0 auto;padding:9px 10px}
+#worb{position:relative;display:block;width:150px;height:150px;margin:16px auto;border:0;padding:0;background:none;border-radius:50%;cursor:default;transform:scale(var(--s,.7));transition:transform 1.4s ease;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;touch-action:none}
+#worb:not(:disabled){cursor:pointer}
+#worb i{position:absolute;inset:0;border-radius:50%;transition:opacity 1.4s}
+#worb .hot{background:radial-gradient(circle at 35% 30%,#f3b7a3,#c9583f);box-shadow:0 0 40px 8px rgba(201,88,63,.35)}
+#worb .cm{background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.6),var(--acc));box-shadow:0 0 44px 10px rgba(111,163,176,.4);opacity:0}
+#wtxt{min-height:150px;font-size:18px;line-height:1.5;padding:0 4px}
+#kBox textarea{width:100%;font:16px system-ui,sans-serif;padding:14px 16px;border-radius:16px;border:1px solid var(--line);background:var(--bg);color:var(--ink);resize:vertical;min-height:90px;box-sizing:border-box}
+.bwWrap{display:flex;justify-content:center;padding:4px 0 2px}
+.bwCap{font-size:12px;color:var(--mute);text-align:center;margin-top:6px}
+.bwBreathe{animation:bwBreathe 5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes bwBreathe{0%,100%{transform:scale(1)}50%{transform:scale(1.035)}}
+.bwStop1{animation:bwColA 11s ease-in-out infinite}
+.bwStop2{animation:bwColB 13s ease-in-out infinite}
+.bwStop3{animation:bwColC 9s ease-in-out infinite}
+@keyframes bwColA{0%,100%{stop-color:#b4322a}50%{stop-color:#2a6fb4}}
+@keyframes bwColB{0%,100%{stop-color:#7a3a6a}50%{stop-color:#3aa0a8}}
+@keyframes bwColC{0%,100%{stop-color:#2a6fb4}50%{stop-color:#b4322a}}
+#kCount{text-align:right;font-size:12px;color:var(--mute);margin:4px 2px}
+.kquote{font-size:19px;line-height:1.5;padding:14px 2px;text-align:center}
+.kdots{display:inline-flex;gap:4px;justify-content:center;width:100%;padding:20px 0}
+.kdots i{width:6px;height:6px;border-radius:50%;background:var(--mute);opacity:.3;animation:dt 1.4s infinite}
+.kdots i:nth-child(2){animation-delay:.2s}.kdots i:nth-child(3){animation-delay:.4s}
+#kMatch.show{animation:kPop .5s ease-out}
+@keyframes kPop{0%{opacity:0;transform:scale(.92) translateY(6px)}100%{opacity:1;transform:scale(1) translateY(0)}}
+.tabs{position:-webkit-sticky;position:sticky;top:0;z-index:50;background:var(--bg);padding-top:calc(8px + env(safe-area-inset-top,0px));box-shadow:0 8px 12px -10px rgba(0,0,0,.22)}
+#kSend:disabled{background:#bfcdd3;color:#fff;opacity:.7;cursor:not-allowed}#kText:disabled{opacity:.6}
+
+/* Charles stays compact after replying; tapping him expands and changes his expression. */
+#av{
+  transition:width .7s cubic-bezier(.34,1.6,.54,1),height .7s cubic-bezier(.34,1.6,.54,1),margin .55s ease,opacity .4s ease,filter .25s ease;
+  transform-origin:center top;cursor:pointer;
+  width:var(--av-w,72px);height:var(--av-h,72px);
+  max-width:min(92vw,520px);max-height:min(92vw,520px);
+  touch-action:none;-webkit-user-select:none;user-select:none;
+  z-index:5;
+}
+#av.mega{
+  z-index:40;
+  filter:drop-shadow(0 12px 28px rgba(0,0,0,.2));
+}
+#av.mega-pop{animation:megaPop .55s cubic-bezier(.34,1.7,.54,1)}
+@keyframes megaPop{
+  0%{transform:scale(.85)}
+  50%{transform:scale(1.08)}
+  100%{transform:scale(1)}
+}
+#avc.talk #av,#avc.compact #av{width:112px;height:112px;margin:0 auto 4px}
+/* Expression layers crossfade */
+#av .expr{opacity:0;transition:opacity .38s ease;pointer-events:none}
+#av .expr.on{opacity:1}
+#av .expr-base{opacity:1}
+#av.expr-happy .expr-base,#av.expr-grin .expr-base,#av.expr-shy .expr-base,#av.expr-sparkle .expr-base{opacity:0}
+#av.expr-happy .expr-happy{opacity:1}
+#av.expr-grin .expr-grin{opacity:1}
+#av.expr-shy .expr-shy{opacity:1}
+#av.expr-sparkle .expr-sparkle{opacity:1}
+#av.face-pop{animation:facePop .42s cubic-bezier(.34,1.4,.64,1)}
+@keyframes facePop{0%{transform:scale(.96)}45%{transform:scale(1.07)}100%{transform:scale(1)}}
+/* Hold feedback */
+#av.holding{filter:brightness(1.06);transition:filter .2s ease,width .55s cubic-bezier(.34,1.2,.64,1),height .55s cubic-bezier(.34,1.2,.64,1)}
+#avSizeHint{
+  text-align:center;font:12px system-ui,sans-serif;color:var(--mute);
+  margin:0 0 6px;min-height:1.2em;opacity:0;transition:opacity .3s;
+}
+#avSizeHint.show{opacity:1}
+
+
+
+/* Focus visible for keyboard users */
+button:focus-visible,input:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{
+  outline:2px solid var(--acc);outline-offset:2px;
+}
+button:focus:not(:focus-visible),input:focus:not(:focus-visible){outline:none}
+/* Theme toggle — only visible at the very top of the page */
+#themeBtn{
+  position:fixed;top:calc(10px + env(safe-area-inset-top,0px));right:12px;z-index:9999;
+  width:40px;height:40px;border-radius:50%;padding:0;font-size:18px;line-height:1;
+  background:var(--card);color:var(--ink);border:1px solid var(--line);
+  box-shadow:0 1px 4px rgba(0,0,0,.06);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  opacity:1;pointer-events:auto;transition:opacity .25s ease,visibility .25s ease;
+}
+#themeBtn.theme-hidden{
+  opacity:0;visibility:hidden;pointer-events:none;
+}
+#themeBtn:hover{background:var(--line)}
+/* Charles colour tints (stored in localStorage) */
+#av.tint-gold{filter:hue-rotate(28deg) saturate(1.2) brightness(1.02)}
+#av.tint-rose{filter:hue-rotate(-18deg) saturate(1.25) brightness(1.03)}
+#av.tint-green{filter:hue-rotate(95deg) saturate(1.05) brightness(1.02)}
+#av.tint-purple{filter:hue-rotate(-55deg) saturate(1.15) brightness(1.02)}
+#av.tint-silver{filter:saturate(0.15) brightness(1.08) contrast(1.05)}
+#av.tint-sky{filter:hue-rotate(160deg) saturate(1.1) brightness(1.03)}
+#tintRow{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:6px 0 4px}
+#tintRow button{
+  width:28px;height:28px;border-radius:50%;border:2px solid var(--line);
+  padding:0;cursor:pointer;background:var(--card);
+  box-shadow:inset 0 0 0 2px rgba(255,255,255,.35);
+}
+#tintRow button.on{border-color:var(--acc);box-shadow:0 0 0 2px var(--acc)}
+#tintRow button[data-tint=""]{background:radial-gradient(circle at 35% 30%,#e8edf5,#9aa6bb)}
+#tintRow button[data-tint="gold"]{background:radial-gradient(circle at 35% 30%,#ffe9a8,#d4a017)}
+#tintRow button[data-tint="rose"]{background:radial-gradient(circle at 35% 30%,#ffd0da,#e06b8a)}
+#tintRow button[data-tint="green"]{background:radial-gradient(circle at 35% 30%,#c8f0d8,#3d9b6e)}
+#tintRow button[data-tint="purple"]{background:radial-gradient(circle at 35% 30%,#e0d0ff,#7a5fb0)}
+#tintRow button[data-tint="silver"]{background:radial-gradient(circle at 35% 30%,#f2f2f2,#9a9a9a)}
+#tintRow button[data-tint="sky"]{background:radial-gradient(circle at 35% 30%,#c8ecff,#3a8bb8)}
+
+/* Starter prompt chips */
+#chips button{
+  background:transparent;color:var(--ink);border:1px solid var(--line);
+  font:500 13px system-ui,sans-serif;padding:8px 14px;border-radius:999px;
+}
+#chips button:hover{border-color:var(--acc);color:var(--acc)}
+/* Slightly richer empty-state for App tab */
+.get-list{text-align:left;margin:14px auto 0;max-width:320px;padding:0;list-style:none}
+.get-list li{padding:8px 0;border-bottom:1px solid var(--line);font:15px system-ui,sans-serif;color:var(--mute)}
+.get-list li:last-child{border-bottom:0}
+.get-list li b{color:var(--ink);font-weight:600}
+
+.tabs{padding-right:56px}.view{scroll-margin-top:72px}#avc{scroll-margin-top:72px}
+.clips:empty,#avSizeHint:empty{display:none}
+.log{margin-top:8px;padding-top:14px;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 14px);mask-image:linear-gradient(to bottom,transparent 0,#000 14px)}
+#chips{max-height:320px;overflow:hidden;transition:opacity .4s ease,max-height .5s ease,margin .5s ease}
+#chips.gone{opacity:0;max-height:0;margin-top:0;margin-bottom:0;pointer-events:none}
+@media(prefers-reduced-motion:reduce){#chips{transition:none}}
+
+</style>
 </head><body>
 <button id="themeBtn" type="button" aria-label="Toggle light and dark theme" title="Theme">☾</button>
 
@@ -527,5 +731,460 @@
 </div>
 </main>
 
-<script src="app.js" defer></script>
+<script>
+const $=id=>document.getElementById(id);
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{
+ document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('on',x===b));
+ document.querySelectorAll('.view').forEach(v=>v.classList.toggle('on',v.id===b.dataset.t));});
+const API_URL="https://16f0d442-b702-4a52-96b8-d52556a14575.search.ai.cloudflare.com/chat/completions";
+const CRISIS_RE=/suicid|kill(ing)? (myself|my self)|end(ing)? (it all|my life)|hurt(ing)? myself|self.?harm|cut(ting)? myself|don'?t want to (live|be here|be alive|exist)|want to die|wanna die|better off (dead|without me)|no (reason|point) (to|in) (live|living|going on)|take my own life/i;
+function crisisLine(){
+ let r='';try{r=((navigator.language||'').split('-')[1]||'').toUpperCase()}catch(e){}
+ let tz='';try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch(e){}
+ if(!r){if(/Dublin/.test(tz))r='IE';else if(/London/.test(tz))r='GB';else if(/Sydney|Melbourne|Brisbane|Perth|Adelaide|Hobart/.test(tz))r='AU';else if(/Auckland/.test(tz))r='NZ';else if(/Kolkata|Calcutta/.test(tz))r='IN';else if(/Bangkok/.test(tz))r='TH';else if(/Toronto|Vancouver|Edmonton|Winnipeg|Halifax/.test(tz))r='CA';else if(/^America\//.test(tz))r='US'}
+ if(/Dublin/.test(tz))r='IE';
+ const L={IE:"call Pieta on 1800 247 247 or Samaritans on 116 123 (both free), or 112 or 999 if you are in danger",GB:"call Samaritans on 116 123, or 999 if you are in danger",US:"call or text 988, or call 911 if you are in danger",CA:"call or text 988, or call 911 if you are in danger",AU:"call Lifeline on 13 11 14, or 000 if you are in danger",NZ:"call or text 1737, or call 111 if you are in danger",IN:"call Tele-MANAS on 14416",TH:"call 1323 (the Department of Mental Health hotline), or 1669 for emergencies"};
+ return L[r]||"contact your local emergency number, or find a helpline for your country at findahelpline.com";
+}
+function crisisMsg(){return "I'm really glad you told me. Your safety matters most. Please "+crisisLine()+" right now, or reach someone you trust to be with you. I'm here, but you deserve live human support."}
+const HIST=[];
+const HKEY='fftHistory';
+function saveHist(){try{localStorage.setItem(HKEY,JSON.stringify(HIST.slice(-40)))}catch(e){}}
+function loadHist(){try{const raw=localStorage.getItem(HKEY);if(!raw)return;
+ const saved=JSON.parse(raw);if(!Array.isArray(saved))return;
+ saved.forEach(m=>{if(m&&m.content){add(m.content,m.role==='user'?'u':'c');HIST.push(m)}})
+}catch(e){}}
+const log=$('log');let typeTimer;
+function add(x,c){const d=document.createElement('div');d.className='m '+c;d.textContent=x;log.appendChild(d);log.scrollTop=log.scrollHeight;return d}
+function say(x){const d=add('','c');$('avc').classList.add('talk','compact');let i=0;clearInterval(typeTimer);
+ const step=Math.max(1,Math.ceil(x.length/50));
+ typeTimer=setInterval(()=>{i+=step;d.textContent=x.slice(0,i);log.scrollTop=log.scrollHeight;if(i>=x.length){d.textContent=x;clearInterval(typeTimer);$('avc').classList.remove('talk')}},16)}
+const LOADING_MSGS=["Contemplating","Reflecting","Considering your highest happiness","Sitting with your words","Breathing this in","Finding the gentlest answer"];
+let loadTimer;
+const FAIL_MSG="I'm having trouble connecting right now. Please try again in a moment. If you're in crisis, please contact your local emergency number or a crisis line (findahelpline.com).";
+let busy=false;
+async function sendMessage(x){
+ x=x.trim();if(!x||busy)return;busy=true;
+ add(x,'u');$('in').value='';
+ if(CRISIS_RE.test(x)){busy=false;const cm=crisisMsg();say(cm);HIST.push({role:'user',content:x},{role:'assistant',content:cm});saveHist();return}
+ HIST.push({role:'user',content:x});saveHist();
+ /* waiting bubble: slow-changing text + dots that pulse one by one */
+ const d=add('','c');d.innerHTML='<span class="lt"></span><span class="dots"><i></i><i></i><i></i></span>';
+ const lt=d.firstChild;lt.textContent=LOADING_MSGS[0];
+ let li=0;clearInterval(loadTimer);
+ loadTimer=setInterval(()=>{li=(li+1)%LOADING_MSGS.length;lt.classList.remove('fade');void lt.offsetWidth;lt.textContent=LOADING_MSGS[li];lt.classList.add('fade')},5000);
+ let out='',bubble=null;
+ let node=null,queue='',raf=0,waitRes=null;
+ const show=()=>{if(!bubble){clearInterval(loadTimer);d.remove();bubble=add('','c');node=document.createTextNode('');bubble.appendChild(node);$('avc').classList.add('talk')}};
+ /* smooth reveal: incoming text is queued and shown at a steady pace, speeding up only when far behind */
+ const tick=()=>{raf=0;
+  if(!queue){if(waitRes){const r=waitRes;waitRes=null;r()}return}
+  const n=Math.max(1,Math.ceil(queue.length/40));
+  const near=log.scrollHeight-log.scrollTop-log.clientHeight<140;
+  node.data+=queue.slice(0,n);queue=queue.slice(n);
+  if(near)log.scrollTop=log.scrollHeight;
+  raf=requestAnimationFrame(tick)};
+ const put=t=>{out+=t;queue+=t;if(!raf)raf=requestAnimationFrame(tick)};
+ const drained=()=>queue?new Promise(r=>{waitRes=r}):Promise.resolve();
+ const flushNow=()=>{if(node&&queue){node.data+=queue;queue=''}if(raf){cancelAnimationFrame(raf);raf=0}if(waitRes){const r=waitRes;waitRes=null;r()}};
+ try{
+  const r=await fetch(API_URL,{method:'POST',headers:{'Content-Type':'application/json','cf-ai-search-source':'snippet-chat-completions'},body:JSON.stringify({messages:HIST.slice(-12),stream:true})});
+  if(!r.ok)throw new Error('http '+r.status);
+  const ct=r.headers.get('content-type')||'';
+  if(r.body&&/event-stream/i.test(ct)){
+   /* streaming: words appear the moment they arrive */
+   const rd=r.body.getReader(),dec=new TextDecoder();let buf='';
+   for(;;){
+    const {done,value}=await rd.read();if(done)break;
+    buf+=dec.decode(value,{stream:true});
+    let nl;
+    while((nl=buf.indexOf('\n'))>=0){
+     const line=buf.slice(0,nl).trim();buf=buf.slice(nl+1);
+     if(!line.startsWith('data:'))continue;
+     const pl=line.slice(5).trim();if(!pl||pl==='[DONE]')continue;
+     try{const j=JSON.parse(pl);const c=j.choices&&j.choices[0];
+      const t=c&&((c.delta&&c.delta.content)||(c.message&&c.message.content));
+      if(t){show();put(t)}}catch(_){}
+    }
+   }
+  }else{
+   /* server answered in one piece: show it immediately, no typing delay */
+   const j=await r.json();
+   const t=j.choices&&j.choices[0]&&j.choices[0].message&&j.choices[0].message.content;
+   if(t){show();put(t)}
+  }
+  if(!out){show();put("I'm here, but I couldn't find a good answer just now. Could you tell me a little more?")}
+  await drained();
+  HIST.push({role:'assistant',content:out});saveHist();
+ }catch(e){
+  console.error("Charles chat failed:",e);
+  flushNow();
+  if(out){HIST.push({role:'assistant',content:out})}
+  else{show();put(FAIL_MSG);HIST.push({role:'assistant',content:FAIL_MSG})}
+  saveHist();
+ }finally{
+  busy=false;clearInterval(loadTimer);if(!bubble)d.remove();$('avc').classList.remove('talk');
+ }
+}
+$('send').onclick=()=>sendMessage($('in').value);
+loadHist();
+function memHTML(msg){return (msg?msg+' ':'')+'Charles has memory enabled, so he can remember your past conversations. You can <button id="fget" style="font:inherit;font-weight:600;color:var(--acc);background:none;border:0;padding:0;text-decoration:underline;cursor:pointer">forget this conversation</button>.'}
+function wireForget(){$('fget').onclick=askForget}
+function askForget(){
+ const note=$('memNote');
+ note.innerHTML='Are you sure you want to delete your conversation history? <button id="fgYes" style="font:inherit;font-weight:600;color:var(--acc);background:none;border:0;padding:0 4px;text-decoration:underline;cursor:pointer">Yes</button> <button id="fgNo" style="font:inherit;font-weight:600;color:var(--mute);background:none;border:0;padding:0 4px;text-decoration:underline;cursor:pointer">No</button>';
+ $('fgYes').onclick=()=>{try{localStorage.removeItem(HKEY)}catch(e){}HIST.length=0;log.innerHTML='';note.innerHTML=memHTML('Conversation forgotten.');wireForget()};
+ $('fgNo').onclick=()=>{note.innerHTML=memHTML();wireForget()};
+}
+wireForget();
+document.querySelectorAll('[data-go]').forEach(el=>el.onclick=e=>{e.preventDefault();document.querySelector('[data-t='+el.dataset.go+']').click();window.scrollTo({top:0,behavior:'smooth'})});
+
+/* ---- Kindness tab: a shared, anonymous message pool (Supabase) ---- */
+const SUPABASE_URL = "https://xxgbafhulhivlalqpixk.supabase.co";
+const SUPABASE_KEY = "sb_publishable_xJoc51uMYdK6MlJsTOzaPA_hnc11WCh";
+(function(){
+const sb = (window.supabase && window.supabase.createClient) ? window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY) : null;
+const BAD=/\b(fuck\w*|shit\w*|bitch\w*|asshole\w*|cunt\w*|nigg\w*|fag+(ot|s)?|retard\w*|slut\w*|whore\w*|bastard\w*|dickhead\w*|kys|kill yourself|go die|hope you die|you should die|drop dead|piss off)\b/i;
+const URLRE=/https?:\/\/\S+|www\.\S+/i;
+
+const BAN_KEY='kindBanUntil',BAN_MS=72*60*60*1000;
+function banUntil(){try{return parseInt(localStorage.getItem(BAN_KEY)||'0',10)||0}catch(e){return 0}}
+function banActive(){return banUntil()>Date.now()}
+function normText(t){return t.toLowerCase().replace(/@/g,'a').replace(/\$/g,'s').replace(/0/g,'o').replace(/[1!|]/g,'i').replace(/3/g,'e').replace(/4/g,'a').replace(/5/g,'s').replace(/7/g,'t')}
+function applyBan(){
+ const on=banActive();
+ $('kSend').disabled=on;$('kText').disabled=on;
+ if(on){const h=Math.ceil((banUntil()-Date.now())/3600000);
+  $('kBan').textContent='Sending is paused for '+h+' more hour'+(h===1?'':'s')+' (72 hour pause).';$('kBan').style.display='block'}
+ else{$('kBan').style.display='none';$('kBan').textContent=''}
+}
+['kStart','kAgain'].forEach(id=>{const el=$(id);if(el)el.addEventListener('click',()=>setTimeout(applyBan,0))});
+let seen=[];try{const sv=JSON.parse(localStorage.getItem('kindSeen')||'[]');if(Array.isArray(sv))seen=sv}catch(e){}
+const FALLBACK=["May you find peace in this exact moment.","You are stronger than the things holding you back.","It's completely okay to rest when things feel heavy.","Your present struggle does not diminish your worth.","Sending you calm, light, and warmth wherever you are today.","Whatever today has been, you made it this far.","You don't have to have it figured out yet.","Someone out there is pulling for you, even as a stranger.","This moment is hard, and it will move.","Be as kind to yourself as you would be to a friend."];
+const PROMPTS=["You are not alone in this…","Something you wish someone had told you…","A word of encouragement for a hard day…","What would you say to a friend who's struggling?","Something true about getting through tough times…"];
+let sendCount=0;try{sendCount=parseInt(localStorage.getItem('kindSentCount')||'0',10)||0}catch(e){}
+let promptI=0,promptT;
+function myTravelerNum(){let t=null;try{t=localStorage.getItem('kindMyId')}catch(e){}
+ if(!t){t=String(Math.floor(1000+Math.random()*9000));try{localStorage.setItem('kindMyId',t)}catch(e){}}
+ return t}
+
+if(!sb){$('kSetup').innerHTML='⚙ This tab could not connect. Please check your connection and reload.';$('kSetup').style.display='block'}
+
+function cyclePrompt(){if(document.activeElement===$('kText')||$('kText').value)return;promptI=(promptI+1)%PROMPTS.length;$('kText').placeholder=PROMPTS[promptI]}
+$('kStart').onclick=()=>{$('kIntro').style.display='none';$('kBox').style.display='block';$('kMyNum').textContent='Traveler #'+myTravelerNum();clearInterval(promptT);promptT=setInterval(cyclePrompt,4000)};
+$('kCancel').onclick=()=>{$('kBox').style.display='none';$('kIntro').style.display='block';$('kText').value='';$('kErr').textContent='';kCountUp();clearInterval(promptT)};
+function kCountUp(){$('kCount').textContent=$('kText').value.length+' / 220'}
+$('kText').addEventListener('input',kCountUp);
+
+$('kHeart').onclick=()=>{$('kHeart').style.display='none';$('kThanks').style.display='block'};
+
+$('kSend').onclick=async()=>{
+ if(banActive()){applyBan();return}
+ const raw=$('kText').value.trim();
+ $('kErr').textContent='';
+ if(!sb){$('kErr').textContent="This tab isn't connected right now.";return}
+ if(raw.length<3){$('kErr').textContent='A few more words would help.';return}
+ if(CRISIS_RE.test(raw)){$('kErr').textContent="It sounds like you're going through something heavy right now. Please talk to Charles or contact a crisis line (findahelpline.com) instead of posting here — you deserve real support.";return}
+ if(BAD.test(raw)||BAD.test(normText(raw))){try{localStorage.setItem(BAN_KEY,String(Date.now()+BAN_MS))}catch(e){}$('kText').value='';kCountUp();applyBan();$('kErr').textContent='The darkness will fade following the path of goodness.';return}
+ if(URLRE.test(raw)){$('kErr').textContent='Please leave out links.';return}
+ $('kSend').disabled=true;$('kSend').textContent='Sending…';
+ clearInterval(promptT);
+ $('kBox').style.display='none';$('kWait').style.display='block';
+ $('kWaitTxt').textContent=["Sending your kindness into the world","Looking for a fellow traveler","Almost there"][Math.floor(Math.random()*3)];
+
+ let match=null, usedFallback=false, matchFrom='';
+ try{
+  const {data:mine,error:insErr}=await sb.from('kindness_messages').insert({message:raw,sender_tag:'Traveler #'+myTravelerNum()}).select().single();
+  if(insErr) throw insErr;
+  const {data:candidates,error:selErr}=await sb.from('kindness_messages').select('id,message,sender_tag').neq('id',mine.id).order('created_at',{ascending:true}).limit(50);
+  if(selErr) throw selErr;
+  const fresh=(candidates||[]).filter(m=>!seen.includes(m.id));
+  if(fresh.length){
+   const pick=fresh[Math.floor(Math.random()*fresh.length)];
+   match=pick.message;
+   matchFrom=pick.sender_tag||'a fellow traveler';
+   await sb.from('kindness_messages').delete().eq('id',pick.id); // deliver once, then remove
+   seen.push(pick.id);try{localStorage.setItem('kindSeen',JSON.stringify(seen.slice(-100)))}catch(e){}
+  }
+ }catch(e){
+  match=FALLBACK[Math.floor(Math.random()*FALLBACK.length)];
+  usedFallback=true;
+ }
+
+ sendCount++;try{localStorage.setItem('kindSentCount',String(sendCount))}catch(e){}
+ $('kText').value='';kCountUp();
+ $('kSend').disabled=false;$('kSend').textContent='Send it into the world';
+ setTimeout(()=>{
+  $('kWait').style.display='none';
+  $('kHeart').style.display='inline-block';$('kThanks').style.display='none';
+  $('kMatch').style.display='block';$('kMatch').classList.remove('show');void $('kMatch').offsetWidth;$('kMatch').classList.add('show');
+  if(match){$('kMatchLabel').textContent=usedFallback?'A gentle word for you':'A fellow traveler sent you this';$('kMatchText').textContent='“'+match+'”';$('kMatchFrom').textContent=usedFallback?'':'— '+matchFrom}
+  else{$('kMatchLabel').textContent='';$('kMatchText').textContent="You're the first one here right now. Your message is waiting — come back later to see if a fellow traveler has replied with kindness of their own.";$('kMatchFrom').textContent=''}
+  $('kCountLine').textContent=sendCount===1?"You've shared kindness here once.":"You've shared kindness here "+sendCount+" times.";
+ },900);
+};
+$('kAgain').onclick=()=>{$('kMatch').style.display='none';$('kIntro').style.display='none';$('kBox').style.display='block';$('kMyNum').textContent='Traveler #'+myTravelerNum();clearInterval(promptT);promptT=setInterval(cyclePrompt,4000)};
+$('kDone').onclick=()=>{$('kMatch').style.display='none';$('kIntro').style.display='block'};
+})();
+
+$('in').onkeydown=e=>{if(e.key==='Enter'&&!e.isComposing)sendMessage($('in').value)};
+if(!HIST.length)say("Hi, I'm here to support you as you relax, at your own pace. This is a safe, unhurried space. Would you like me to guide you, or would you rather tell me how you're feeling?");
+
+const PATREON_URL="";/* paste your Patreon page link here */
+const DONATE_URL="https://paypal.me/freedomfromtraumaapp";
+let amt=10;
+if($('amts')){
+[5,10,25,50].forEach(a=>{const b=document.createElement('button');b.className='ghost';b.textContent='$'+a;b.dataset.a=a;b.onclick=()=>{amt=a;document.querySelectorAll('#amts button').forEach(x=>x.style.outline=x===b?'2px solid var(--acc)':'')};if(a===amt)b.style.outline='2px solid var(--acc)';$('amts').appendChild(b)});
+}
+if($('dgo')){
+$('dgo').onclick=()=>{if(!DONATE_URL){if($('dmsg'))$('dmsg').textContent='Donations open soon. Thank you for your kindness 💛';return}
+ const custom=parseFloat(($('customAmt')||{}).value);const amount=Number.isFinite(custom)&&custom>0?custom:amt;let u=DONATE_URL;if(/paypal\.me/i.test(u))u=u.replace(/\/$/,'')+'/'+amount.toFixed(2);window.open(u,'_blank','noopener')};
+}
+
+const CLIPS=[/* add practice videos, e.g. {t:"Welcome",u:"videos/welcome.mp4"},{t:"Calming breath",u:"videos/breath.mp4"} */];
+const showAv=()=>{$('vid').style.display='none';$('av').style.display='block'};
+CLIPS.forEach(c=>{const b=document.createElement('button');b.className='ghost';b.textContent='\u25B6 '+c.t;b.onclick=()=>{const v=$('vid');v.src=c.u;v.style.display='block';$('av').style.display='none';v.play().catch(()=>{})};$('clips').appendChild(b)});
+$('vid').onerror=showAv;$('vid').onended=showAv;
+$('c1').onclick=()=>{document.querySelector('[data-t=get]').click();$('get').scrollIntoView({behavior:'smooth'})};
+
+$('pandaGo').onclick=()=>{document.querySelector('[data-t=coach]').click();$('coach').scrollIntoView({behavior:'smooth'})};
+
+/* Wave game disabled */
+if(false){(function(){
+const orb=$("worb"),hot=orb.querySelector(".hot"),cm=orb.querySelector(".cm"),txt=$("wtxt"),btns=$("wbtns"),meta=$("wmeta"),bar=$("wbar"),fill=bar.firstElementChild;
+const W=[
+ {t:"A message arrives: “You always do this.”",h:"Fire back and defend myself",r:"You struck back. It felt strong for a moment, then the heat returned, with guilt on top.",w:"When struck, do not strike back. Stillness is stronger than any reply."},
+ {t:"The evening is quiet. No one has written.",h:"Scroll to numb it",r:"The scrolling dulled it for a while, but the loneliness was waiting when the screen went dark.",w:"Whatever arises passes away. Nothing needs to be held on to."},
+ {t:"An old memory returns, uninvited.",h:"Replay it and blame myself",r:"You replayed it again and again. The pain did not shrink. It multiplied.",w:"Forgive, and you set yourself free as well as them."}
+];
+const WANTS=[["To be approved of","approval"],["To be in control","control"],["To feel secure","security"]];
+let r=0,loops=0,freed=0,hold=0,hT=null,step="";
+function orbSet(s,c){orb.style.setProperty("--s",s);hot.style.opacity=1-c;cm.style.opacity=c}
+function show(html,arr){txt.innerHTML=html;btns.innerHTML="";(arr||[]).forEach(a=>{const b=document.createElement("button");b.textContent=a[0];b.onclick=a[1];if(a[2])b.className="ghost";btns.appendChild(b)})}
+function info(){meta.textContent="Wave "+Math.min(r+1,3)+" of 3 · Waves let go: "+freed+" · Old habit followed: "+loops}
+function start(){step="trig";bar.style.display="none";orb.disabled=true;orbSet(.7,0);info();const w=W[r];
+ show("<b>"+w.t+"</b><br><span class=\"sub\">A wave is rising in you. What do you do?</span>",[["Follow the habit: "+w.h,habit,true],["Turn toward it",notice]])}
+function habit(){loops++;orbSet(1.2,0);info();
+ show("<b>You followed the old habit.</b><br>"+W[r].r+"<br><span class=\"sub\">The wave grew. The habit is a loop: trigger, feeling, reaction, brief relief, and a stronger return.</span>",[["Turn toward it instead",notice]])}
+function notice(){step="name";orbSet(1,0);
+ show("<b>1 · Notice</b><br>Pain is one arrow. Fighting it is a second arrow. Just name what is here.",["Anger","Hurt","Fear","Shame"].map(e=>[e,()=>feel(e),true]))}
+function feel(e){step="feel";hold=0;bar.style.display="";orb.disabled=false;
+ show("<b>2 · Feel</b><br>“This is "+e.toLowerCase()+".” Feel it in the body without fixing, blaming or acting. <b>Press and hold the orb</b> while you breathe out slowly.<br><span class=\"sub\" id=\"wcue\"></span>",[]);setBar()}
+function setBar(){fill.style.width=hold+"%";orbSet(1-hold*.0025,hold/100);const c=$("wcue");
+ if(c)c.textContent=hold<30?"Where is it in your body? Chest, throat, stomach…":hold<65?"Do not push it away. Let it be exactly as it is.":"It is already changing. Stay a moment longer."}
+function hs(e){if(step!=="feel"||hT)return;if(e&&e.preventDefault)e.preventDefault();
+ hT=setInterval(()=>{hold=Math.min(100,hold+2);setBar();if(hold>=100){he();orb.disabled=true;want()}},100)}
+function he(){if(!hT)return;clearInterval(hT);hT=null;
+ if(step==="feel"&&hold>0&&hold<100){const c=$("wcue");if(c)c.textContent="Keep holding. The wave will crest and pass."}}
+orb.addEventListener("pointerdown",hs);
+["pointerup","pointerleave","pointercancel"].forEach(t=>orb.addEventListener(t,he));
+orb.addEventListener("contextmenu",e=>e.preventDefault());
+orb.addEventListener("keydown",e=>{if((e.key===" "||e.key==="Enter")&&!e.repeat)hs(e)});
+orb.addEventListener("keyup",e=>{if(e.key===" "||e.key==="Enter")he()});
+function want(){step="want";bar.style.display="none";orbSet(.75,.55);
+ show("<b>3 · Release the wanting</b><br>Under every wave there is a wanting. Which one is under this one?<br><span class=\"sub\">Would you rather have peace, or have your way?</span>",WANTS.map(x=>[x[0],()=>rel(x[1]),true]))}
+function rel(x){step="rel";show("Breathe out, and let go of the wanting for <b>"+x+"</b>. You are held, even without it.",[["Let go",letgo]])}
+function letgo(){step="rest";orbSet(.55,1);freed++;info();
+ show("<b>4 · Rest</b><br>Be still. Not by my will alone: something wider than me carries this. The wave rose, crested and passed, and you did not feed it.<br><span class=\"sub\">"+W[r].w+"</span>",[[r<2?"Next wave":"See what you learned",next]])}
+function next(){r++;if(r<3)start();else end()}
+function end(){step="end";orbSet(.6,1);info();
+ show("<b>You let three waves pass.</b><br>Each time: notice, feel, release the wanting, rest. The old habit weakens every time it is not fed. Freedom is this, practiced again and again.<br><span class=\"sub\">Surrender never means staying in harm. It means putting down the fight inside.</span>",[["Play again",()=>{r=0;loops=0;freed=0;start()}]])}
+start();
+})();}
+
+/* ---- */
+
+(function(){
+ if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+ var els=[].slice.call(document.querySelectorAll('svg.hi,#av')),tx=0,ty=0,cx=0,cy=0,last=0;
+ function move(e){var p=e.touches?e.touches[0]:e;var w=innerWidth,h=innerHeight;
+  tx=Math.max(-1,Math.min(1,(p.clientX-w/2)/(w/2)));ty=Math.max(-1,Math.min(1,(p.clientY-h/2)/(h/2)));last=performance.now()}
+ addEventListener('pointermove',move,{passive:true});addEventListener('touchmove',move,{passive:true});
+ (function tick(t){
+  if(t-last>3000){tx=Math.sin(t/1700)*.7;ty=Math.sin(t/2300)*.35}
+  cx+=(tx-cx)*.08;cy+=(ty-cy)*.08;
+  els.forEach(function(s){s.style.setProperty('--nx',cx.toFixed(3));s.style.setProperty('--ny',cy.toFixed(3))});
+  requestAnimationFrame(tick)})(0);
+})();
+
+/* ---- */
+
+document.querySelectorAll('.tabs button').forEach(function(b){b.addEventListener('click',function(){
+ var t=document.querySelector('.tabs'),top=t.getBoundingClientRect().top+window.scrollY;
+ if(window.scrollY>top)window.scrollTo({top:top,behavior:'smooth'});
+});});
+
+/* ---- */
+
+(function(){var a=document.getElementById('giveAv'),p=document.querySelector('#about img');if(a&&p&&p.src)a.src=p.src;else if(a)a.style.display='none'})();
+
+/* ---- */
+
+document.getElementById('footContact').onclick=function(e){e.preventDefault();document.querySelector('[data-t=about]').click();setTimeout(function(){document.getElementById('contactCard').scrollIntoView({behavior:'smooth',block:'center'})},60)};
+
+
+/* Theme: respect system, allow override, remember choice */
+(function(){
+  var KEY='fftTheme';
+  var btn=document.getElementById('themeBtn');
+  function sysDark(){return matchMedia('(prefers-color-scheme:dark)').matches}
+  function apply(t){
+    if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t)}
+    else{document.documentElement.removeAttribute('data-theme');t=sysDark()?'dark':'light'}
+    if(btn)btn.textContent=t==='dark'?'☀':'☾';
+    if(btn)btn.setAttribute('aria-label',t==='dark'?'Switch to light theme':'Switch to dark theme');
+  }
+  var saved=null;try{saved=localStorage.getItem(KEY)}catch(e){}
+  apply(saved==='dark'||saved==='light'?saved:null);
+  if(btn)btn.onclick=function(){
+    var cur=document.documentElement.getAttribute('data-theme');
+    if(!cur)cur=sysDark()?'dark':'light';
+    var next=cur==='dark'?'light':'dark';
+    try{localStorage.setItem(KEY,next)}catch(e){}
+    apply(next);
+  };
+  try{
+    matchMedia('(prefers-color-scheme:dark)').addEventListener('change',function(){
+      var s=null;try{s=localStorage.getItem(KEY)}catch(e){}
+      if(s!=='dark'&&s!=='light')apply(null);
+    });
+  }catch(e){}
+  /* Show only at the very top; fade away as soon as scrolling starts */
+  function syncThemeBtn(){
+    if(!btn)return;
+    var y=window.pageYOffset||document.documentElement.scrollTop||document.body.scrollTop||0;
+    if(y<12){btn.classList.remove('theme-hidden');}
+    else{btn.classList.add('theme-hidden');}
+  }
+  syncThemeBtn();
+  window.addEventListener('scroll',syncThemeBtn,{passive:true});
+  document.addEventListener('scroll',syncThemeBtn,{passive:true,capture:true});
+})();
+
+/* Starter prompts under the chat input */
+(function(){
+  var box=document.getElementById('chips');
+  if(!box||typeof sendMessage!=='function')return;
+  var prompts=[
+    "I'm feeling stuck and don't know where to begin",
+    "My mind won't settle",
+    "I keep replaying something painful",
+    "Help me practice letting go"
+  ];
+  prompts.forEach(function(t){
+    var b=document.createElement('button');
+    b.type='button';b.textContent=t;
+    b.onclick=function(){box.classList.add('gone');sendMessage(t)};
+    box.appendChild(b);
+  });
+})();
+
+const avatar=$('av');
+/* Charles colour tints — preference stored on this device */
+(function(){
+  var KEY='fftAvTint';
+  var TINTS=['','gold','rose','green','purple','sky','silver'];
+  function applyTint(name){
+    if(!avatar)return;
+    TINTS.forEach(function(t){if(t)avatar.classList.remove('tint-'+t)});
+    if(name)avatar.classList.add('tint-'+name);
+    try{localStorage.setItem(KEY,name||'')}catch(e){}
+    var row=document.getElementById('tintRow');
+    if(row){
+      [].forEach.call(row.querySelectorAll('button'),function(b){
+        b.classList.toggle('on',(b.getAttribute('data-tint')||'')===(name||''));
+      });
+    }
+  }
+  var saved='';
+  try{saved=localStorage.getItem(KEY)||''}catch(e){}
+  if(TINTS.indexOf(saved)<0)saved='';
+  applyTint(saved);
+  var row=document.getElementById('tintRow');
+  if(row){
+    row.addEventListener('click',function(e){
+      var b=e.target.closest('button[data-tint]');
+      if(!b)return;
+      applyTint(b.getAttribute('data-tint')||'');
+    });
+  }
+})();
+const charlesExpressions=['','happy','grin','shy','sparkle']; // '' = base smile
+let charlesExpressionIndex=0;
+function setCharlesExpression(name){
+  if(!avatar)return;
+  const names=['happy','grin','shy','sparkle'];
+  names.forEach(n=>avatar.classList.remove('expr-'+n));
+  avatar.classList.remove('face-pop');
+  if(name)avatar.classList.add('expr-'+name);
+  void avatar.offsetWidth;
+  avatar.classList.add('face-pop');
+}
+if(avatar){
+  /* Size: hold to inflate Charles to comic size; hold again to shrink */
+  const SIZE_NORMAL=140;
+  const SIZE_STEPS=[72,140,260,400,520]; // tiny → normal → huge comic
+  let sizeIdx=0; // default smallest
+  try{
+    const s=parseInt(localStorage.getItem('fftAvSize'),10);
+    if(s>=0&&s<SIZE_STEPS.length)sizeIdx=s;
+  }catch(e){}
+  function applySize(i,announce){
+    const prevIdx=sizeIdx;
+    sizeIdx=Math.max(0,Math.min(SIZE_STEPS.length-1,i));
+    const px=SIZE_STEPS[sizeIdx];
+    avatar.style.setProperty('--av-w',px+'px');
+    avatar.style.setProperty('--av-h',px+'px');
+    avatar.classList.toggle('mega', sizeIdx>=2);
+    avatar.classList.remove('mega-pop');
+    void avatar.offsetWidth;
+    if(sizeIdx>=2)avatar.classList.add('mega-pop');
+    try{localStorage.setItem('fftAvSize',String(sizeIdx))}catch(e){}
+    const hold=$('avHold');
+    if(hold&&announce){hold.textContent=(i>prevIdx)?'Getting bigger…':'Getting smaller…'}
+  }
+  applySize(sizeIdx,false);
+
+  let pressTimer=null, stepTimer=null, pressStart=0, didHold=false;
+  function clearPress(){
+    clearTimeout(pressTimer);pressTimer=null;
+    clearInterval(stepTimer);stepTimer=null;
+    avatar.classList.remove('holding');
+    const hd=$('avHold');if(hd)hd.textContent='Hold to grow · tap for expression';
+  }
+  function onDown(e){
+    if(e.button!=null&&e.button!==0)return;
+    didHold=false;pressStart=Date.now();
+    avatar.classList.add('holding');
+    pressTimer=setTimeout(function growStep(){
+      didHold=true;
+      if(sizeIdx < SIZE_STEPS.length-1){
+        applySize(sizeIdx+1,true);
+        // keep growing while held
+        stepTimer=setTimeout(growStep, 520);
+      }else{
+        // already max — next hold cycle starts shrink on this same long-press chain
+        applySize(0,true);
+      }
+    },320);
+  }
+  function onUp(e){
+    const held=didHold;
+    const dt=Date.now()-pressStart;
+    clearPress();
+    if(held){e.preventDefault();return}
+    if(dt<320){
+      $('avc').classList.remove('compact','talk');
+      charlesExpressionIndex=(charlesExpressionIndex+1)%charlesExpressions.length;
+      setCharlesExpression(charlesExpressions[charlesExpressionIndex]);
+    }
+  }
+  avatar.addEventListener('pointerdown',onDown);
+  avatar.addEventListener('pointerup',onUp);
+  avatar.addEventListener('pointercancel',clearPress);
+  avatar.addEventListener('pointerleave',function(e){if(pressTimer||stepTimer)clearPress()});
+  avatar.addEventListener('contextmenu',e=>e.preventDefault());
+}
+
+</script>
 </body></html>

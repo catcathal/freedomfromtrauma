@@ -3,15 +3,15 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CjxjaXJjbGUgY3g9IjE2IiBjeT0iMTciIHI9IjgiIGZpbGw9IiMyYjJiMmIiLz4KPGNpcmNsZSBjeD0iNDgiIGN5PSIxNyIgcj0iOCIgZmlsbD0iIzJiMmIyYiIvPgo8Y2lyY2xlIGN4PSIzMiIgY3k9IjM2IiByPSIyMSIgZmlsbD0iI2ZmZiIvPgo8ZWxsaXBzZSBjeD0iMTciIGN5PSIzNyIgcng9IjgiIHJ5PSI2LjYiIGZpbGw9IiMyYjJiMmIiLz4KPGVsbGlwc2UgY3g9IjQ3IiBjeT0iMzciIHJ4PSI4IiByeT0iNi42IiBmaWxsPSIjMmIyYjJiIi8+CjxjaXJjbGUgY3g9IjE4IiBjeT0iMzYiIHI9IjIuNCIgZmlsbD0iI2ZmZiIvPgo8Y2lyY2xlIGN4PSI0NiIgY3k9IjM2IiByPSIyLjQiIGZpbGw9IiNmZmYiLz4KPGVsbGlwc2UgY3g9IjMyIiBjeT0iNDMiIHJ4PSI0LjQiIHJ5PSIzLjQiIGZpbGw9IiMzYTNhM2EiLz4KPHBhdGggZD0iTTI1IDQ5IFEzMiA1NCAzOSA0OSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjM2EzYTNhIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4=">
-<meta name="description" content="The Technique of Letting Go: an ancient path of letting go, with a gentle AI companion named Charles. Free, no sign-up. Wellness support, not therapy.">
+<meta name="description" content="The Technique of Letting Go: an ancient path of letting go, with a gentle AI companion named Doc. Free, no sign-up. Wellness support, not therapy.">
 <meta name="theme-color" content="#4a7d8a" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#141a20" media="(prefers-color-scheme: dark)">
 <meta property="og:title" content="The Technique of Letting Go">
-<meta property="og:description" content="A free, gentle path of surrender — with Charles, a kind AI companion. Not therapy. No sign-up.">
+<meta property="og:description" content="A free, gentle path of surrender — with Doc, a kind AI companion. Not therapy. No sign-up.">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="The Technique of Letting Go">
-<meta name="twitter:description" content="A free, gentle path of surrender — with Charles, a kind AI companion.">
+<meta name="twitter:description" content="A free, gentle path of surrender — with Doc, a kind AI companion.">
 <title>The Technique of Letting Go</title>
 <style>
 :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f8fbfc;--card:#f0f6f8;--ink:#2b3a42;--mute:#65777f;--acc:#4a7d8a;--acc2:#4a7d8a;--line:#dae7ec;--glow1:rgba(160,205,228,.34);--glow2:rgba(190,182,228,.20)}
@@ -54,8 +54,7 @@ button.ghost{background:transparent;color:var(--ink);border:1px solid var(--line
 .talk #mouth{animation:tk .3s infinite alternate}
 @keyframes tk{to{transform:scaleY(2.2)}}
 #mouth{transform-origin:center;transform-box:fill-box;opacity:0}#smile{transition:opacity .1s}.talk #mouth{opacity:1}.talk #smile{opacity:0}
-.log{max-height:44vh;overflow-y:auto;font-family:system-ui,sans-serif;font-size:15px}
-@media (max-width:640px){.log{max-height:60vh}}
+.log{max-height:300px;overflow-y:auto;font-family:system-ui,sans-serif;font-size:15px}
 .m{padding:9px 13px;border-radius:16px;margin:6px 0;max-width:88%}
 .m.c{background:var(--line)}.m.u{background:var(--acc2);color:#fff;margin-left:auto}
 .row{display:flex;gap:8px}
@@ -117,11 +116,11 @@ body{background:radial-gradient(900px 420px at 50% -80px,var(--glow1),transparen
 .tabs{position:-webkit-sticky;position:sticky;top:0;z-index:50;background:var(--bg);padding-top:calc(8px + env(safe-area-inset-top,0px));box-shadow:0 8px 12px -10px rgba(0,0,0,.22)}
 #kSend:disabled{background:#bfcdd3;color:#fff;opacity:.7;cursor:not-allowed}#kText:disabled{opacity:.6}
 
-/* Charles stays compact after replying; tapping him expands and changes his expression. */
+/* Doc stays compact after replying; tapping him expands and changes his expression. */
 #av{
   transition:width .7s cubic-bezier(.34,1.6,.54,1),height .7s cubic-bezier(.34,1.6,.54,1),margin .55s ease,opacity .4s ease,filter .25s ease;
   transform-origin:center top;cursor:pointer;
-  width:var(--av-w,72px);height:var(--av-h,72px);
+  width:var(--av-w,140px);height:var(--av-h,140px);
   max-width:min(92vw,520px);max-height:min(92vw,520px);
   touch-action:none;-webkit-user-select:none;user-select:none;
   z-index:5;
@@ -163,41 +162,15 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,[tabindex]:focus
   outline:2px solid var(--acc);outline-offset:2px;
 }
 button:focus:not(:focus-visible),input:focus:not(:focus-visible){outline:none}
-/* Theme toggle — only visible at the very top of the page */
+/* Theme toggle */
 #themeBtn{
-  position:fixed;top:calc(10px + env(safe-area-inset-top,0px));right:12px;z-index:9999;
+  position:fixed;top:calc(10px + env(safe-area-inset-top,0px));right:12px;z-index:100;
   width:40px;height:40px;border-radius:50%;padding:0;font-size:18px;line-height:1;
   background:var(--card);color:var(--ink);border:1px solid var(--line);
   box-shadow:0 1px 4px rgba(0,0,0,.06);cursor:pointer;
   display:flex;align-items:center;justify-content:center;
-  opacity:1;pointer-events:auto;transition:opacity .25s ease,visibility .25s ease;
-}
-#themeBtn.theme-hidden{
-  opacity:0;visibility:hidden;pointer-events:none;
 }
 #themeBtn:hover{background:var(--line)}
-/* Charles colour tints (stored in localStorage) */
-#av.tint-gold{filter:hue-rotate(28deg) saturate(1.2) brightness(1.02)}
-#av.tint-rose{filter:hue-rotate(-18deg) saturate(1.25) brightness(1.03)}
-#av.tint-green{filter:hue-rotate(95deg) saturate(1.05) brightness(1.02)}
-#av.tint-purple{filter:hue-rotate(-55deg) saturate(1.15) brightness(1.02)}
-#av.tint-silver{filter:saturate(0.15) brightness(1.08) contrast(1.05)}
-#av.tint-sky{filter:hue-rotate(160deg) saturate(1.1) brightness(1.03)}
-#tintRow{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:6px 0 4px}
-#tintRow button{
-  width:28px;height:28px;border-radius:50%;border:2px solid var(--line);
-  padding:0;cursor:pointer;background:var(--card);
-  box-shadow:inset 0 0 0 2px rgba(255,255,255,.35);
-}
-#tintRow button.on{border-color:var(--acc);box-shadow:0 0 0 2px var(--acc)}
-#tintRow button[data-tint=""]{background:radial-gradient(circle at 35% 30%,#e8edf5,#9aa6bb)}
-#tintRow button[data-tint="gold"]{background:radial-gradient(circle at 35% 30%,#ffe9a8,#d4a017)}
-#tintRow button[data-tint="rose"]{background:radial-gradient(circle at 35% 30%,#ffd0da,#e06b8a)}
-#tintRow button[data-tint="green"]{background:radial-gradient(circle at 35% 30%,#c8f0d8,#3d9b6e)}
-#tintRow button[data-tint="purple"]{background:radial-gradient(circle at 35% 30%,#e0d0ff,#7a5fb0)}
-#tintRow button[data-tint="silver"]{background:radial-gradient(circle at 35% 30%,#f2f2f2,#9a9a9a)}
-#tintRow button[data-tint="sky"]{background:radial-gradient(circle at 35% 30%,#c8ecff,#3a8bb8)}
-
 /* Starter prompt chips */
 #chips button{
   background:transparent;color:var(--ink);border:1px solid var(--line);
@@ -217,267 +190,154 @@ button:focus:not(:focus-visible),input:focus:not(:focus-visible){outline:none}
 #chips.gone{opacity:0;max-height:0;margin-top:0;margin-bottom:0;pointer-events:none}
 @media(prefers-reduced-motion:reduce){#chips{transition:none}}
 
+/* ===== Doc chat redesign: roomy, messenger-style, stretches to fill the screen ===== */
+#avc{display:flex;flex-direction:column;min-height:min(80dvh,720px);padding:16px 14px 10px;transition:min-height .6s cubic-bezier(.3,1,.4,1)}
+#avc.full{min-height:calc(100dvh - 20px)}
+#avc .log{flex:1;max-height:none;min-height:200px;padding:14px 2px 8px;font-size:16px;line-height:1.5}
+.m{max-width:88%;padding:11px 15px;border-radius:20px;margin:8px 0;word-wrap:break-word}
+.m.c{background:var(--line);border-bottom-left-radius:6px}.m.u{border-bottom-right-radius:6px}
+.m p{margin:0 0 7px}.m p:last-child,.m ul:last-child,.m ol:last-child{margin-bottom:0}
+.m ul,.m ol{margin:4px 0 8px;padding-left:20px}.m li{margin:5px 0;padding-left:2px}
+.m.c ul li::marker{color:var(--acc)}
+.m .retry{display:block;margin-top:10px;font:600 14px system-ui,sans-serif;padding:8px 16px;border-radius:999px;border:1px solid var(--acc);background:none;color:var(--acc);cursor:pointer}
+#avc #chips{flex-wrap:nowrap;overflow-x:auto;gap:8px;margin:6px -14px;padding:2px 14px 6px;scrollbar-width:none}
+#avc #chips::-webkit-scrollbar{display:none}#avc #chips>*{flex:none;white-space:nowrap}
+.composer{position:sticky;bottom:calc(8px + env(safe-area-inset-bottom,0px));display:flex;align-items:flex-end;gap:8px;background:var(--bg);border:1px solid var(--line);border-radius:28px;padding:6px 6px 6px 16px;box-shadow:0 4px 18px rgba(0,0,0,.08);z-index:6}
+.composer:focus-within{border-color:var(--acc)}
+#in{flex:1;border:0;background:transparent;outline:none;resize:none;font:16px/1.4 system-ui,sans-serif;color:var(--ink);padding:10px 0;max-height:140px;min-width:0;border-radius:0}
+#send{flex:none;width:44px;height:44px;padding:0;border:0;border-radius:50%;background:var(--acc2);color:#fff;display:grid;place-items:center;cursor:pointer;transition:opacity .2s,transform .15s}
+#send:disabled{opacity:.35;cursor:default}#send:active:not(:disabled){transform:scale(.92)}
+
+/* glowing "Doc is writing . . ." */
+.m.c .lt{color:#22b4dc;font-weight:600;letter-spacing:.02em;animation:glowT 1.8s ease-in-out infinite}
+.m.c .lt.fade{animation:glowT 1.8s ease-in-out infinite}
+@keyframes glowT{0%,100%{text-shadow:0 0 4px rgba(95,230,255,.35);opacity:.8}50%{text-shadow:0 0 10px #5fe6ff,0 0 22px rgba(95,230,255,.75);opacity:1}}
+.m.c .dots{gap:6px;margin-left:7px}
+.m.c .dots i{width:7px;height:7px;background:#5fe6ff;opacity:.3;box-shadow:0 0 8px #5fe6ff,0 0 16px rgba(95,230,255,.7);animation:dotG 1.2s ease-in-out infinite}
+.m.c .dots i:nth-child(2){animation-delay:.2s}.m.c .dots i:nth-child(3){animation-delay:.4s}
+@keyframes dotG{0%,70%,100%{opacity:.25;transform:scale(.8)}35%{opacity:1;transform:scale(1.25)}}
+.m.writing{text-shadow:0 0 12px rgba(95,230,255,.55)}
+.m.writing::after{content:"\2022 \2022 \2022";display:block;margin-top:6px;letter-spacing:4px;color:#5fe6ff;font-size:16px;line-height:1;text-shadow:0 0 8px #5fe6ff,0 0 16px rgba(95,230,255,.7);animation:glowT 1.2s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){.m.c .lt,.m.c .dots i,.m.writing::after{animation:none}}
 </style>
 </head><body>
 <button id="themeBtn" type="button" aria-label="Toggle light and dark theme" title="Theme">☾</button>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="blob" viewBox="0 0 200 220"><g>
-    <defs>
-      <radialGradient id="sshell" cx=".32" cy=".25" r=".95"><stop offset="0" stop-color="#ffffff"/><stop offset=".5" stop-color="#e8edf5"/><stop offset=".85" stop-color="#b7c1d3"/><stop offset="1" stop-color="#9aa6bb"/></radialGradient>
-      <radialGradient id="spink" cx=".3" cy=".25" r=".95"><stop offset="0" stop-color="#eef3fa"/><stop offset=".6" stop-color="#a9b9d1"/><stop offset="1" stop-color="#6f819e"/></radialGradient>
-      <linearGradient id="svisor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2d3352"/><stop offset="1" stop-color="#0c0f1f"/></linearGradient>
-      <radialGradient id="sled" cx=".4" cy=".3" r=".8"><stop offset="0" stop-color="#e6ffff"/><stop offset=".55" stop-color="#5ee6f2"/><stop offset="1" stop-color="#1fb7d1"/></radialGradient>
-      <radialGradient id="sgloss" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
-      <radialGradient id="sthr" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#bff8ff" stop-opacity=".95"/><stop offset=".5" stop-color="#4fdcec" stop-opacity=".45"/><stop offset="1" stop-color="#4fdcec" stop-opacity="0"/></radialGradient>
-      <radialGradient id="ssh" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#402e34" stop-opacity=".3"/><stop offset="1" stop-color="#402e34" stop-opacity="0"/></radialGradient>
-      <radialGradient id="sao" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#7a879f" stop-opacity=".45"/><stop offset="1" stop-color="#7a879f" stop-opacity="0"/></radialGradient>
-    </defs>
-    <ellipse cx="100" cy="209" rx="50" ry="6" fill="url(#ssh)"/>
-    <ellipse cx="100" cy="190" rx="34" ry="11" fill="url(#sthr)"><animate attributeName="opacity" values=".6;1;.6" dur="1.6s" repeatCount="indefinite"/></ellipse>
-    <g class="d-body">
-      <ellipse cx="100" cy="176" rx="36" ry="12" fill="url(#sao)"/>
-      <ellipse cx="100" cy="176" rx="34" ry="11" fill="url(#spink)"/>
-      <ellipse cx="100" cy="108" rx="76" ry="68" fill="url(#sshell)"/>
-      <ellipse cx="100" cy="162" rx="58" ry="14" fill="url(#sao)"/>
-      <path d="M100 42 L100 28" stroke="#9aa6bb" stroke-width="4" stroke-linecap="round"/>
-      <ellipse cx="100" cy="42" rx="15" ry="5" fill="url(#spink)"/>
-      <circle class="antglow" cx="100" cy="23" r="9" fill="#ffe58b" opacity=".35" style="transform-origin:100px 23px;transform-box:view-box"/>
-      <circle cx="100" cy="23" r="5" fill="#ffd45e"/><circle cx="98.5" cy="21.5" r="1.6" fill="#fff" opacity=".85"/>
-    </g>
-    <g class="d-gloss">
-      <ellipse cx="58" cy="66" rx="30" ry="14" fill="url(#sgloss)" transform="rotate(-30 58 66)"/>
-    </g>
-    <g class="d-face">
-      <rect x="40" y="76" width="120" height="70" rx="34" fill="url(#svisor)"/>
-      <rect x="40" y="76" width="120" height="70" rx="34" fill="none" stroke="#fff" stroke-opacity=".25" stroke-width="2"/>
-      <path d="M58 86 Q100 74 142 86" fill="none" stroke="#fff" stroke-opacity=".18" stroke-width="5" stroke-linecap="round"/>
-      <g class="blobeye" style="transform-origin:76px 106px;transform-box:view-box"><g class="er">
-        <ellipse cx="76" cy="106" rx="11" ry="14" fill="url(#sled)"/><circle cx="80" cy="100" r="4" fill="#fff"/><circle cx="72" cy="112" r="1.8" fill="#fff" opacity=".8"/>
-      </g><path class="ea" d="M65 111 Q76 94 87 111" fill="none" stroke="#7ff0fa" stroke-width="5" stroke-linecap="round"/></g>
-      <g class="blobeye" style="transform-origin:124px 106px;transform-box:view-box"><g class="er">
-        <ellipse cx="124" cy="106" rx="11" ry="14" fill="url(#sled)"/><circle cx="128" cy="100" r="4" fill="#fff"/><circle cx="120" cy="112" r="1.8" fill="#fff" opacity=".8"/>
-      </g><path class="ea" d="M113 111 Q124 94 135 111" fill="none" stroke="#7ff0fa" stroke-width="5" stroke-linecap="round"/></g>
-      
-      <path class="bsmile" d="M84 128 Q100 142 116 128" fill="none" stroke="#7ff0fa" stroke-width="4.5" stroke-linecap="round"/>
-    </g>
-  </g>
-</symbol></svg><main>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="blob" viewBox="0 0 200 220"><g><defs>
+<radialGradient id="sbody" cx=".34" cy=".26" r=".9"><stop offset="0" stop-color="#fff"/><stop offset=".55" stop-color="#f6f0e8"/><stop offset=".9" stop-color="#dcd2c7"/><stop offset="1" stop-color="#c2b5a8"/></radialGradient>
+<linearGradient id="sred" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f0604e"/><stop offset="1" stop-color="#b52a20"/></linearGradient>
+<linearGradient id="scor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f58c82"/><stop offset="1" stop-color="#d4544c"/></linearGradient>
+<radialGradient id="sor" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#ffb860"/><stop offset="1" stop-color="#e0701a"/></radialGradient>
+<radialGradient id="sled" cx=".4" cy=".3" r=".9"><stop offset="0" stop-color="#eaffff"/><stop offset=".5" stop-color="#63e8fb"/><stop offset="1" stop-color="#1fb0d6"/></radialGradient>
+<radialGradient id="sgl" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#5fe6ff" stop-opacity=".55"/><stop offset="1" stop-color="#5fe6ff" stop-opacity="0"/></radialGradient>
+<radialGradient id="sbl" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ff8280" stop-opacity=".6"/><stop offset="1" stop-color="#ff8280" stop-opacity="0"/></radialGradient>
+<radialGradient id="sgs" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<radialGradient id="ssh" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#1a2438" stop-opacity=".4"/><stop offset="1" stop-color="#1a2438" stop-opacity="0"/></radialGradient>
+<radialGradient id="sau" cx="50%" cy="42%" r="56%"><stop offset="0" stop-color="#ffe58b" stop-opacity=".95"/><stop offset=".45" stop-color="#ffd873" stop-opacity=".34"/><stop offset="1" stop-color="#ffd873" stop-opacity="0"/></radialGradient>
+<radialGradient id="sth" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#d8fbff" stop-opacity=".95"/><stop offset=".45" stop-color="#4cc8ff" stop-opacity=".55"/><stop offset="1" stop-color="#2a8cff" stop-opacity="0"/></radialGradient>
+<clipPath id="sclip"><ellipse cx="100" cy="112" rx="76" ry="72"/></clipPath>
+</defs><g class="doc-float"><ellipse cx="100" cy="207" rx="40" ry="5" fill="url(#ssh)"/>
+<ellipse class="antglow" cx="100" cy="192" rx="30" ry="8" fill="#4cc8ff" opacity=".25" style="transform-origin:100px 192px;transform-box:view-box"/>
+<ellipse cx="100" cy="191" rx="26" ry="8" fill="url(#sth)"><animate attributeName="opacity" values=".65;1;.65" dur="1.6s" repeatCount="indefinite"/></ellipse>
+<ellipse cx="100" cy="188" rx="10" ry="3" fill="#eaffff" opacity=".9"/>
+<g class="d-body">
+<path d="M22 100 A78 74 0 0 1 178 100" fill="none" stroke="url(#sred)" stroke-width="9" stroke-linecap="round"/>
+<ellipse cx="22" cy="114" rx="16" ry="38" fill="url(#sred)"/><ellipse cx="178" cy="114" rx="16" ry="38" fill="url(#sred)"/>
+<ellipse cx="17" cy="100" rx="4" ry="13" fill="#fff" opacity=".28"/><ellipse cx="173" cy="100" rx="4" ry="13" fill="#fff" opacity=".28"/>
+<ellipse cx="100" cy="112" rx="76" ry="72" fill="url(#sbody)"/>
+<g clip-path="url(#sclip)"><path d="M0 142 Q100 128 200 142 L200 220 L0 220Z" fill="url(#scor)"/>
+<path d="M0 142 Q100 128 200 142" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="2"/>
+<ellipse cx="100" cy="190" rx="90" ry="22" fill="#8c2a24" opacity=".18"/></g>
+<path d="M54 136 l9 -10 l9 7 l-3 14 l-13 0Z" fill="url(#sred)" stroke="#a82820" stroke-width="1"/>
+<path d="M146 136 l-9 -10 l-9 7 l3 14 l13 0Z" fill="url(#sred)" stroke="#a82820" stroke-width="1"/>
+<g transform="rotate(-24 66 46)"><path d="M54 52 C48 22 62 8 72 12 C82 16 82 40 78 56Z" fill="url(#sred)"/><path d="M60 46 C57 28 64 18 69 20" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="3" stroke-linecap="round"/></g>
+<g transform="rotate(24 134 46)"><path d="M146 52 C152 22 138 8 128 12 C118 16 118 40 122 56Z" fill="url(#sred)"/><path d="M140 46 C143 28 136 18 131 20" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="3" stroke-linecap="round"/></g>
+</g>
+<g class="d-gloss"><ellipse cx="64" cy="66" rx="30" ry="14" fill="url(#sgs)" transform="rotate(-32 64 66)"/></g><g class="d-face"><g class="blobeye" style="transform-origin:68px 100px;transform-box:view-box"><g class="er"><ellipse cx="68" cy="100" rx="9" ry="18.5" fill="url(#sgl)"/><rect x="63" y="86.5" width="10" height="27" rx="5" fill="url(#sled)"/><rect x="65.4" y="89.5" width="3" height="7" rx="1.5" fill="#fff" opacity=".85"/></g><path class="ea" d="M59 104 Q68 92 77 104" fill="none" stroke="#28385a" stroke-width="4" stroke-linecap="round"/></g><g class="blobeye" style="transform-origin:132px 100px;transform-box:view-box"><g class="er"><ellipse cx="132" cy="100" rx="9" ry="18.5" fill="url(#sgl)"/><rect x="127" y="86.5" width="10" height="27" rx="5" fill="url(#sled)"/><rect x="129.4" y="89.5" width="3" height="7" rx="1.5" fill="#fff" opacity=".85"/></g><path class="ea" d="M123 104 Q132 92 141 104" fill="none" stroke="#28385a" stroke-width="4" stroke-linecap="round"/></g><ellipse cx="46" cy="117" rx="11" ry="7" fill="url(#sbl)"/><path d="M43 113 l-3 6" stroke="#f08a86" stroke-width="1.7" stroke-linecap="round" fill="none"/><path d="M48 113 l-3 6" stroke="#f08a86" stroke-width="1.7" stroke-linecap="round" fill="none"/><path d="M53 113 l-3 6" stroke="#f08a86" stroke-width="1.7" stroke-linecap="round" fill="none"/><ellipse cx="154" cy="117" rx="11" ry="7" fill="url(#sbl)"/><path d="M151 113 l-3 6" stroke="#f08a86" stroke-width="1.7" stroke-linecap="round" fill="none"/><path d="M156 113 l-3 6" stroke="#f08a86" stroke-width="1.7" stroke-linecap="round" fill="none"/><path d="M161 113 l-3 6" stroke="#f08a86" stroke-width="1.7" stroke-linecap="round" fill="none"/><path d="M88 123 Q100 132 112 123" fill="none" stroke="#28385a" stroke-width="3.6" stroke-linecap="round"/></g></g></g></symbol></svg><main>
 <h1>Letting Go — the pathway of surrender</h1>
 <p style="font-size:17px;margin:8px 0 16px;line-height:1.45;color:var(--mute)">Reviewing and remembering core principles of practice.</p>
 <div style="display:flex;justify-content:center;margin:6px 0 2px">
 <button id="pandaGo" aria-label="Talk to the AI companion" style="background:none;border:0;padding:0;cursor:pointer;line-height:0">
-<svg class="hi" viewBox="0 0 200 220" width="64" height="70" aria-hidden="true">
-  <defs>
-    <radialGradient id="hdrAura" cx="50%" cy="42%" r="56%">
-      <stop offset="0%" stop-color="#ffe58b" stop-opacity=".95"/>
-      <stop offset="45%" stop-color="#ffd873" stop-opacity=".34"/>
-      <stop offset="100%" stop-color="#ffd873" stop-opacity="0"/>
-    </radialGradient>
-    <linearGradient id="hdrRobe" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#f48b9a"/>
-      <stop offset="100%" stop-color="#c95167"/>
-    </linearGradient>
-    <filter id="hdrGlow" x="-60%" y="-60%" width="220%" height="220%">
-      <feGaussianBlur stdDeviation="5"/>
-    </filter>
-  </defs>
-  <g class="charles-aura">
-    <circle cx="100" cy="102" r="92" fill="url(#hdrAura)">
-      <animate attributeName="r" values="86;95;86" dur="4.8s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values=".7;1;.7" dur="4.8s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="100" cy="101" r="56" fill="#ffe58b" opacity=".28" filter="url(#hdrGlow)">
-      <animate attributeName="opacity" values=".18;.42;.18" dur="3.5s" repeatCount="indefinite"/>
-    </circle>
-  </g>
-  <g class="charles-float">
-    <animateTransform attributeName="transform" type="translate" values="0 3;0 -5;0 3" dur="3.4s" repeatCount="indefinite"/>
-    <defs>
-      <radialGradient id="hshell" cx=".32" cy=".25" r=".95"><stop offset="0" stop-color="#ffffff"/><stop offset=".5" stop-color="#e8edf5"/><stop offset=".85" stop-color="#b7c1d3"/><stop offset="1" stop-color="#9aa6bb"/></radialGradient>
-      <radialGradient id="hpink" cx=".3" cy=".25" r=".95"><stop offset="0" stop-color="#eef3fa"/><stop offset=".6" stop-color="#a9b9d1"/><stop offset="1" stop-color="#6f819e"/></radialGradient>
-      <linearGradient id="hvisor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2d3352"/><stop offset="1" stop-color="#0c0f1f"/></linearGradient>
-      <radialGradient id="hled" cx=".4" cy=".3" r=".8"><stop offset="0" stop-color="#e6ffff"/><stop offset=".55" stop-color="#5ee6f2"/><stop offset="1" stop-color="#1fb7d1"/></radialGradient>
-      <radialGradient id="hgloss" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
-      <radialGradient id="hthr" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#bff8ff" stop-opacity=".95"/><stop offset=".5" stop-color="#4fdcec" stop-opacity=".45"/><stop offset="1" stop-color="#4fdcec" stop-opacity="0"/></radialGradient>
-      <radialGradient id="hsh" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#402e34" stop-opacity=".3"/><stop offset="1" stop-color="#402e34" stop-opacity="0"/></radialGradient>
-      <radialGradient id="hao" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#7a879f" stop-opacity=".45"/><stop offset="1" stop-color="#7a879f" stop-opacity="0"/></radialGradient>
-    </defs>
-    <ellipse cx="100" cy="209" rx="50" ry="6" fill="url(#hsh)"/>
-    <ellipse cx="100" cy="190" rx="34" ry="11" fill="url(#hthr)"><animate attributeName="opacity" values=".6;1;.6" dur="1.6s" repeatCount="indefinite"/></ellipse>
-    <g class="d-body">
-      <ellipse cx="100" cy="176" rx="36" ry="12" fill="url(#hao)"/>
-      <ellipse cx="100" cy="176" rx="34" ry="11" fill="url(#hpink)"/>
-      <ellipse cx="100" cy="108" rx="76" ry="68" fill="url(#hshell)"/>
-      <ellipse cx="100" cy="162" rx="58" ry="14" fill="url(#hao)"/>
-      <path d="M100 42 L100 28" stroke="#9aa6bb" stroke-width="4" stroke-linecap="round"/>
-      <ellipse cx="100" cy="42" rx="15" ry="5" fill="url(#hpink)"/>
-      <circle class="antglow" cx="100" cy="23" r="9" fill="#ffe58b" opacity=".35" style="transform-origin:100px 23px;transform-box:view-box"/>
-      <circle cx="100" cy="23" r="5" fill="#ffd45e"/><circle cx="98.5" cy="21.5" r="1.6" fill="#fff" opacity=".85"/>
-    </g>
-    <g class="d-gloss">
-      <ellipse cx="58" cy="66" rx="30" ry="14" fill="url(#hgloss)" transform="rotate(-30 58 66)"/>
-    </g>
-    <g class="d-face">
-      <rect x="40" y="76" width="120" height="70" rx="34" fill="url(#hvisor)"/>
-      <rect x="40" y="76" width="120" height="70" rx="34" fill="none" stroke="#fff" stroke-opacity=".25" stroke-width="2"/>
-      <path d="M58 86 Q100 74 142 86" fill="none" stroke="#fff" stroke-opacity=".18" stroke-width="5" stroke-linecap="round"/>
-      <g class="blobeye" style="transform-origin:76px 106px;transform-box:view-box"><g class="er">
-        <ellipse cx="76" cy="106" rx="11" ry="14" fill="url(#hled)"/><circle cx="80" cy="100" r="4" fill="#fff"/><circle cx="72" cy="112" r="1.8" fill="#fff" opacity=".8"/>
-      </g><path class="ea" d="M65 111 Q76 94 87 111" fill="none" stroke="#7ff0fa" stroke-width="5" stroke-linecap="round"/></g>
-      <g class="blobeye" style="transform-origin:124px 106px;transform-box:view-box"><g class="er">
-        <ellipse cx="124" cy="106" rx="11" ry="14" fill="url(#hled)"/><circle cx="128" cy="100" r="4" fill="#fff"/><circle cx="120" cy="112" r="1.8" fill="#fff" opacity=".8"/>
-      </g><path class="ea" d="M113 111 Q124 94 135 111" fill="none" stroke="#7ff0fa" stroke-width="5" stroke-linecap="round"/></g>
-      
-      <path class="bsmile" d="M84 128 Q100 142 116 128" fill="none" stroke="#7ff0fa" stroke-width="4.5" stroke-linecap="round"/>
-    </g>
-  </g>
-</svg>
+<svg class="hi" viewBox="0 0 200 220" width="64" height="70" aria-hidden="true"><defs>
+<radialGradient id="hbody" cx=".34" cy=".26" r=".9"><stop offset="0" stop-color="#fff"/><stop offset=".55" stop-color="#f6f0e8"/><stop offset=".9" stop-color="#dcd2c7"/><stop offset="1" stop-color="#c2b5a8"/></radialGradient>
+<linearGradient id="hred" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f0604e"/><stop offset="1" stop-color="#b52a20"/></linearGradient>
+<linearGradient id="hcor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f58c82"/><stop offset="1" stop-color="#d4544c"/></linearGradient>
+<radialGradient id="hor" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#ffb860"/><stop offset="1" stop-color="#e0701a"/></radialGradient>
+<radialGradient id="hled" cx=".4" cy=".3" r=".9"><stop offset="0" stop-color="#eaffff"/><stop offset=".5" stop-color="#63e8fb"/><stop offset="1" stop-color="#1fb0d6"/></radialGradient>
+<radialGradient id="hgl" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#5fe6ff" stop-opacity=".55"/><stop offset="1" stop-color="#5fe6ff" stop-opacity="0"/></radialGradient>
+<radialGradient id="hbl" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ff8280" stop-opacity=".6"/><stop offset="1" stop-color="#ff8280" stop-opacity="0"/></radialGradient>
+<radialGradient id="hgs" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<radialGradient id="hsh" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#1a2438" stop-opacity=".4"/><stop offset="1" stop-color="#1a2438" stop-opacity="0"/></radialGradient>
+<radialGradient id="hau" cx="50%" cy="42%" r="56%"><stop offset="0" stop-color="#ffe58b" stop-opacity=".95"/><stop offset=".45" stop-color="#ffd873" stop-opacity=".34"/><stop offset="1" stop-color="#ffd873" stop-opacity="0"/></radialGradient>
+<radialGradient id="hth" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#d8fbff" stop-opacity=".95"/><stop offset=".45" stop-color="#4cc8ff" stop-opacity=".55"/><stop offset="1" stop-color="#2a8cff" stop-opacity="0"/></radialGradient>
+<clipPath id="hclip"><ellipse cx="100" cy="112" rx="76" ry="72"/></clipPath>
+</defs><g class="doc-aura"><circle cx="100" cy="102" r="92" fill="url(#hau)"><animate attributeName="r" values="86;95;86" dur="4.8s" repeatCount="indefinite"/><animate attributeName="opacity" values=".7;1;.7" dur="4.8s" repeatCount="indefinite"/></circle></g><g class="doc-float"><animateTransform attributeName="transform" type="translate" values="0 3;0 -4;0 3" dur="3.4s" repeatCount="indefinite"/><ellipse cx="100" cy="207" rx="40" ry="5" fill="url(#hsh)"/>
+<ellipse class="antglow" cx="100" cy="192" rx="30" ry="8" fill="#4cc8ff" opacity=".25" style="transform-origin:100px 192px;transform-box:view-box"/>
+<ellipse cx="100" cy="191" rx="26" ry="8" fill="url(#hth)"><animate attributeName="opacity" values=".65;1;.65" dur="1.6s" repeatCount="indefinite"/></ellipse>
+<ellipse cx="100" cy="188" rx="10" ry="3" fill="#eaffff" opacity=".9"/>
+<g class="d-body">
+<path d="M22 100 A78 74 0 0 1 178 100" fill="none" stroke="url(#hred)" stroke-width="9" stroke-linecap="round"/>
+<ellipse cx="22" cy="114" rx="16" ry="38" fill="url(#hred)"/><ellipse cx="178" cy="114" rx="16" ry="38" fill="url(#hred)"/>
+<ellipse cx="17" cy="100" rx="4" ry="13" fill="#fff" opacity=".28"/><ellipse cx="173" cy="100" rx="4" ry="13" fill="#fff" opacity=".28"/>
+<ellipse cx="100" cy="112" rx="76" ry="72" fill="url(#hbody)"/>
+<g clip-path="url(#hclip)"><path d="M0 142 Q100 128 200 142 L200 220 L0 220Z" fill="url(#hcor)"/>
+<path d="M0 142 Q100 128 200 142" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="2"/>
+<ellipse cx="100" cy="190" rx="90" ry="22" fill="#8c2a24" opacity=".18"/></g>
+<path d="M54 136 l9 -10 l9 7 l-3 14 l-13 0Z" fill="url(#hred)" stroke="#a82820" stroke-width="1"/>
+<path d="M146 136 l-9 -10 l-9 7 l3 14 l13 0Z" fill="url(#hred)" stroke="#a82820" stroke-width="1"/>
+<g transform="rotate(-24 66 46)"><path d="M54 52 C48 22 62 8 72 12 C82 16 82 40 78 56Z" fill="url(#hred)"/><path d="M60 46 C57 28 64 18 69 20" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="3" stroke-linecap="round"/></g>
+<g transform="rotate(24 134 46)"><path d="M146 52 C152 22 138 8 128 12 C118 16 118 40 122 56Z" fill="url(#hred)"/><path d="M140 46 C143 28 136 18 131 20" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="3" stroke-linecap="round"/></g>
+</g>
+<g class="d-gloss"><ellipse cx="64" cy="66" rx="30" ry="14" fill="url(#hgs)" transform="rotate(-32 64 66)"/></g><g class="d-face"><g class="blobeye" style="transform-origin:68px 100px;transform-box:view-box"><g class="er"><ellipse cx="68" cy="100" rx="9" ry="18.5" fill="url(#hgl)"/><rect x="63" y="86.5" width="10" height="27" rx="5" fill="url(#hled)"/><rect x="65.4" y="89.5" width="3" height="7" rx="1.5" fill="#fff" opacity=".85"/></g><path class="ea" d="M59 104 Q68 92 77 104" fill="none" stroke="#28385a" stroke-width="4" stroke-linecap="round"/></g><g class="blobeye" style="transform-origin:132px 100px;transform-box:view-box"><g class="er"><ellipse cx="132" cy="100" rx="9" ry="18.5" fill="url(#hgl)"/><rect x="127" y="86.5" width="10" height="27" rx="5" fill="url(#hled)"/><rect x="129.4" y="89.5" width="3" height="7" rx="1.5" fill="#fff" opacity=".85"/></g><path class="ea" d="M123 104 Q132 92 141 104" fill="none" stroke="#28385a" stroke-width="4" stroke-linecap="round"/></g><ellipse cx="46" cy="117" rx="11" ry="7" fill="url(#hbl)"/><path d="M43 113 l-3 6" stroke="#f08a86" stroke-width="1.7" stroke-linecap="round" fill="none"/><path d="M48 113 l-3 6" stroke="#f08a86" stroke-width="1.7" stroke-linecap="round" fill="none"/><path d="M53 113 l-3 6" stroke="#f08a86" stroke-width="1.7" stroke-linecap="round" fill="none"/><ellipse cx="154" cy="117" rx="11" ry="7" fill="url(#hbl)"/><path d="M151 113 l-3 6" stroke="#f08a86" stroke-width="1.7" stroke-linecap="round" fill="none"/><path d="M156 113 l-3 6" stroke="#f08a86" stroke-width="1.7" stroke-linecap="round" fill="none"/><path d="M161 113 l-3 6" stroke="#f08a86" stroke-width="1.7" stroke-linecap="round" fill="none"/><path d="M88 123 Q100 132 112 123" fill="none" stroke="#28385a" stroke-width="3.6" stroke-linecap="round"/></g></g></svg>
 </button></div>
-<p style="text-align:center;font-size:18px;margin:2px 0 4px;font-weight:400">Charles</p>
+<p style="text-align:center;font-size:18px;margin:2px 0 4px;font-weight:400">Doc</p>
 <p style="text-align:center;font-size:14px;margin:0 auto 16px;max-width:340px;line-height:1.45;color:var(--mute)">A kind, honest guide who points you back to the core principles of practice — and reminds you to be gentler with yourself.</p>
 <div class="cta" style="justify-content:center;text-align:center"><button id="c1">App coming soon</button></div>
 <div class="chips"><span class="pill">Free to use</span><span class="pill">No sign-up</span><span class="pill">Not therapy</span></div>
 
-<div class="tabs"><button class="on" data-t="coach">Charles</button><button data-t="kind">Kindness</button><button data-t="prac">Path</button><button data-t="breath">Body Work</button><button data-t="give">Give</button><button data-t="get">App</button><button data-t="about">About</button></div>
+<div class="tabs"><button class="on" data-t="coach">Doc</button><button data-t="kind">Kindness</button><button data-t="prac">Path</button><button data-t="breath">Body Work</button><button data-t="give">Give</button><button data-t="get">App</button><button data-t="about">About</button></div>
 
 <section class="view on" id="coach">
 <div class="card" id="avc">
 <div id="stage"><video id="vid" playsinline controls preload="none"></video></div>
-<svg id="av" viewBox="0 0 200 220" role="img" aria-label="Charles, a friendly floating companion robot with a glowing smile">
-  <defs>
-    <radialGradient id="charlesAura" cx="50%" cy="42%" r="56%">
-      <stop offset="0%" stop-color="#ffe58b" stop-opacity=".95"/>
-      <stop offset="45%" stop-color="#ffd873" stop-opacity=".34"/>
-      <stop offset="100%" stop-color="#ffd873" stop-opacity="0"/>
-    </radialGradient>
-    <linearGradient id="charlesRobe" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#f48b9a"/>
-      <stop offset="100%" stop-color="#c95167"/>
-    </linearGradient>
-    <filter id="charlesSoftGlow" x="-60%" y="-60%" width="220%" height="220%">
-      <feGaussianBlur stdDeviation="5"/>
-    </filter>
-  </defs>
-
-  <g class="charles-aura">
-    <circle cx="100" cy="102" r="92" fill="url(#charlesAura)">
-      <animate attributeName="r" values="86;95;86" dur="4.8s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values=".7;1;.7" dur="4.8s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="100" cy="101" r="56" fill="#ffe58b" opacity=".28" filter="url(#charlesSoftGlow)">
-      <animate attributeName="opacity" values=".18;.42;.18" dur="3.5s" repeatCount="indefinite"/>
-    </circle>
-  </g>
-
-  <g class="charles-float">
-    <animateTransform attributeName="transform" type="translate" values="0 3;0 -5;0 3" dur="3.4s" repeatCount="indefinite"/>
-    <defs>
-      <radialGradient id="cshell" cx=".32" cy=".25" r=".95"><stop offset="0" stop-color="#ffffff"/><stop offset=".5" stop-color="#e8edf5"/><stop offset=".85" stop-color="#b7c1d3"/><stop offset="1" stop-color="#9aa6bb"/></radialGradient>
-      <radialGradient id="cpink" cx=".3" cy=".25" r=".95"><stop offset="0" stop-color="#eef3fa"/><stop offset=".6" stop-color="#a9b9d1"/><stop offset="1" stop-color="#6f819e"/></radialGradient>
-      <linearGradient id="cvisor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2d3352"/><stop offset="1" stop-color="#0c0f1f"/></linearGradient>
-      <radialGradient id="cled" cx=".4" cy=".3" r=".8"><stop offset="0" stop-color="#e6ffff"/><stop offset=".55" stop-color="#5ee6f2"/><stop offset="1" stop-color="#1fb7d1"/></radialGradient>
-      <radialGradient id="cgloss" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
-      <radialGradient id="cthr" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#bff8ff" stop-opacity=".95"/><stop offset=".5" stop-color="#4fdcec" stop-opacity=".45"/><stop offset="1" stop-color="#4fdcec" stop-opacity="0"/></radialGradient>
-      <radialGradient id="csh" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#402e34" stop-opacity=".3"/><stop offset="1" stop-color="#402e34" stop-opacity="0"/></radialGradient>
-      <radialGradient id="cao" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#7a879f" stop-opacity=".45"/><stop offset="1" stop-color="#7a879f" stop-opacity="0"/></radialGradient>
-    </defs>
-    <ellipse cx="100" cy="209" rx="50" ry="6" fill="url(#csh)"/>
-    <ellipse cx="100" cy="190" rx="34" ry="11" fill="url(#cthr)"><animate attributeName="opacity" values=".6;1;.6" dur="1.6s" repeatCount="indefinite"/></ellipse>
-    <g class="d-body">
-      <ellipse cx="100" cy="176" rx="36" ry="12" fill="url(#cao)"/>
-      <ellipse cx="100" cy="176" rx="34" ry="11" fill="url(#cpink)"/>
-      <ellipse cx="100" cy="108" rx="76" ry="68" fill="url(#cshell)"/>
-      <ellipse cx="100" cy="162" rx="58" ry="14" fill="url(#cao)"/>
-      <path d="M100 42 L100 28" stroke="#9aa6bb" stroke-width="4" stroke-linecap="round"/>
-      <ellipse cx="100" cy="42" rx="15" ry="5" fill="url(#cpink)"/>
-      <circle class="antglow" cx="100" cy="23" r="9" fill="#ffe58b" opacity=".35" style="transform-origin:100px 23px;transform-box:view-box"/>
-      <circle cx="100" cy="23" r="5" fill="#ffd45e"/><circle cx="98.5" cy="21.5" r="1.6" fill="#fff" opacity=".85"/>
-    </g>
-    <g class="d-gloss">
-      <ellipse cx="58" cy="66" rx="30" ry="14" fill="url(#cgloss)" transform="rotate(-30 58 66)"/>
-    </g>
-    <g class="d-face" id="charlesFace">
-      <rect x="40" y="76" width="120" height="70" rx="34" fill="url(#cvisor)"/>
-      <rect x="40" y="76" width="120" height="70" rx="34" fill="none" stroke="#fff" stroke-opacity=".25" stroke-width="2"/>
-      <path d="M58 86 Q100 74 142 86" fill="none" stroke="#fff" stroke-opacity=".18" stroke-width="5" stroke-linecap="round"/>
-      <!-- Base expression (soft smile) -->
-      <g class="expr expr-base on" id="exprBase">
-        <g class="blobeye" id="charlesEyeL" style="transform-origin:76px 104px;transform-box:view-box"><g class="er">
-          <ellipse cx="76" cy="104" rx="12" ry="15" fill="url(#cled)"/>
-          <circle cx="80" cy="98" r="4.2" fill="#fff"/><circle cx="72" cy="110" r="2" fill="#fff" opacity=".75"/>
-        </g></g>
-        <g class="blobeye" id="charlesEyeR" style="transform-origin:124px 104px;transform-box:view-box"><g class="er">
-          <ellipse cx="124" cy="104" rx="12" ry="15" fill="url(#cled)"/>
-          <circle cx="128" cy="98" r="4.2" fill="#fff"/><circle cx="120" cy="110" r="2" fill="#fff" opacity=".75"/>
-        </g></g>
-        <circle cx="58" cy="118" r="6" fill="#ff9eb5" opacity=".35"/>
-        <circle cx="142" cy="118" r="6" fill="#ff9eb5" opacity=".35"/>
-        <path id="charlesMouth" class="bsmile" d="M86 128 Q100 140 114 128" fill="none" stroke="#7ff0fa" stroke-width="4" stroke-linecap="round"/>
-      </g>
-      <!-- Happy: crescent eyes + bigger smile -->
-      <g class="expr expr-happy" id="exprHappy">
-        <path d="M64 108 Q76 98 88 108" fill="none" stroke="#7ff0fa" stroke-width="5" stroke-linecap="round"/>
-        <path d="M112 108 Q124 98 136 108" fill="none" stroke="#7ff0fa" stroke-width="5" stroke-linecap="round"/>
-        <circle cx="56" cy="116" r="7" fill="#ff9eb5" opacity=".45"/>
-        <circle cx="144" cy="116" r="7" fill="#ff9eb5" opacity=".45"/>
-        <path d="M82 126 Q100 148 118 126" fill="none" stroke="#7ff0fa" stroke-width="4.5" stroke-linecap="round"/>
-      </g>
-      <!-- Grin: wide open smile -->
-      <g class="expr expr-grin" id="exprGrin">
-        <ellipse cx="76" cy="104" rx="11" ry="13" fill="url(#cled)"/>
-        <circle cx="79" cy="99" r="3.5" fill="#fff"/>
-        <ellipse cx="124" cy="104" rx="11" ry="13" fill="url(#cled)"/>
-        <circle cx="127" cy="99" r="3.5" fill="#fff"/>
-        <circle cx="55" cy="117" r="7" fill="#ff9eb5" opacity=".5"/>
-        <circle cx="145" cy="117" r="7" fill="#ff9eb5" opacity=".5"/>
-        <path d="M80 124 Q100 152 120 124" fill="none" stroke="#7ff0fa" stroke-width="4.5" stroke-linecap="round"/>
-        <path d="M88 132 Q100 144 112 132" fill="#1a2035" opacity=".35"/>
-      </g>
-      <!-- Shy: small mouth + big blush + glance -->
-      <g class="expr expr-shy" id="exprShy">
-        <ellipse cx="72" cy="106" rx="11" ry="14" fill="url(#cled)"/>
-        <circle cx="75" cy="101" r="3.5" fill="#fff"/>
-        <ellipse cx="120" cy="106" rx="11" ry="14" fill="url(#cled)"/>
-        <circle cx="123" cy="101" r="3.5" fill="#fff"/>
-        <ellipse cx="54" cy="120" rx="10" ry="7" fill="#ff9eb5" opacity=".55"/>
-        <ellipse cx="146" cy="120" rx="10" ry="7" fill="#ff9eb5" opacity=".55"/>
-        <path d="M92 130 Q100 136 108 130" fill="none" stroke="#7ff0fa" stroke-width="3.5" stroke-linecap="round"/>
-      </g>
-      <!-- Sparkle: star eyes feel via bright dots + soft O mouth -->
-      <g class="expr expr-sparkle" id="exprSparkle">
-        <ellipse cx="76" cy="102" rx="13" ry="16" fill="url(#cled)"/>
-        <circle cx="81" cy="96" r="4.5" fill="#fff"/>
-        <circle cx="70" cy="108" r="2.2" fill="#fff" opacity=".85"/>
-        <ellipse cx="124" cy="102" rx="13" ry="16" fill="url(#cled)"/>
-        <circle cx="129" cy="96" r="4.5" fill="#fff"/>
-        <circle cx="118" cy="108" r="2.2" fill="#fff" opacity=".85"/>
-        <circle cx="56" cy="116" r="6" fill="#ff9eb5" opacity=".4"/>
-        <circle cx="144" cy="116" r="6" fill="#ff9eb5" opacity=".4"/>
-        <ellipse cx="100" cy="132" rx="7" ry="6" fill="none" stroke="#7ff0fa" stroke-width="3.5"/>
-        <!-- tiny sparkles -->
-        <circle cx="52" cy="88" r="2" fill="#ffe58b" opacity=".9"/>
-        <circle cx="148" cy="88" r="2" fill="#ffe58b" opacity=".9"/>
-        <circle cx="100" cy="78" r="1.6" fill="#ffe58b" opacity=".7"/>
-      </g>
-    </g>
-  </g>
-</svg>
-<p style="text-align:center;font:italic 13px/1.4 Georgia,serif;color:var(--mute);margin:4px 0 2px" id="avHold" aria-live="polite">Hold to grow · tap for expression</p>
-<div id="tintRow" role="group" aria-label="Charles colour">
-<button type="button" data-tint="" title="Default" aria-label="Default colour"></button>
-<button type="button" data-tint="gold" title="Gold" aria-label="Gold"></button>
-<button type="button" data-tint="rose" title="Rose" aria-label="Rose"></button>
-<button type="button" data-tint="green" title="Green" aria-label="Green"></button>
-<button type="button" data-tint="purple" title="Purple" aria-label="Purple"></button>
-<button type="button" data-tint="sky" title="Sky" aria-label="Sky"></button>
-<button type="button" data-tint="silver" title="Silver" aria-label="Silver"></button>
-</div>
+<svg id="av" viewBox="0 0 200 220" role="img" aria-label="Doc, a friendly round white companion robot with red ears and glowing cyan eyes"><defs>
+<radialGradient id="dbody" cx=".34" cy=".26" r=".9"><stop offset="0" stop-color="#fff"/><stop offset=".55" stop-color="#f6f0e8"/><stop offset=".9" stop-color="#dcd2c7"/><stop offset="1" stop-color="#c2b5a8"/></radialGradient>
+<linearGradient id="dred" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f0604e"/><stop offset="1" stop-color="#b52a20"/></linearGradient>
+<linearGradient id="dcor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f58c82"/><stop offset="1" stop-color="#d4544c"/></linearGradient>
+<radialGradient id="dor" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#ffb860"/><stop offset="1" stop-color="#e0701a"/></radialGradient>
+<radialGradient id="dled" cx=".4" cy=".3" r=".9"><stop offset="0" stop-color="#eaffff"/><stop offset=".5" stop-color="#63e8fb"/><stop offset="1" stop-color="#1fb0d6"/></radialGradient>
+<radialGradient id="dgl" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#5fe6ff" stop-opacity=".55"/><stop offset="1" stop-color="#5fe6ff" stop-opacity="0"/></radialGradient>
+<radialGradient id="dbl" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ff8280" stop-opacity=".6"/><stop offset="1" stop-color="#ff8280" stop-opacity="0"/></radialGradient>
+<radialGradient id="dgs" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<radialGradient id="dsh" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#1a2438" stop-opacity=".4"/><stop offset="1" stop-color="#1a2438" stop-opacity="0"/></radialGradient>
+<radialGradient id="dau" cx="50%" cy="42%" r="56%"><stop offset="0" stop-color="#ffe58b" stop-opacity=".95"/><stop offset=".45" stop-color="#ffd873" stop-opacity=".34"/><stop offset="1" stop-color="#ffd873" stop-opacity="0"/></radialGradient>
+<radialGradient id="dth" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#d8fbff" stop-opacity=".95"/><stop offset=".45" stop-color="#4cc8ff" stop-opacity=".55"/><stop offset="1" stop-color="#2a8cff" stop-opacity="0"/></radialGradient>
+<clipPath id="dclip"><ellipse cx="100" cy="112" rx="76" ry="72"/></clipPath>
+</defs><g class="doc-aura"><circle cx="100" cy="102" r="92" fill="url(#dau)"><animate attributeName="r" values="86;95;86" dur="4.8s" repeatCount="indefinite"/><animate attributeName="opacity" values=".7;1;.7" dur="4.8s" repeatCount="indefinite"/></circle></g><g class="doc-float"><animateTransform attributeName="transform" type="translate" values="0 3;0 -4;0 3" dur="3.4s" repeatCount="indefinite"/><ellipse cx="100" cy="207" rx="40" ry="5" fill="url(#dsh)"/>
+<ellipse class="antglow" cx="100" cy="192" rx="30" ry="8" fill="#4cc8ff" opacity=".25" style="transform-origin:100px 192px;transform-box:view-box"/>
+<ellipse cx="100" cy="191" rx="26" ry="8" fill="url(#dth)"><animate attributeName="opacity" values=".65;1;.65" dur="1.6s" repeatCount="indefinite"/></ellipse>
+<ellipse cx="100" cy="188" rx="10" ry="3" fill="#eaffff" opacity=".9"/>
+<g class="d-body">
+<path d="M22 100 A78 74 0 0 1 178 100" fill="none" stroke="url(#dred)" stroke-width="9" stroke-linecap="round"/>
+<ellipse cx="22" cy="114" rx="16" ry="38" fill="url(#dred)"/><ellipse cx="178" cy="114" rx="16" ry="38" fill="url(#dred)"/>
+<ellipse cx="17" cy="100" rx="4" ry="13" fill="#fff" opacity=".28"/><ellipse cx="173" cy="100" rx="4" ry="13" fill="#fff" opacity=".28"/>
+<ellipse cx="100" cy="112" rx="76" ry="72" fill="url(#dbody)"/>
+<g clip-path="url(#dclip)"><path d="M0 142 Q100 128 200 142 L200 220 L0 220Z" fill="url(#dcor)"/>
+<path d="M0 142 Q100 128 200 142" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="2"/>
+<ellipse cx="100" cy="190" rx="90" ry="22" fill="#8c2a24" opacity=".18"/></g>
+<path d="M54 136 l9 -10 l9 7 l-3 14 l-13 0Z" fill="url(#dred)" stroke="#a82820" stroke-width="1"/>
+<path d="M146 136 l-9 -10 l-9 7 l3 14 l13 0Z" fill="url(#dred)" stroke="#a82820" stroke-width="1"/>
+<g transform="rotate(-24 66 46)"><path d="M54 52 C48 22 62 8 72 12 C82 16 82 40 78 56Z" fill="url(#dred)"/><path d="M60 46 C57 28 64 18 69 20" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="3" stroke-linecap="round"/></g>
+<g transform="rotate(24 134 46)"><path d="M146 52 C152 22 138 8 128 12 C118 16 118 40 122 56Z" fill="url(#dred)"/><path d="M140 46 C143 28 136 18 131 20" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="3" stroke-linecap="round"/></g>
+</g>
+<g class="d-gloss"><ellipse cx="64" cy="66" rx="30" ry="14" fill="url(#dgs)" transform="rotate(-32 64 66)"/></g><g class="d-face" id="docFace"><g class="expr expr-base on" id="exprBase"><g class="blobeye" style="transform-origin:68px 100px;transform-box:view-box"><g class="er"><ellipse cx="68" cy="100" rx="9" ry="18.5" fill="url(#dgl)"/><rect x="63" y="86.5" width="10" height="27" rx="5" fill="url(#dled)"/><rect x="65.4" y="89.5" width="3" height="7" rx="1.5" fill="#fff" opacity=".85"/></g></g><g class="blobeye" style="transform-origin:132px 100px;transform-box:view-box"><g class="er"><ellipse cx="132" cy="100" rx="9" ry="18.5" fill="url(#dgl)"/><rect x="127" y="86.5" width="10" height="27" rx="5" fill="url(#dled)"/><rect x="129.4" y="89.5" width="3" height="7" rx="1.5" fill="#fff" opacity=".85"/></g></g><ellipse cx="46" cy="117" rx="11" ry="7" fill="url(#dbl)"/><path d="M43 113 l-3 6" stroke="#f08a86" stroke-width="1.7" stroke-linecap="round" fill="none"/><path d="M48 113 l-3 6" stroke="#f08a86" stroke-width="1.7" stroke-linecap="round" fill="none"/><path d="M53 113 l-3 6" stroke="#f08a86" stroke-width="1.7" stroke-linecap="round" fill="none"/><ellipse cx="154" cy="117" rx="11" ry="7" fill="url(#dbl)"/><path d="M151 113 l-3 6" stroke="#f08a86" stroke-width="1.7" stroke-linecap="round" fill="none"/><path d="M156 113 l-3 6" stroke="#f08a86" stroke-width="1.7" stroke-linecap="round" fill="none"/><path d="M161 113 l-3 6" stroke="#f08a86" stroke-width="1.7" stroke-linecap="round" fill="none"/><path id="docMouth" class="bsmile" d="M89 123 Q100 130 111 123" fill="none" stroke="#28385a" stroke-width="3.6" stroke-linecap="round"/></g><g class="expr expr-happy" id="exprHappy"><path d="M59 104 Q68 92 77 104" fill="none" stroke="#28385a" stroke-width="4" stroke-linecap="round"/><path d="M123 104 Q132 92 141 104" fill="none" stroke="#28385a" stroke-width="4" stroke-linecap="round"/><ellipse cx="46" cy="117" rx="11" ry="7" fill="url(#dbl)"/><path d="M43 113 l-3 6" stroke="#f08a86" stroke-width="1.7" stroke-linecap="round" fill="none"/><path d="M48 113 l-3 6" stroke="#f08a86" stroke-width="1.7" stroke-linecap="round" fill="none"/><path d="M53 113 l-3 6" stroke="#f08a86" stroke-width="1.7" stroke-linecap="round" fill="none"/><ellipse cx="154" cy="117" rx="11" ry="7" fill="url(#dbl)"/><path d="M151 113 l-3 6" stroke="#f08a86" stroke-width="1.7" stroke-linecap="round" fill="none"/><path d="M156 113 l-3 6" stroke="#f08a86" stroke-width="1.7" stroke-linecap="round" fill="none"/><path d="M161 113 l-3 6" stroke="#f08a86" stroke-width="1.7" stroke-linecap="round" fill="none"/><path d="M85 120 Q100 124 115 120 Q100 140 85 120Z" fill="#28385a" stroke="#28385a" stroke-width="1.5" stroke-linejoin="round"/><ellipse cx="100" cy="132.4" rx="6.25" ry="3.4" fill="#ff8a96"/></g><g class="expr expr-grin" id="exprGrin"><path d="M59 104 Q68 92 77 104" fill="none" stroke="#28385a" stroke-width="4" stroke-linecap="round"/><path d="M123 104 Q132 92 141 104" fill="none" stroke="#28385a" stroke-width="4" stroke-linecap="round"/><ellipse cx="46" cy="117" rx="11" ry="7" fill="url(#dbl)"/><path d="M43 113 l-3 6" stroke="#f08a86" stroke-width="1.7" stroke-linecap="round" fill="none"/><path d="M48 113 l-3 6" stroke="#f08a86" stroke-width="1.7" stroke-linecap="round" fill="none"/><path d="M53 113 l-3 6" stroke="#f08a86" stroke-width="1.7" stroke-linecap="round" fill="none"/><ellipse cx="154" cy="117" rx="11" ry="7" fill="url(#dbl)"/><path d="M151 113 l-3 6" stroke="#f08a86" stroke-width="1.7" stroke-linecap="round" fill="none"/><path d="M156 113 l-3 6" stroke="#f08a86" stroke-width="1.7" stroke-linecap="round" fill="none"/><path d="M161 113 l-3 6" stroke="#f08a86" stroke-width="1.7" stroke-linecap="round" fill="none"/><path d="M85 120 Q100 124 115 120 Q100 150 85 120Z" fill="#28385a" stroke="#28385a" stroke-width="1.5" stroke-linejoin="round"/><ellipse cx="100" cy="138.6" rx="9.375" ry="3.4" fill="#ff8a96"/></g><g class="expr expr-shy" id="exprShy"><ellipse cx="68" cy="100" rx="9" ry="18.5" fill="url(#dgl)"/><rect x="63" y="86.5" width="10" height="27" rx="5" fill="url(#dled)"/><rect x="65.4" y="89.5" width="3" height="7" rx="1.5" fill="#fff" opacity=".85"/><path d="M122 97 L122 108 L140 108" fill="none" stroke="#3fd8f2" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="46" cy="117" rx="11" ry="7" fill="url(#dbl)"/><path d="M43 113 l-3 6" stroke="#f08a86" stroke-width="1.7" stroke-linecap="round" fill="none"/><path d="M48 113 l-3 6" stroke="#f08a86" stroke-width="1.7" stroke-linecap="round" fill="none"/><path d="M53 113 l-3 6" stroke="#f08a86" stroke-width="1.7" stroke-linecap="round" fill="none"/><ellipse cx="154" cy="117" rx="11" ry="7" fill="url(#dbl)"/><path d="M151 113 l-3 6" stroke="#f08a86" stroke-width="1.7" stroke-linecap="round" fill="none"/><path d="M156 113 l-3 6" stroke="#f08a86" stroke-width="1.7" stroke-linecap="round" fill="none"/><path d="M161 113 l-3 6" stroke="#f08a86" stroke-width="1.7" stroke-linecap="round" fill="none"/><path d="M88 123 Q100 132 112 123" fill="none" stroke="#28385a" stroke-width="3.6" stroke-linecap="round"/></g><g class="expr expr-sparkle" id="exprSparkle"><ellipse cx="68" cy="100" rx="9" ry="22.0" fill="url(#dgl)"/><rect x="63" y="83.0" width="10" height="34" rx="5" fill="url(#dled)"/><rect x="65.4" y="86.0" width="3" height="7" rx="1.5" fill="#fff" opacity=".85"/><ellipse cx="132" cy="100" rx="9" ry="22.0" fill="url(#dgl)"/><rect x="127" y="83.0" width="10" height="34" rx="5" fill="url(#dled)"/><rect x="129.4" y="86.0" width="3" height="7" rx="1.5" fill="#fff" opacity=".85"/><ellipse cx="46" cy="117" rx="11" ry="7" fill="url(#dbl)"/><path d="M43 113 l-3 6" stroke="#f08a86" stroke-width="1.7" stroke-linecap="round" fill="none"/><path d="M48 113 l-3 6" stroke="#f08a86" stroke-width="1.7" stroke-linecap="round" fill="none"/><path d="M53 113 l-3 6" stroke="#f08a86" stroke-width="1.7" stroke-linecap="round" fill="none"/><ellipse cx="154" cy="117" rx="11" ry="7" fill="url(#dbl)"/><path d="M151 113 l-3 6" stroke="#f08a86" stroke-width="1.7" stroke-linecap="round" fill="none"/><path d="M156 113 l-3 6" stroke="#f08a86" stroke-width="1.7" stroke-linecap="round" fill="none"/><path d="M161 113 l-3 6" stroke="#f08a86" stroke-width="1.7" stroke-linecap="round" fill="none"/><ellipse cx="100" cy="128" rx="4.5" ry="6.5" fill="#28385a"/><path d="M152 56 l6 -8 M160 64 l9 -4" stroke="#ffd24a" stroke-width="3.2" stroke-linecap="round"/></g></g></g></svg>
+<p style="text-align:center;font:italic 13px/1.4 Georgia,serif;color:var(--mute);margin:4px 0 2px" id="avHold" aria-live="polite">Tap and hold…</p>
 <p id="avSizeHint" aria-live="polite"></p><div class="clips" id="clips"></div>
 <div class="log" id="log"></div>
 <div class="chips" id="chips"></div>
-<div class="row"><input id="in" placeholder="How are you feeling?" aria-label="Message to Charles" enterkeyhint="send" autocomplete="off"><button id="send">Send</button></div>
+<div class="composer"><textarea id="in" rows="1" placeholder="Message Doc…" aria-label="Message to Doc" enterkeyhint="send" autocomplete="off"></textarea><button id="send" type="button" aria-label="Send" disabled><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button></div>
 <p class="sub" style="text-align:center;font-size:13px;margin:8px 4px 0;color:var(--mute)">Try: <i>“I’m feeling stuck and don’t know where to begin.”</i></p>
-<div id="memNote" class="sub" style="text-align:center;margin:8px 4px 0;font-size:12px">Charles has memory enabled, so he can remember your past conversations. You can <button id="fget" style="font:inherit;font-weight:600;color:var(--acc);background:none;border:0;padding:0;text-decoration:underline;cursor:pointer">forget this conversation</button>.</div>
+<div id="memNote" class="sub" style="text-align:center;margin:8px 4px 0;font-size:12px">Doc has memory enabled, so he can remember your past conversations. You can <button id="fget" style="font:inherit;font-weight:600;color:var(--acc);background:none;border:0;padding:0;text-decoration:underline;cursor:pointer">forget this conversation</button>.</div>
 </div>
 </section>
 
@@ -674,7 +534,7 @@ button:focus:not(:focus-visible),input:focus:not(:focus-visible){outline:none}
 <h2 style="margin-top:0">App coming soon</h2>
 <p class="sub">A dedicated app is in development so this path is easier to practice daily — offline-friendly, private, and free at the core.</p>
 <ul class="get-list">
-<li><b>Charles on the go</b> — the same gentle companion, in your pocket</li>
+<li><b>Doc on the go</b> — the same gentle companion, in your pocket</li>
 <li><b>Body Work & Path</b> — practices saved for when you need them</li>
 <li><b>Still free to use</b> — no account required for the essentials</li>
 </ul>
@@ -695,18 +555,18 @@ button:focus:not(:focus-visible),input:focus:not(:focus-visible){outline:none}
 <div class="card"><div class="num">MODERN INSIGHT</div><p class="sub" style="margin:0">Insight in modern language. Everything here is designed to be easily digestible, kind and straightforward. Though some of the documents come from people who lived roughly 2,600 years ago, there is no mention of religious, spiritual or other forms of authority, so you can get straight to the heart of what is most beneficial in continuing practice.</p></div>
 <div class="card"><div class="num">SMALL STEPS</div><p class="sub" style="margin:0">Gentle practice at your own pace. You do not need to have it figured out. Begin where you are.</p></div>
 </div>
-<div class="sec">About Charles</div>
+<div class="sec">About Doc</div>
 <div class="card" style="text-align:center">
 <svg class="hi" viewBox="0 0 200 220" width="84" height="92" aria-hidden="true"><use href="#blob"/></svg>
-<h2 style="margin:6px 0 4px">Charles</h2>
+<h2 style="margin:6px 0 4px">Doc</h2>
 <p class="sub" style="font-size:19px;color:var(--ink);margin:0"><i>A kind, honest guide back to the path.</i></p>
 </div>
 <div class="card">
-<p>Charles is an AI companion. Not quite R2-D2 yet, but you could think of him as a “mental friend.”</p>
-<p style="margin:0">A generalized AI draws on everything and answers to everyone, so its replies tend to be broad, cautious and generic. Charles is a bit different. The repository he draws his answers from, and the way he is prompted, were designed with a purpose: to be kind and straightforward on a user’s path to their highest happiness. The material was chosen carefully to illustrate the key core principles of letting go, and to remind people of kindness: not judging themselves, and accepting all of themselves, which is highly beneficial when beginning the important journey of freedom from unnecessarily hurting oneself. His answers are grounded in that material rather than in whatever the internet happens to say, or whatever is trending.</p>
+<p>Doc is an AI companion. Not quite R2-D2 yet, but you could think of him as a “mental friend.”</p>
+<p style="margin:0">A generalized AI draws on everything and answers to everyone, so its replies tend to be broad, cautious and generic. Doc is a bit different. The repository he draws his answers from, and the way he is prompted, were designed with a purpose: to be kind and straightforward on a user’s path to their highest happiness. The material was chosen carefully to illustrate the key core principles of letting go, and to remind people of kindness: not judging themselves, and accepting all of themselves, which is highly beneficial when beginning the important journey of freedom from unnecessarily hurting oneself. His answers are grounded in that material rather than in whatever the internet happens to say, or whatever is trending.</p>
 </div>
 <div class="card">
-<h2 style="margin-top:0">What Charles stands for</h2>
+<h2 style="margin-top:0">What Doc stands for</h2>
 <p><b>Kindness.</b> He doesn’t judge you, lecture you, or tell you what you should have done. He reminds you not to judge yourself either.</p>
 <p><b>Honesty, in harmony with kindness.</b> He’s gentle, but he won’t flatter you or just tell you what you want to hear. The two belong together.</p>
 <p style="margin:0"><b>Staying on the path.</b> When you drift into worry, stories or self-blame, he gently brings you back to what matters: letting go and finding freedom from unhappiness.</p>
@@ -725,12 +585,11 @@ button:focus:not(:focus-visible),input:focus:not(:focus-visible){outline:none}
 </div>
 <p class="sub" style="text-align:center;margin-top:28px"><a href="#about" id="footContact" style="color:var(--acc);text-decoration:underline;text-underline-offset:3px;font-weight:600">Contact</a></p>
 <div class="sos">
-<p style="margin:0 0 10px"><b>This is not therapy.</b> Charles is an AI companion, not a therapist, not a doctor, and not a substitute for professional care. Nothing here is medical advice.</p>
+<p style="margin:0 0 10px"><b>This is not therapy.</b> Doc is an AI companion, not a therapist, not a doctor, and not a substitute for professional care. Nothing here is medical advice.</p>
 <p style="margin:0 0 10px">If you may be in danger or thinking of harming yourself, please reach out for live human support right away.</p>
 <p style="margin:0"><b>Crisis support by country:</b> <a href="https://findahelpline.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">findahelpline.com</a> — free, confidential helplines for every country. In Ireland, call Pieta on <b>1800 247 247</b> or Samaritans on <b>116 123</b>. In the US, call or text <b>988</b>. Elsewhere, use your local emergency number or the link above.</p>
 </div>
 </main>
-
 <script>
 const $=id=>document.getElementById(id);
 document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{
@@ -754,41 +613,58 @@ function loadHist(){try{const raw=localStorage.getItem(HKEY);if(!raw)return;
  const saved=JSON.parse(raw);if(!Array.isArray(saved))return;
  saved.forEach(m=>{if(m&&m.content){add(m.content,m.role==='user'?'u':'c');HIST.push(m)}})
 }catch(e){}}
+const SYS={role:'system',content:"You are Doc, a kind, calm companion for the Technique of Letting Go. Make every reply easy to scan: one short warm line, then 2-4 bullet points (start each with '- ', one idea each, under 20 words), then one gentle question. Use **bold** sparingly for key words. Never write long paragraphs. You are not a therapist."};
+function md(t){const e=q=>q.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+ const inl=q=>e(q).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/(^|[^*])\*(?![\s*])(.+?)\*(?!\*)/g,'$1<i>$2</i>');
+ let o='',l=null;const cl=()=>{if(l){o+='</'+l+'>';l=null}};
+ for(const ln of String(t).split('\n')){let m;
+  if(m=ln.match(/^\s*[-*\u2022]\s+(.*)/)){if(l!=='ul'){cl();o+='<ul>';l='ul'}o+='<li>'+inl(m[1])+'</li>'}
+  else if(m=ln.match(/^\s*\d+[.)]\s+(.*)/)){if(l!=='ol'){cl();o+='<ol>';l='ol'}o+='<li>'+inl(m[1])+'</li>'}
+  else if(m=ln.match(/^\s*#{1,4}\s+(.*)/)){cl();o+='<p><b>'+inl(m[1])+'</b></p>'}
+  else if(!ln.trim())cl();else{cl();o+='<p>'+inl(ln)+'</p>'}}
+ cl();return o}
+const inp=$('in');
+inp.addEventListener('input',()=>{inp.style.height='auto';inp.style.height=Math.min(inp.scrollHeight,140)+'px';$('send').disabled=!inp.value.trim()});
 const log=$('log');let typeTimer;
-function add(x,c){const d=document.createElement('div');d.className='m '+c;d.textContent=x;log.appendChild(d);log.scrollTop=log.scrollHeight;return d}
+function add(x,c){const d=document.createElement('div');d.className='m '+c;if(c==='c'&&x)d.innerHTML=md(x);else d.textContent=x;log.appendChild(d);log.scrollTop=log.scrollHeight;return d}
 function say(x){const d=add('','c');$('avc').classList.add('talk','compact');let i=0;clearInterval(typeTimer);
  const step=Math.max(1,Math.ceil(x.length/50));
- typeTimer=setInterval(()=>{i+=step;d.textContent=x.slice(0,i);log.scrollTop=log.scrollHeight;if(i>=x.length){d.textContent=x;clearInterval(typeTimer);$('avc').classList.remove('talk')}},16)}
-const LOADING_MSGS=["Contemplating","Reflecting","Considering your highest happiness","Sitting with your words","Breathing this in","Finding the gentlest answer"];
+ typeTimer=setInterval(()=>{i+=step;d.textContent=x.slice(0,i);log.scrollTop=log.scrollHeight;if(i>=x.length){d.innerHTML=md(x);clearInterval(typeTimer);$('avc').classList.remove('talk')}},16)}
+const LOADING_MSGS=["Doc is writing"];
 let loadTimer;
 const FAIL_MSG="I'm having trouble connecting right now. Please try again in a moment. If you're in crisis, please contact your local emergency number or a crisis line (findahelpline.com).";
 let busy=false;
-async function sendMessage(x){
+async function sendMessage(x,retry){
  x=x.trim();if(!x||busy)return;busy=true;
- add(x,'u');$('in').value='';
+ if(!retry)add(x,'u');$('in').value='';inp.style.height='auto';$('send').disabled=true;
+ $('avc').classList.add('full');if(!retry)$('avc').scrollIntoView({behavior:'smooth',block:'start'});
  if(CRISIS_RE.test(x)){busy=false;const cm=crisisMsg();say(cm);HIST.push({role:'user',content:x},{role:'assistant',content:cm});saveHist();return}
- HIST.push({role:'user',content:x});saveHist();
+ if(!retry)HIST.push({role:'user',content:x});saveHist();
  /* waiting bubble: slow-changing text + dots that pulse one by one */
  const d=add('','c');d.innerHTML='<span class="lt"></span><span class="dots"><i></i><i></i><i></i></span>';
  const lt=d.firstChild;lt.textContent=LOADING_MSGS[0];
  let li=0;clearInterval(loadTimer);
  loadTimer=setInterval(()=>{li=(li+1)%LOADING_MSGS.length;lt.classList.remove('fade');void lt.offsetWidth;lt.textContent=LOADING_MSGS[li];lt.classList.add('fade')},5000);
  let out='',bubble=null;
- let node=null,queue='',raf=0,waitRes=null;
- const show=()=>{if(!bubble){clearInterval(loadTimer);d.remove();bubble=add('','c');node=document.createTextNode('');bubble.appendChild(node);$('avc').classList.add('talk')}};
+ let shown='',queue='',raf=0,waitRes=null;
+ const show=()=>{if(!bubble){clearInterval(loadTimer);d.remove();bubble=add('','c');bubble.classList.add('writing');$('avc').classList.add('talk')}};
  /* smooth reveal: incoming text is queued and shown at a steady pace, speeding up only when far behind */
  const tick=()=>{raf=0;
   if(!queue){if(waitRes){const r=waitRes;waitRes=null;r()}return}
   const n=Math.max(1,Math.ceil(queue.length/40));
   const near=log.scrollHeight-log.scrollTop-log.clientHeight<140;
-  node.data+=queue.slice(0,n);queue=queue.slice(n);
+  shown+=queue.slice(0,n);queue=queue.slice(n);bubble.innerHTML=md(shown);
   if(near)log.scrollTop=log.scrollHeight;
   raf=requestAnimationFrame(tick)};
  const put=t=>{out+=t;queue+=t;if(!raf)raf=requestAnimationFrame(tick)};
  const drained=()=>queue?new Promise(r=>{waitRes=r}):Promise.resolve();
- const flushNow=()=>{if(node&&queue){node.data+=queue;queue=''}if(raf){cancelAnimationFrame(raf);raf=0}if(waitRes){const r=waitRes;waitRes=null;r()}};
+ const flushNow=()=>{if(bubble&&queue){shown+=queue;queue='';bubble.innerHTML=md(shown)}if(raf){cancelAnimationFrame(raf);raf=0}if(waitRes){const r=waitRes;waitRes=null;r()}};
  try{
-  const r=await fetch(API_URL,{method:'POST',headers:{'Content-Type':'application/json','cf-ai-search-source':'snippet-chat-completions'},body:JSON.stringify({messages:HIST.slice(-12),stream:true})});
+  let r;
+  for(let a=0;a<2;a++){const ctl=new AbortController(),to=setTimeout(()=>ctl.abort(),20000);
+   try{r=await fetch(API_URL,{method:'POST',signal:ctl.signal,headers:{'Content-Type':'application/json','cf-ai-search-source':'snippet-chat-completions'},body:JSON.stringify({messages:[SYS,...HIST.slice(-12)],stream:true})});clearTimeout(to);if(r.ok||(r.status<500&&r.status!==429))break}
+   catch(e){clearTimeout(to);if(a)throw e}
+   await new Promise(z=>setTimeout(z,1200))}
   if(!r.ok)throw new Error('http '+r.status);
   const ct=r.headers.get('content-type')||'';
   if(r.body&&/event-stream/i.test(ct)){
@@ -817,18 +693,18 @@ async function sendMessage(x){
   await drained();
   HIST.push({role:'assistant',content:out});saveHist();
  }catch(e){
-  console.error("Charles chat failed:",e);
+  console.error("Doc chat failed:",e);
   flushNow();
   if(out){HIST.push({role:'assistant',content:out})}
-  else{show();put(FAIL_MSG);HIST.push({role:'assistant',content:FAIL_MSG})}
+  else{show();put(FAIL_MSG);flushNow();const rb=document.createElement('button');rb.className='retry';rb.type='button';rb.textContent='Try again';const fb=bubble;rb.onclick=()=>{fb.remove();sendMessage(x,true)};bubble.appendChild(rb)}
   saveHist();
  }finally{
-  busy=false;clearInterval(loadTimer);if(!bubble)d.remove();$('avc').classList.remove('talk');
+  busy=false;clearInterval(loadTimer);if(bubble)bubble.classList.remove('writing');if(!bubble)d.remove();$('avc').classList.remove('talk');
  }
 }
 $('send').onclick=()=>sendMessage($('in').value);
-loadHist();
-function memHTML(msg){return (msg?msg+' ':'')+'Charles has memory enabled, so he can remember your past conversations. You can <button id="fget" style="font:inherit;font-weight:600;color:var(--acc);background:none;border:0;padding:0;text-decoration:underline;cursor:pointer">forget this conversation</button>.'}
+loadHist();if(HIST.length)$('avc').classList.add('full');
+function memHTML(msg){return (msg?msg+' ':'')+'Doc has memory enabled, so he can remember your past conversations. You can <button id="fget" style="font:inherit;font-weight:600;color:var(--acc);background:none;border:0;padding:0;text-decoration:underline;cursor:pointer">forget this conversation</button>.'}
 function wireForget(){$('fget').onclick=askForget}
 function askForget(){
  const note=$('memNote');
@@ -884,7 +760,7 @@ $('kSend').onclick=async()=>{
  $('kErr').textContent='';
  if(!sb){$('kErr').textContent="This tab isn't connected right now.";return}
  if(raw.length<3){$('kErr').textContent='A few more words would help.';return}
- if(CRISIS_RE.test(raw)){$('kErr').textContent="It sounds like you're going through something heavy right now. Please talk to Charles or contact a crisis line (findahelpline.com) instead of posting here — you deserve real support.";return}
+ if(CRISIS_RE.test(raw)){$('kErr').textContent="It sounds like you're going through something heavy right now. Please talk to Doc or contact a crisis line (findahelpline.com) instead of posting here — you deserve real support.";return}
  if(BAD.test(raw)||BAD.test(normText(raw))){try{localStorage.setItem(BAN_KEY,String(Date.now()+BAN_MS))}catch(e){}$('kText').value='';kCountUp();applyBan();$('kErr').textContent='The darkness will fade following the path of goodness.';return}
  if(URLRE.test(raw)){$('kErr').textContent='Please leave out links.';return}
  $('kSend').disabled=true;$('kSend').textContent='Sending…';
@@ -927,7 +803,7 @@ $('kAgain').onclick=()=>{$('kMatch').style.display='none';$('kIntro').style.disp
 $('kDone').onclick=()=>{$('kMatch').style.display='none';$('kIntro').style.display='block'};
 })();
 
-$('in').onkeydown=e=>{if(e.key==='Enter'&&!e.isComposing)sendMessage($('in').value)};
+$('in').onkeydown=e=>{if(e.key==='Enter'&&!e.shiftKey&&!e.isComposing){e.preventDefault();sendMessage($('in').value)}};
 if(!HIST.length)say("Hi, I'm here to support you as you relax, at your own pace. This is a safe, unhurried space. Would you like me to guide you, or would you rather tell me how you're feeling?");
 
 const PATREON_URL="";/* paste your Patreon page link here */
@@ -991,9 +867,7 @@ function end(){step="end";orbSet(.6,1);info();
  show("<b>You let three waves pass.</b><br>Each time: notice, feel, release the wanting, rest. The old habit weakens every time it is not fed. Freedom is this, practiced again and again.<br><span class=\"sub\">Surrender never means staying in harm. It means putting down the fight inside.</span>",[["Play again",()=>{r=0;loops=0;freed=0;start()}]])}
 start();
 })();}
-
-/* ---- */
-
+</script><script>
 (function(){
  if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
  var els=[].slice.call(document.querySelectorAll('svg.hi,#av')),tx=0,ty=0,cx=0,cy=0,last=0;
@@ -1006,20 +880,17 @@ start();
   els.forEach(function(s){s.style.setProperty('--nx',cx.toFixed(3));s.style.setProperty('--ny',cy.toFixed(3))});
   requestAnimationFrame(tick)})(0);
 })();
-
-/* ---- */
-
+</script>
+<script>
 document.querySelectorAll('.tabs button').forEach(function(b){b.addEventListener('click',function(){
  var t=document.querySelector('.tabs'),top=t.getBoundingClientRect().top+window.scrollY;
  if(window.scrollY>top)window.scrollTo({top:top,behavior:'smooth'});
 });});
-
-/* ---- */
-
+</script>
+<script>
 (function(){var a=document.getElementById('giveAv'),p=document.querySelector('#about img');if(a&&p&&p.src)a.src=p.src;else if(a)a.style.display='none'})();
-
-/* ---- */
-
+</script>
+<script>
 document.getElementById('footContact').onclick=function(e){e.preventDefault();document.querySelector('[data-t=about]').click();setTimeout(function(){document.getElementById('contactCard').scrollIntoView({behavior:'smooth',block:'center'})},60)};
 
 
@@ -1049,16 +920,6 @@ document.getElementById('footContact').onclick=function(e){e.preventDefault();do
       if(s!=='dark'&&s!=='light')apply(null);
     });
   }catch(e){}
-  /* Show only at the very top; fade away as soon as scrolling starts */
-  function syncThemeBtn(){
-    if(!btn)return;
-    var y=window.pageYOffset||document.documentElement.scrollTop||document.body.scrollTop||0;
-    if(y<12){btn.classList.remove('theme-hidden');}
-    else{btn.classList.add('theme-hidden');}
-  }
-  syncThemeBtn();
-  window.addEventListener('scroll',syncThemeBtn,{passive:true});
-  document.addEventListener('scroll',syncThemeBtn,{passive:true,capture:true});
 })();
 
 /* Starter prompts under the chat input */
@@ -1080,38 +941,9 @@ document.getElementById('footContact').onclick=function(e){e.preventDefault();do
 })();
 
 const avatar=$('av');
-/* Charles colour tints — preference stored on this device */
-(function(){
-  var KEY='fftAvTint';
-  var TINTS=['','gold','rose','green','purple','sky','silver'];
-  function applyTint(name){
-    if(!avatar)return;
-    TINTS.forEach(function(t){if(t)avatar.classList.remove('tint-'+t)});
-    if(name)avatar.classList.add('tint-'+name);
-    try{localStorage.setItem(KEY,name||'')}catch(e){}
-    var row=document.getElementById('tintRow');
-    if(row){
-      [].forEach.call(row.querySelectorAll('button'),function(b){
-        b.classList.toggle('on',(b.getAttribute('data-tint')||'')===(name||''));
-      });
-    }
-  }
-  var saved='';
-  try{saved=localStorage.getItem(KEY)||''}catch(e){}
-  if(TINTS.indexOf(saved)<0)saved='';
-  applyTint(saved);
-  var row=document.getElementById('tintRow');
-  if(row){
-    row.addEventListener('click',function(e){
-      var b=e.target.closest('button[data-tint]');
-      if(!b)return;
-      applyTint(b.getAttribute('data-tint')||'');
-    });
-  }
-})();
-const charlesExpressions=['','happy','grin','shy','sparkle']; // '' = base smile
-let charlesExpressionIndex=0;
-function setCharlesExpression(name){
+const docExpressions=['','happy','grin','shy','sparkle']; // '' = base smile
+let docExpressionIndex=0;
+function setDocExpression(name){
   if(!avatar)return;
   const names=['happy','grin','shy','sparkle'];
   names.forEach(n=>avatar.classList.remove('expr-'+n));
@@ -1121,10 +953,10 @@ function setCharlesExpression(name){
   avatar.classList.add('face-pop');
 }
 if(avatar){
-  /* Size: hold to inflate Charles to comic size; hold again to shrink */
+  /* Size: hold to inflate Doc to comic size; hold again to shrink */
   const SIZE_NORMAL=140;
   const SIZE_STEPS=[72,140,260,400,520]; // tiny → normal → huge comic
-  let sizeIdx=0; // default smallest
+  let sizeIdx=1; // default normal
   try{
     const s=parseInt(localStorage.getItem('fftAvSize'),10);
     if(s>=0&&s<SIZE_STEPS.length)sizeIdx=s;
@@ -1150,7 +982,7 @@ if(avatar){
     clearTimeout(pressTimer);pressTimer=null;
     clearInterval(stepTimer);stepTimer=null;
     avatar.classList.remove('holding');
-    const hd=$('avHold');if(hd)hd.textContent='Hold to grow · tap for expression';
+    const hd=$('avHold');if(hd)hd.textContent='Tap and hold…';
   }
   function onDown(e){
     if(e.button!=null&&e.button!==0)return;
@@ -1175,8 +1007,8 @@ if(avatar){
     if(held){e.preventDefault();return}
     if(dt<320){
       $('avc').classList.remove('compact','talk');
-      charlesExpressionIndex=(charlesExpressionIndex+1)%charlesExpressions.length;
-      setCharlesExpression(charlesExpressions[charlesExpressionIndex]);
+      docExpressionIndex=(docExpressionIndex+1)%docExpressions.length;
+      setDocExpression(docExpressions[docExpressionIndex]);
     }
   }
   avatar.addEventListener('pointerdown',onDown);

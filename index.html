@@ -129,7 +129,7 @@ body{background:radial-gradient(900px 420px at 50% -80px,var(--glow1),transparen
   transform-origin:center top;cursor:pointer;
   width:var(--av-w,140px);height:var(--av-h,140px);
   max-width:min(92vw,520px);max-height:min(92vw,520px);
-  touch-action:none;-webkit-user-select:none;user-select:none;
+  touch-action:pan-y;-webkit-user-select:none;user-select:none;
   z-index:5;
 }
 #av.mega{
@@ -452,29 +452,51 @@ button:focus:not(:focus-visible),input:focus:not(:focus-visible){outline:none}
   #docFab .fab-label{font-size:13px}
 }
 
+/* no sideways page scroll */
+html,body{max-width:100%;overflow-x:clip;overscroll-behavior-x:none}
+
+/* ===== Claude-style chat mode: fixed full screen, messages scroll inside, input pinned at the bottom ===== */
+html.chatmode,html.chatmode body{overflow:hidden;overscroll-behavior:none}
+#avc .chat-x{display:none}
+#avc.chat{position:fixed;left:0;right:0;top:var(--vvt,0px);height:var(--vvh,100dvh);min-height:0;max-height:none;margin:0;z-index:200;border-radius:0;border:0;box-shadow:none;background:var(--bg);padding:max(10px,env(safe-area-inset-top)) 12px 0;overflow:hidden;touch-action:manipulation}
+#avc.chat .chat-x{display:grid;place-items:center;position:absolute;top:max(10px,env(safe-area-inset-top));right:12px;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink);font:400 22px/1 system-ui,sans-serif;cursor:pointer;z-index:9;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+#avc.chat #av,#avc.chat.talk #av,#avc.chat.compact #av{width:68px!important;height:68px!important;margin:0 auto 2px!important;flex:none}
+#avc.chat #avHold,#avc.chat #avSizeHint,#avc.chat .clips,#avc.chat #memNote,#avc.chat .sub{display:none!important}
+#avc.chat .log{flex:1 1 auto;min-height:0;max-height:none;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;touch-action:pan-y;margin:0 -12px;padding:12px 14px 8px;scroll-behavior:auto}
+#avc.chat #chips{flex:none;margin:4px -12px}
+#avc.chat .composer{position:relative;bottom:auto;flex:none;margin:6px 0 max(10px,env(safe-area-inset-bottom));touch-action:manipulation}
+.composer,#in,#send{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+#in{-webkit-user-select:text;user-select:text;-webkit-appearance:none;appearance:none;cursor:text}
+html.chatmode #docFab{display:none!important}
+
+/* hide / bring back Doc */
+#avc{position:relative}
+#docX{position:absolute;z-index:8;top:12px;right:12px;width:28px;height:28px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--mute);font:400 18px/1 system-ui,sans-serif;display:grid;place-items:center;padding:0;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;transition:background .3s,box-shadow .3s,border-color .3s}
+#docX::after{content:"\00d7"}
+#docX svg{display:none}
+#docX.ball{width:36px;height:36px;border:0;background:transparent;box-shadow:none;border-radius:0;overflow:visible;color:transparent;filter:drop-shadow(0 0 5px rgba(95,230,255,.65));animation:ballPulse 2.4s ease-in-out infinite}
+#docX.ball svg{display:block;width:100%;height:100%}
+#docX.ball::after{display:none}
+@keyframes ballPulse{50%{filter:drop-shadow(0 0 9px rgba(95,230,255,.95))}}
+#avc.chat #docX{right:60px;top:calc(max(10px,env(safe-area-inset-top)) + 6px)}
+#avc.chat #docX.ball{right:58px;top:calc(max(10px,env(safe-area-inset-top)) + 2px)}
+html.docoff #av,html.docoff #avHold,html.docoff #avSizeHint{display:none!important}
+#av.asleep .blobeye{animation:none!important;transform:scaleY(.07)!important}
+#av.asleep .expr:not(.expr-base){opacity:0!important}
+.zz{position:absolute;z-index:9;font:italic 700 18px Georgia,serif;color:#5fb8d8;pointer-events:none;opacity:0}
+
+/* ===== scroll feel: page scrolls normally outside chat mode; list is the only scroller inside it ===== */
+#avc:not(.chat){overflow:visible;max-height:none;min-height:0}
+#avc:not(.chat).full{min-height:0;max-height:none}
+#avc:not(.chat) .log{flex:none;overflow:visible;max-height:none;min-height:120px;overscroll-behavior:auto;-webkit-mask-image:none;mask-image:none;scroll-behavior:auto}
+#avc:not(.chat) .composer{position:relative;bottom:auto}
+#avc.chat .log{scroll-behavior:auto}
+#toBottom{display:none;position:absolute;right:16px;z-index:12;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink);box-shadow:0 4px 14px rgba(0,0,0,.15);place-items:center;padding:0;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+#avc.chat #toBottom.on{display:grid}
+
 </style>
 </head><body>
 <button id="themeBtn" type="button" aria-label="Toggle light and dark theme" title="Theme">☾</button>
-
-<button type="button" id="docFab" aria-label="Talk to Doc">
-  <span class="fab-av" aria-hidden="true">
-    <svg viewBox="0 0 40 44" width="36" height="40"><defs>
-      <radialGradient id="fabBody" cx=".34" cy=".26" r=".9"><stop offset="0" stop-color="#fff"/><stop offset=".6" stop-color="#f6f0e8"/><stop offset="1" stop-color="#dcd2c7"/></radialGradient>
-      <linearGradient id="fabRed" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f0604e"/><stop offset="1" stop-color="#b52a20"/></linearGradient>
-      <radialGradient id="fabLed" cx=".4" cy=".3" r=".9"><stop offset="0" stop-color="#eaffff"/><stop offset=".5" stop-color="#63e8fb"/><stop offset="1" stop-color="#1fb0d6"/></radialGradient>
-    </defs>
-    <ellipse cx="20" cy="22" rx="15" ry="14" fill="url(#fabBody)"/>
-    <ellipse cx="6" cy="22" rx="3.2" ry="7.5" fill="url(#fabRed)"/>
-    <ellipse cx="34" cy="22" rx="3.2" ry="7.5" fill="url(#fabRed)"/>
-    <rect x="14.2" y="17.5" width="2.6" height="7" rx="1.3" fill="url(#fabLed)"/>
-    <rect x="23.2" y="17.5" width="2.6" height="7" rx="1.3" fill="url(#fabLed)"/>
-    <path d="M16.5 26.5 Q20 28.5 23.5 26.5" fill="none" stroke="#28385a" stroke-width="1.4" stroke-linecap="round"/>
-    </svg>
-  </span>
-  <span class="fab-label">Talk to Doc</span>
-  <span class="fab-dot" title="Online"></span>
-</button>
-
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="blob" viewBox="0 0 200 220"><g><defs>
 <radialGradient id="sbody" cx=".34" cy=".26" r=".9"><stop offset="0" stop-color="#fff"/><stop offset=".55" stop-color="#f6f0e8"/><stop offset=".9" stop-color="#dcd2c7"/><stop offset="1" stop-color="#c2b5a8"/></radialGradient>
@@ -524,7 +546,7 @@ button:focus:not(:focus-visible),input:focus:not(:focus-visible){outline:none}
 <nav class="tabs" aria-label="Letting go sections"><button class="on" data-t="coach">Doc</button><button data-t="kind">Kindness</button><button data-t="prac">Path</button><button data-t="give">Give</button><button data-t="get">App</button><button data-t="about">About</button></nav>
 
 <section class="view on" id="coach">
-<div class="card" id="avc">
+<div class="card" id="avc"><button type="button" id="toBottom" aria-label="Jump to latest message"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></button><button type="button" id="docX" aria-label="Put Doc to sleep" title="Put Doc to sleep"><svg viewBox="0 0 100 100" aria-hidden="true"><g transform="rotate(-22 36 24)"><path d="M28 28C25 10 32 3 38 6C44 9 44 22 42 30Z" fill="#d9372e"/></g><g transform="rotate(22 64 24)"><path d="M72 28C75 10 68 3 62 6C56 9 56 22 58 30Z" fill="#d9372e"/></g><ellipse cx="11" cy="58" rx="8" ry="15" fill="#d9372e"/><ellipse cx="89" cy="58" rx="8" ry="15" fill="#d9372e"/><circle cx="50" cy="58" r="38" fill="#fbf6ee" stroke="#d9372e" stroke-width="4"/><path d="M13 66Q50 56 87 66A38 38 0 0 1 13 66Z" fill="#f2877b"/><path d="M30 50Q36 55 42 50M58 50Q64 55 70 50" fill="none" stroke="#33c6ea" stroke-width="3.5" stroke-linecap="round"/><circle cx="26" cy="58" r="3.5" fill="#f4a7a0" opacity=".8"/><circle cx="74" cy="58" r="3.5" fill="#f4a7a0" opacity=".8"/></svg></button><button type="button" class="chat-x" id="chatX" aria-label="Close chat">&times;</button>
 <div id="stage"><video id="vid" playsinline controls preload="none"></video></div>
 <svg id="av" viewBox="0 0 200 220" role="img" aria-label="Doc, a friendly round white companion robot with red ears and glowing cyan eyes"><defs>
 <radialGradient id="dbody" cx=".34" cy=".26" r=".9"><stop offset="0" stop-color="#fff"/><stop offset=".55" stop-color="#f6f0e8"/><stop offset=".9" stop-color="#dcd2c7"/><stop offset="1" stop-color="#c2b5a8"/></radialGradient>
@@ -856,6 +878,24 @@ function add(x,c){const d=document.createElement('div');d.className='m '+c;if(c=
 function say(x){const d=add('','c');$('avc').classList.add('talk','compact');let i=0;clearInterval(typeTimer);
  const step=Math.max(1,Math.ceil(x.length/50));
  typeTimer=setInterval(()=>{i+=step;d.textContent=x.slice(0,i);log.scrollTop=log.scrollHeight;if(i>=x.length){d.innerHTML=md(x);clearInterval(typeTimer);$('avc').classList.remove('talk')}},16)}
+/* ---- Claude-style chat mode ---- */
+const AVC=$('avc');let chatPushed=false;
+function fitChat(){const v=window.visualViewport;if(v){AVC.style.setProperty('--vvh',v.height+'px');AVC.style.setProperty('--vvt',v.offsetTop+'px')}
+ if(AVC.classList.contains('chat')){window.scrollTo(0,0);log.scrollTop=log.scrollHeight}}
+function enterChat(){if(!AVC.classList.contains('chat')){AVC.classList.add('chat');document.documentElement.classList.add('chatmode');
+  try{history.pushState({docChat:1},'');chatPushed=true}catch(e){}}
+ fitChat();requestAnimationFrame(()=>{log.scrollTop=log.scrollHeight})}
+function exitChat(viaBtn){if(!AVC.classList.contains('chat'))return;AVC.classList.remove('chat');document.documentElement.classList.remove('chatmode');
+ AVC.style.removeProperty('--vvh');AVC.style.removeProperty('--vvt');inp.blur();
+ if(viaBtn&&chatPushed){chatPushed=false;try{history.back()}catch(e){}}else chatPushed=false;
+ setTimeout(()=>AVC.scrollIntoView({block:'start'}),30)}
+addEventListener('popstate',()=>{if(AVC.classList.contains('chat')){chatPushed=false;exitChat(false)}});
+addEventListener('keydown',e=>{if(e.key==='Escape')exitChat(true)});
+if(window.visualViewport){visualViewport.addEventListener('resize',fitChat);visualViewport.addEventListener('scroll',fitChat)}
+addEventListener('orientationchange',()=>setTimeout(fitChat,300));
+/* tapping the input (or anywhere on the composer bar) opens the chat and focuses the box */
+inp.addEventListener('focus',()=>{enterChat();setTimeout(fitChat,300)});
+document.querySelector('.composer').addEventListener('pointerdown',e=>{if(e.target.closest('#send'))return;if(e.target!==inp){e.preventDefault();inp.focus()}});
 const LOADING_MSGS=["Doc is thinking hard"];
 let loadTimer;
 const FAIL_MSG="I'm having trouble connecting right now. Please try again in a moment. If you're in crisis, please contact your local emergency number or a crisis line (findahelpline.com).";
@@ -863,8 +903,7 @@ let busy=false;
 async function sendMessage(x,retry){
  x=x.trim();if(!x||busy)return;busy=true;
  if(!retry)add(x,'u');$('in').value='';inp.style.height='auto';$('send').disabled=true;
- /* Expand chat area but never jump the page — stay where the user is typing */
- $('avc').classList.add('full','compact');
+ enterChat();$('avc').classList.add('full','compact');
  const sh=$('startHint');if(sh)sh.style.display='none';
  /* Keep the message list scrolled to the latest message only (inside the log) */
  requestAnimationFrame(()=>{log.scrollTop=log.scrollHeight});
@@ -932,7 +971,9 @@ async function sendMessage(x,retry){
   busy=false;clearInterval(loadTimer);if(bubble)bubble.classList.remove('writing');if(!bubble)d.remove();$('avc').classList.remove('talk');
  }
 }
-$('send').onclick=()=>sendMessage($('in').value);
+$('send').addEventListener('pointerdown',e=>e.preventDefault());/* keep keyboard + focus, like Claude */
+$('send').onclick=()=>{sendMessage($('in').value);inp.focus({preventScroll:true})};
+$('chatX').onclick=()=>exitChat(true);
 loadHist();if(HIST.length){$('avc').classList.add('full','compact');const sh=$('startHint');if(sh)sh.style.display='none'}
 function memHTML(msg){return (msg?msg+' ':'')+'Doc has memory enabled, so he can remember your past conversations. You can <button id="fget" style="font:inherit;font-weight:600;color:var(--acc);background:none;border:0;padding:0;text-decoration:underline;cursor:pointer">forget this conversation</button>.'}
 function wireForget(){$('fget').onclick=askForget}
@@ -1004,6 +1045,7 @@ $('kSend').onclick=async()=>{
   if(error) throw error;
   if(data&&data.length){match=data[0].out_message;matchFrom=data[0].out_tag||'a fellow traveler'}
  }catch(e){
+  console.error('Kindness send failed:',e&&(e.message||e.code||e));
   match=FALLBACK[Math.floor(Math.random()*FALLBACK.length)];
   usedFallback=true;
  }
@@ -1057,7 +1099,7 @@ if($('c1'))$('c1').onclick=()=>{document.querySelector('[data-t=get]').click();$
     }
     setTimeout(()=>{
       const i=$('in');
-      if(i){i.focus();i.placeholder='Tell Doc how you're feeling…'}
+      if(i){i.focus();i.placeholder="Tell Doc how you are feeling…"}
     },350);
   }
   function goPath(){
@@ -1274,59 +1316,51 @@ const base=document.title;
 document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',()=>{try{history.replaceState(null,'','#'+b.dataset.t);document.title=(T[b.dataset.t]||base)+' | Letting Go'}catch(e){}}));
 const h=(location.hash||'').slice(1);const h2=h==='breath'?'prac':h;if(T[h2]){const b=document.querySelector('.tabs [data-t="'+h2+'"]');b&&b.click();if(h==='breath')setTimeout(()=>{const el=document.getElementById('bodyWork');if(el)el.scrollIntoView({behavior:'smooth',block:'start'})},80)}})();
 
+
+/* ---- put Doc to sleep -> he warps into a tiny ball; tap the ball to wake him ---- */
+(function(){const avc=document.getElementById('avc'),av=document.getElementById('av'),x=document.getElementById('docX'),root=document.documentElement;
+ if(!avc||!av||!x)return;let busyAnim=false;
+ const reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;
+ const save=v=>{try{localStorage.setItem('docHidden',v?'1':'0')}catch(e){}};
+ function centers(){const a=av.getBoundingClientRect(),b=x.getBoundingClientRect();return{dx:(b.left+b.width/2)-(a.left+a.width/2),dy:(b.top+b.height/2)-(a.top+a.height/2),a}}
+ function zzz(){if(reduce)return;const a=av.getBoundingClientRect(),c=avc.getBoundingClientRect();
+  [0,350,700].forEach((d,i)=>{const z=document.createElement('span');z.className='zz';z.textContent=i%2?'Z':'z';z.style.left=(a.right-c.left-30+i*10)+'px';z.style.top=(a.top-c.top+10)+'px';avc.appendChild(z);
+   z.animate([{opacity:0,transform:'translate(0,0) scale(.7)'},{opacity:1,offset:.3},{opacity:0,transform:'translate(14px,-34px) scale(1.2)'}],{duration:1400,delay:d,easing:'ease-out'}).onfinish=()=>z.remove()})}
+ function sleep(){if(busyAnim||root.classList.contains('docoff'))return;busyAnim=true;
+  av.classList.add('asleep');zzz();
+  setTimeout(()=>{const c=centers();av.style.transformOrigin='50% 50%';
+   const an=av.animate([{transform:'none',opacity:1,offset:0},{transform:'scale(.9) rotate(-8deg)',opacity:1,offset:.2},{transform:`translate(${c.dx}px,${c.dy}px) scale(.04) rotate(540deg)`,opacity:.15,offset:1}],{duration:reduce?1:700,easing:'cubic-bezier(.55,0,.85,.35)',fill:'forwards'});
+   an.onfinish=()=>{root.classList.add('docoff');x.classList.add('ball');x.title='Wake Doc';x.setAttribute('aria-label','Wake Doc');an.cancel();av.style.transformOrigin='';save(true);busyAnim=false}},reduce?0:1300)}
+ function wake(){if(busyAnim||!root.classList.contains('docoff'))return;busyAnim=true;
+  const c0=x.getBoundingClientRect();root.classList.remove('docoff');x.classList.remove('ball');x.title='Put Doc to sleep';x.setAttribute('aria-label','Put Doc to sleep');
+  const a=av.getBoundingClientRect(),dx=(c0.left+c0.width/2)-(a.left+a.width/2),dy=(c0.top+c0.height/2)-(a.top+a.height/2);
+  av.style.transformOrigin='50% 50%';
+  const an=av.animate([{transform:`translate(${dx}px,${dy}px) scale(.04) rotate(-540deg)`,opacity:.15},{transform:'scale(1.08) rotate(0)',opacity:1,offset:.8},{transform:'none',opacity:1}],{duration:reduce?1:650,easing:'cubic-bezier(.2,.8,.3,1)'});
+  an.onfinish=()=>{av.style.transformOrigin='';av.classList.remove('asleep');save(false);busyAnim=false}}
+ x.onclick=e=>{e.stopPropagation();root.classList.contains('docoff')?wake():sleep()};
+ try{if(localStorage.getItem('docHidden')==='1'){root.classList.add('docoff');x.classList.add('ball');x.title='Wake Doc';x.setAttribute('aria-label','Wake Doc');av.classList.add('asleep')}}catch(e){}
+})();
+
+/* ---- scroll helpers inside chat mode ---- */
+(function(){const avc=document.getElementById('avc'),lg=document.getElementById('log'),tb=document.getElementById('toBottom'),cp=document.querySelector('.composer');
+ if(!avc||!lg||!tb)return;
+ function upd(){if(!avc.classList.contains('chat')){tb.classList.remove('on');return}
+  const far=lg.scrollHeight-lg.scrollTop-lg.clientHeight>160;tb.classList.toggle('on',far);
+  const a=avc.getBoundingClientRect(),c=cp.getBoundingClientRect();tb.style.bottom=(a.bottom-c.top+10)+'px'}
+ lg.addEventListener('scroll',upd,{passive:true});
+ new MutationObserver(upd).observe(avc,{attributes:true,attributeFilter:['class']});
+ if(window.visualViewport)visualViewport.addEventListener('resize',()=>setTimeout(upd,50));
+ setInterval(upd,500);
+ tb.addEventListener('pointerdown',e=>e.preventDefault());
+ tb.onclick=()=>{lg.scrollTo({top:lg.scrollHeight,behavior:'smooth'})};
+ /* swiping anywhere on the chat screen (header, chips, gaps) scrolls the messages */
+ let y=null;
+ avc.addEventListener('touchstart',e=>{y=(avc.classList.contains('chat')&&!e.target.closest('#log,#in,#chips'))?e.touches[0].clientY:null},{passive:true});
+ avc.addEventListener('touchmove',e=>{if(y===null)return;const ny=e.touches[0].clientY;lg.scrollTop-=ny-y;y=ny},{passive:true});
+ avc.addEventListener('touchend',()=>{y=null},{passive:true});
+})();
 (function(){const b=document.getElementById('themeBtn');if(!b)return;const u=()=>b.classList.toggle('away',window.scrollY>40);addEventListener('scroll',u,{passive:true});u()})();
 
-/* Subtle floating Talk to Doc bubble */
-(function(){
-  var fab=document.getElementById('docFab');
-  if(!fab)return;
-  var hero=document.querySelector('.hero');
-  var coach=document.getElementById('coach');
-  var inp=document.getElementById('in');
-  function onCoachTab(){
-    var on=document.querySelector('.tabs button.on');
-    return on&&on.getAttribute('data-t')==='coach';
-  }
-  function update(){
-    var pastHero=true;
-    if(hero){
-      var r=hero.getBoundingClientRect();
-      pastHero=r.bottom < 40;
-    }
-    var nearChat=false;
-    if(coach&&onCoachTab()){
-      var c=coach.getBoundingClientRect();
-      nearChat=c.top < window.innerHeight*0.55 && c.bottom > 80;
-    }
-    var focused=document.activeElement===inp;
-    var show=pastHero && !nearChat && !focused;
-    fab.classList.toggle('show', show);
-  }
-  fab.addEventListener('click',function(){
-    var b=document.querySelector('[data-t=coach]');
-    if(b)b.click();
-    var c=document.getElementById('coach');
-    if(c){
-      var r=c.getBoundingClientRect();
-      var mostlyVisible=r.top>=0 && r.top<window.innerHeight*0.45;
-      if(!mostlyVisible)c.scrollIntoView({behavior:'smooth',block:'start'});
-    }
-    setTimeout(function(){
-      var i=document.getElementById('in');
-      if(i){i.focus();try{i.placeholder='Tell Doc how you're feeling…'}catch(e){}}
-    },350);
-  });
-  addEventListener('scroll',update,{passive:true});
-  addEventListener('resize',update,{passive:true});
-  document.querySelectorAll('.tabs button').forEach(function(btn){
-    btn.addEventListener('click',function(){setTimeout(update,50)});
-  });
-  if(inp){
-    inp.addEventListener('focus',update);
-    inp.addEventListener('blur',function(){setTimeout(update,100)});
-  }
-  update();
-})();
 </script>
 
 </body></html>
